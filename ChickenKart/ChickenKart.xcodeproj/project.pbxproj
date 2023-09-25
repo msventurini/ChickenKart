@@ -7,24 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EA2BD9612AC2057800FA6FD7 /* ChickenKartApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2BD9602AC2057800FA6FD7 /* ChickenKartApp.swift */; };
-		EA2BD9632AC2057800FA6FD7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2BD9622AC2057800FA6FD7 /* ContentView.swift */; };
-		EA2BD9652AC2057800FA6FD7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2BD9642AC2057800FA6FD7 /* Item.swift */; };
-		EA2BD9672AC2057900FA6FD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA2BD9662AC2057900FA6FD7 /* Assets.xcassets */; };
-		EA2BD96A2AC2057900FA6FD7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA2BD9692AC2057900FA6FD7 /* Preview Assets.xcassets */; };
+		EA0399F22AC21025004CC6D7 /* ChickenKartApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */; };
+		EA0399F42AC21025004CC6D7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0399F32AC21025004CC6D7 /* ContentView.swift */; };
+		EA0399F62AC21026004CC6D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0399F52AC21026004CC6D7 /* Assets.xcassets */; };
+		EA0399F92AC21026004CC6D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0399F82AC21026004CC6D7 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EA2BD95D2AC2057800FA6FD7 /* ChickenKart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChickenKart.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA2BD9602AC2057800FA6FD7 /* ChickenKartApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChickenKartApp.swift; sourceTree = "<group>"; };
-		EA2BD9622AC2057800FA6FD7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		EA2BD9642AC2057800FA6FD7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		EA2BD9662AC2057900FA6FD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EA2BD9692AC2057900FA6FD7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EA0399EE2AC21025004CC6D7 /* ChickenKart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChickenKart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChickenKartApp.swift; sourceTree = "<group>"; };
+		EA0399F32AC21025004CC6D7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EA0399F52AC21026004CC6D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EA0399F82AC21026004CC6D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EA2BD95A2AC2057800FA6FD7 /* Frameworks */ = {
+		EA0399EB2AC21025004CC6D7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -34,38 +32,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EA2BD9542AC2057800FA6FD7 = {
+		EA0399E52AC21025004CC6D7 = {
 			isa = PBXGroup;
 			children = (
-				EA2BD95F2AC2057800FA6FD7 /* ChickenKart */,
-				EA2BD95E2AC2057800FA6FD7 /* Products */,
+				EA0399F02AC21025004CC6D7 /* ChickenKart */,
+				EA0399EF2AC21025004CC6D7 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		EA2BD95E2AC2057800FA6FD7 /* Products */ = {
+		EA0399EF2AC21025004CC6D7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EA2BD95D2AC2057800FA6FD7 /* ChickenKart.app */,
+				EA0399EE2AC21025004CC6D7 /* ChickenKart.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EA2BD95F2AC2057800FA6FD7 /* ChickenKart */ = {
+		EA0399F02AC21025004CC6D7 /* ChickenKart */ = {
 			isa = PBXGroup;
 			children = (
-				EA2BD9602AC2057800FA6FD7 /* ChickenKartApp.swift */,
-				EA2BD9622AC2057800FA6FD7 /* ContentView.swift */,
-				EA2BD9642AC2057800FA6FD7 /* Item.swift */,
-				EA2BD9662AC2057900FA6FD7 /* Assets.xcassets */,
-				EA2BD9682AC2057900FA6FD7 /* Preview Content */,
+				EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */,
+				EA0399F32AC21025004CC6D7 /* ContentView.swift */,
+				EA0399F52AC21026004CC6D7 /* Assets.xcassets */,
+				EA0399F72AC21026004CC6D7 /* Preview Content */,
 			);
 			path = ChickenKart;
 			sourceTree = "<group>";
 		};
-		EA2BD9682AC2057900FA6FD7 /* Preview Content */ = {
+		EA0399F72AC21026004CC6D7 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				EA2BD9692AC2057900FA6FD7 /* Preview Assets.xcassets */,
+				EA0399F82AC21026004CC6D7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -73,13 +70,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EA2BD95C2AC2057800FA6FD7 /* ChickenKart */ = {
+		EA0399ED2AC21025004CC6D7 /* ChickenKart */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EA2BD96D2AC2057900FA6FD7 /* Build configuration list for PBXNativeTarget "ChickenKart" */;
+			buildConfigurationList = EA0399FC2AC21026004CC6D7 /* Build configuration list for PBXNativeTarget "ChickenKart" */;
 			buildPhases = (
-				EA2BD9592AC2057800FA6FD7 /* Sources */,
-				EA2BD95A2AC2057800FA6FD7 /* Frameworks */,
-				EA2BD95B2AC2057800FA6FD7 /* Resources */,
+				EA0399EA2AC21025004CC6D7 /* Sources */,
+				EA0399EB2AC21025004CC6D7 /* Frameworks */,
+				EA0399EC2AC21025004CC6D7 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -87,25 +84,25 @@
 			);
 			name = ChickenKart;
 			productName = ChickenKart;
-			productReference = EA2BD95D2AC2057800FA6FD7 /* ChickenKart.app */;
+			productReference = EA0399EE2AC21025004CC6D7 /* ChickenKart.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EA2BD9552AC2057800FA6FD7 /* Project object */ = {
+		EA0399E62AC21025004CC6D7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					EA2BD95C2AC2057800FA6FD7 = {
-						CreatedOnToolsVersion = 15.0;
+					EA0399ED2AC21025004CC6D7 = {
+						CreatedOnToolsVersion = 14.3.1;
 					};
 				};
 			};
-			buildConfigurationList = EA2BD9582AC2057800FA6FD7 /* Build configuration list for PBXProject "ChickenKart" */;
+			buildConfigurationList = EA0399E92AC21025004CC6D7 /* Build configuration list for PBXProject "ChickenKart" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -113,47 +110,45 @@
 				en,
 				Base,
 			);
-			mainGroup = EA2BD9542AC2057800FA6FD7;
-			productRefGroup = EA2BD95E2AC2057800FA6FD7 /* Products */;
+			mainGroup = EA0399E52AC21025004CC6D7;
+			productRefGroup = EA0399EF2AC21025004CC6D7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EA2BD95C2AC2057800FA6FD7 /* ChickenKart */,
+				EA0399ED2AC21025004CC6D7 /* ChickenKart */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EA2BD95B2AC2057800FA6FD7 /* Resources */ = {
+		EA0399EC2AC21025004CC6D7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA2BD96A2AC2057900FA6FD7 /* Preview Assets.xcassets in Resources */,
-				EA2BD9672AC2057900FA6FD7 /* Assets.xcassets in Resources */,
+				EA0399F92AC21026004CC6D7 /* Preview Assets.xcassets in Resources */,
+				EA0399F62AC21026004CC6D7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EA2BD9592AC2057800FA6FD7 /* Sources */ = {
+		EA0399EA2AC21025004CC6D7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA2BD9632AC2057800FA6FD7 /* ContentView.swift in Sources */,
-				EA2BD9652AC2057800FA6FD7 /* Item.swift in Sources */,
-				EA2BD9612AC2057800FA6FD7 /* ChickenKartApp.swift in Sources */,
+				EA0399F42AC21025004CC6D7 /* ContentView.swift in Sources */,
+				EA0399F22AC21025004CC6D7 /* ChickenKartApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		EA2BD96B2AC2057900FA6FD7 /* Debug */ = {
+		EA0399FA2AC21026004CC6D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -186,8 +181,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -201,22 +195,20 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		EA2BD96C2AC2057900FA6FD7 /* Release */ = {
+		EA0399FB2AC21026004CC6D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -249,8 +241,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -258,17 +249,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		EA2BD96E2AC2057900FA6FD7 /* Debug */ = {
+		EA0399FD2AC21026004CC6D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -297,7 +288,7 @@
 			};
 			name = Debug;
 		};
-		EA2BD96F2AC2057900FA6FD7 /* Release */ = {
+		EA0399FE2AC21026004CC6D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -329,25 +320,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EA2BD9582AC2057800FA6FD7 /* Build configuration list for PBXProject "ChickenKart" */ = {
+		EA0399E92AC21025004CC6D7 /* Build configuration list for PBXProject "ChickenKart" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EA2BD96B2AC2057900FA6FD7 /* Debug */,
-				EA2BD96C2AC2057900FA6FD7 /* Release */,
+				EA0399FA2AC21026004CC6D7 /* Debug */,
+				EA0399FB2AC21026004CC6D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EA2BD96D2AC2057900FA6FD7 /* Build configuration list for PBXNativeTarget "ChickenKart" */ = {
+		EA0399FC2AC21026004CC6D7 /* Build configuration list for PBXNativeTarget "ChickenKart" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EA2BD96E2AC2057900FA6FD7 /* Debug */,
-				EA2BD96F2AC2057900FA6FD7 /* Release */,
+				EA0399FD2AC21026004CC6D7 /* Debug */,
+				EA0399FE2AC21026004CC6D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = EA2BD9552AC2057800FA6FD7 /* Project object */;
+	rootObject = EA0399E62AC21025004CC6D7 /* Project object */;
 }
