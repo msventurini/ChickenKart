@@ -14,6 +14,7 @@
 		EA0399F92AC21026004CC6D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0399F82AC21026004CC6D7 /* Preview Assets.xcassets */; };
 		EA039A002AC27030004CC6D7 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0399FF2AC27030004CC6D7 /* GameScene.swift */; };
 		EA039A032AC27625004CC6D7 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA039A022AC27625004CC6D7 /* MotionManager.swift */; };
+		EA039A052AC34A8E004CC6D7 /* SwiftUITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA039A042AC34A8E004CC6D7 /* SwiftUITestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		EA0399F82AC21026004CC6D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EA0399FF2AC27030004CC6D7 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		EA039A022AC27625004CC6D7 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
+		EA039A042AC34A8E004CC6D7 /* SwiftUITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				EA0399F52AC21026004CC6D7 /* Assets.xcassets */,
 				EA0399F72AC21026004CC6D7 /* Preview Content */,
 				EA0399FF2AC27030004CC6D7 /* GameScene.swift */,
+				EA039A042AC34A8E004CC6D7 /* SwiftUITestView.swift */,
 			);
 			path = ChickenKart;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				EA039A032AC27625004CC6D7 /* MotionManager.swift in Sources */,
 				EA0399F42AC21025004CC6D7 /* ContentView.swift in Sources */,
 				EA039A002AC27030004CC6D7 /* GameScene.swift in Sources */,
+				EA039A052AC34A8E004CC6D7 /* SwiftUITestView.swift in Sources */,
 				EA0399F22AC21025004CC6D7 /* ChickenKartApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
