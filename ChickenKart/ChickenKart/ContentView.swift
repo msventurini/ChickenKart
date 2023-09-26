@@ -13,18 +13,24 @@ struct ContentView: View {
         
         var scene: GameScene {
             let scene = GameScene()
-            scene.size = CGSize(width: 200, height: 200)
-            scene.scaleMode = .aspectFit
+            scene.scaleMode = .aspectFill
             return scene
         }
         
-        VStack {
+        ZStack(alignment: .bottom) {
             SpriteView(scene: scene)
             
-            MotionBasicsView()
+            VStack {
+                
+                MotionBasicsView()
+                
+            }
+            .frame(height: 100)
+            
+            
             
         }
-        .padding()
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

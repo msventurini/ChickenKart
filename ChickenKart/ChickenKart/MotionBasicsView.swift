@@ -18,7 +18,8 @@ struct MotionBasicsView: View {
         VStack{
             Image(systemName: "square")
                 .resizable()
-                .frame(width: 100, height: 100)
+                .scaledToFit()
+//                .frame(width: 100, height: 100)
                 .foregroundColor(.yellow)
                 .padding()
                 .offset(x: offset)
