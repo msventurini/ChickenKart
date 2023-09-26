@@ -27,7 +27,9 @@ struct ContentView: View {
         
         var scene: GameScene {
             let scene = GameScene()
-            scene.scaleMode = .aspectFill
+            scene.size = CGSize(width: 160, height: 144)
+
+            scene.scaleMode = .aspectFit
             return scene
         }
 
