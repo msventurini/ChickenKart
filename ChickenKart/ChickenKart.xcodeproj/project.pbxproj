@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CCFB61222AC213600006445C /* MotionBasicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFB61212AC213600006445C /* MotionBasicsView.swift */; };
 		EA0399F22AC21025004CC6D7 /* ChickenKartApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */; };
 		EA0399F42AC21025004CC6D7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0399F32AC21025004CC6D7 /* ContentView.swift */; };
 		EA0399F62AC21026004CC6D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0399F52AC21026004CC6D7 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CCFB61212AC213600006445C /* MotionBasicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionBasicsView.swift; sourceTree = "<group>"; };
 		EA0399EE2AC21025004CC6D7 /* ChickenKart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChickenKart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChickenKartApp.swift; sourceTree = "<group>"; };
 		EA0399F32AC21025004CC6D7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			children = (
 				EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */,
 				EA0399F32AC21025004CC6D7 /* ContentView.swift */,
+				CCFB61212AC213600006445C /* MotionBasicsView.swift */,
 				EA0399F52AC21026004CC6D7 /* Assets.xcassets */,
 				EA0399F72AC21026004CC6D7 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCFB61222AC213600006445C /* MotionBasicsView.swift in Sources */,
 				EA0399F42AC21025004CC6D7 /* ContentView.swift in Sources */,
 				EA0399F22AC21025004CC6D7 /* ChickenKartApp.swift in Sources */,
 			);
@@ -267,14 +271,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ChickenKart/Preview Content\"";
-				DEVELOPMENT_TEAM = R5UC247K67;
+				DEVELOPMENT_TEAM = 8LJ8ZQT8NW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,8 +306,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
