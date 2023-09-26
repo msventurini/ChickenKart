@@ -14,7 +14,7 @@ struct MotionBasicsView: View {
 
     var body: some View {
         
-            var offset = motionManager.rotationRateValue.z * 10
+            let offset = motionManager.rotationRateValue.z * 10
         VStack{
             Image(systemName: "square")
                 .resizable()
