@@ -15,6 +15,9 @@ class GameScene: SKScene {
     let circuitNode = SKNode()
 
     var vectorGravity = CGVector(dx: 0, dy: -2.0)
+    
+    var virtualController: GCVirtualController?
+
 
     
     override func sceneDidLoad() {
@@ -33,6 +36,7 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         self.removeAllChildren()
+        setupVirtualController()
 
 //        let circuitNode = SKNode()
         
@@ -111,5 +115,59 @@ class GameScene: SKScene {
         
         
     }
+    
+    
+    func setupVirtualController() {
+        let virtualControllerConfig = GCVirtualController.Configuration()
+        virtualControllerConfig.elements = [GCInputLeftThumbstick, GCInputButtonA, GCInputButtonB]
+        
+        virtualController = GCVirtualController(configuration: virtualControllerConfig)
+        
+        virtualController!.connect()
+        
+        getInput()
+        
+    }
+    
+    func getInput() {
+        var jumpButton: GCControllerButtonInput?
+        var actionButton: GCControllerButtonInput?
+        var stickXAxis: GCControllerAxisInput?
+        
+        if let buttons = virtualController!.controller?.extendedGamepad {
+            jumpButton = buttons.buttonA
+            actionButton = buttons.buttonB
+            stickXAxis = buttons.leftThumbstick.xAxis
+        }
+        
+        stickXAxis?.valueChangedHandler  = {(_ button: GCControllerAxisInput, _ value: Float) -> Void in
+            print(value)
+//            self.player.velocityX = -value //conferir o pq deste negativo depois
+            self.circuitNode.position.x += CGFloat(value)
+            if value == 0.0 {
+                self.circuitNode.removeAllActions()
+            }
+        }
+        
+        //está sendo acionado tanto quando pressionamos como quando terminamos de pressionar, consertar isso
+        jumpButton?.valueChangedHandler = {(_ button: GCControllerButtonInput, _ value: Float, _ pressed: Bool) -> Void in
+            
+            if pressed {
+//                self.player.jump()
+                print("Button A Pressed")
+            }
+            
+            
+        }
+        
+        actionButton?.valueChangedHandler = {(_ button: GCControllerButtonInput, _ value: Float, _ pressed: Bool) -> Void in
+            if pressed {
+                print("Button B Pressed")
+            }
+            
+        }
+        
+    }
+    
     
 }

@@ -36,12 +36,12 @@ struct ContentView: View {
         ZStack(alignment: .bottom) {
             SpriteView(scene: scene)
 
-            VStack {
-
-                MotionBasicsView()
-
-            }
-            .frame(height: 100)
+//            VStack {
+//
+//                MotionBasicsView()
+//
+//            }
+//            .frame(height: 100)
 
 
 
