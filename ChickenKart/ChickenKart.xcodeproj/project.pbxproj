@@ -13,6 +13,7 @@
 		EA0399F62AC21026004CC6D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0399F52AC21026004CC6D7 /* Assets.xcassets */; };
 		EA0399F92AC21026004CC6D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0399F82AC21026004CC6D7 /* Preview Assets.xcassets */; };
 		EA039A002AC27030004CC6D7 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0399FF2AC27030004CC6D7 /* GameScene.swift */; };
+		EA039A032AC27625004CC6D7 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA039A022AC27625004CC6D7 /* MotionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		EA0399F52AC21026004CC6D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA0399F82AC21026004CC6D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EA0399FF2AC27030004CC6D7 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		EA039A022AC27625004CC6D7 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		EA0399F02AC21025004CC6D7 /* ChickenKart */ = {
 			isa = PBXGroup;
 			children = (
+				EA039A012AC2760A004CC6D7 /* Controls */,
 				EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */,
 				EA0399F32AC21025004CC6D7 /* ContentView.swift */,
 				CCFB61212AC213600006445C /* MotionBasicsView.swift */,
@@ -71,6 +74,14 @@
 				EA0399F82AC21026004CC6D7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EA039A012AC2760A004CC6D7 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				EA039A022AC27625004CC6D7 /* MotionManager.swift */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCFB61222AC213600006445C /* MotionBasicsView.swift in Sources */,
+				EA039A032AC27625004CC6D7 /* MotionManager.swift in Sources */,
 				EA0399F42AC21025004CC6D7 /* ContentView.swift in Sources */,
 				EA039A002AC27030004CC6D7 /* GameScene.swift in Sources */,
 				EA0399F22AC21025004CC6D7 /* ChickenKartApp.swift in Sources */,
