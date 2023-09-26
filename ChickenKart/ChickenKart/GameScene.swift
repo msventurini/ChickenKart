@@ -17,7 +17,6 @@ class GameScene: SKScene {
     let motionQueue = OperationQueue()
     let ground  = SKSpriteNode(imageNamed: "circuit")
     let kart = SKShapeNode(rect: CGRect(x: 0, y: 0, width: 20, height: 20))
-
     override func sceneDidLoad() {
         super.sceneDidLoad()
     }
@@ -27,13 +26,13 @@ class GameScene: SKScene {
         createBackground()
         createKart()
         motionBackground()
+        
     }
 
     private func createBackground() {
-        
         ground.name = "ground"
-        ground.size = CGSize(width: (self.scene?.size.width)!, height: (self.scene?.size.width)!)
-        ground.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        ground.size = CGSize(width: (self.scene?.size.width)! / 2, height: (self.scene?.size.width)! / 2)
+       
         self.addChild(ground)
         
     }
@@ -42,10 +41,11 @@ class GameScene: SKScene {
         kart.name = "kart"
         kart.strokeColor = SKColor.yellow
         kart.lineWidth = 10
-        kart.position = CGPoint(x: -200, y: 0)
+        kart.position = CGPoint(x: -100, y: 0)
         kart.zPosition = 1
         self.addChild(kart)
     }
+    
     
     private func motionBackground() {
         if motionManager.isGyroAvailable {
@@ -53,7 +53,11 @@ class GameScene: SKScene {
             motionManager.startGyroUpdates(to: motionQueue) { data, _ in
                 if let rotationRate = data?.rotationRate {
                     DispatchQueue.main.async {
-                        self.ground.zRotation += (rotationRate.z) / 10
+                        self.ground.zRotation += 0.005
+                        self.ground.position.x += (rotationRate.z)
+                        //self.ground.anchorPoint.y += (rotationRate.z / 10)
+                        
+                        
                     }
                 }
             }
