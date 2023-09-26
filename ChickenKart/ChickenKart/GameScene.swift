@@ -9,7 +9,7 @@ import SpriteKit
 import SwiftUI
 import GameController
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene {
     
 //    let circuitTexture = SKTexture(imageNamed: "circuit")
     let circuitNode = SKNode()
@@ -20,8 +20,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func sceneDidLoad() {
         super.sceneDidLoad()
         
-        self.physicsWorld.contactDelegate = self
-        physicsWorld.gravity = self.vectorGravity
         
 //        self.scene?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 //        self.circuitNode.scene?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -46,14 +44,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ground.name = "ground"
         
         
-        let bodyGround = SKPhysicsBody(rectangleOf: ground.size)
-        bodyGround.affectedByGravity = true
-        bodyGround.allowsRotation = false
-        bodyGround.isDynamic = false
         
-        bodyGround.contactTestBitMask = 1
-        
-        ground.physicsBody = bodyGround
         
 //        self.addChild(ground)
         circuitNode.addChild(ground)
@@ -63,14 +54,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ceil.position = CGPoint(x: size.width/2, y: self.size.height - 5)
         ceil.name = "ceil"
 
-        let bodyCeil = SKPhysicsBody(rectangleOf: ceil.size)
-        bodyCeil.affectedByGravity = true
-        bodyCeil.allowsRotation = false
-        bodyCeil.isDynamic = false
-
-        bodyCeil.contactTestBitMask = 1
-
-        ceil.physicsBody = bodyCeil
 
 //        self.addChild(ceil)
         circuitNode.addChild(ceil)
@@ -79,12 +62,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         wall1.position = CGPoint(x: 5, y: size.height / 2)
         wall1.name = "wall"
 
-        let wallBody1 = SKPhysicsBody(rectangleOf: wall1.size)
-        wallBody1.affectedByGravity = true
-        wallBody1.allowsRotation = false
-        wallBody1.isDynamic = false
 
-        wall1.physicsBody = wallBody1
 
 //        self.addChild(wall1)
         circuitNode.addChild(wall1)
@@ -94,13 +72,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         wall2.position = CGPoint(x: size.width - 5, y: size.height / 2)
         wall2.name = "wall"
 
-        let wallBody2 = SKPhysicsBody(rectangleOf: wall2.size)
-        wallBody2.affectedByGravity = true
-        wallBody2.allowsRotation = false
-        wallBody2.isDynamic = false
-
-        wall2.physicsBody = wallBody2
-
 //        self.addChild(wall2)
         circuitNode.addChild(wall2)
         
@@ -108,14 +79,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         center.position = CGPoint(x: size.width/2, y: size.height/2)
         center.name = "center"
         
-        let centerBody = SKPhysicsBody(rectangleOf: center.size)
 
-        centerBody.affectedByGravity = true
-        centerBody.allowsRotation = false
-        centerBody.isDynamic = false
-
-        center.physicsBody = centerBody
-        
+        circuitNode.name = "circuit"
 //        self.addChild(center)
         circuitNode.addChild(center)
 //        circuitNode.scene?.anchorPoint
@@ -127,12 +92,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.position = CGPoint(x: 20, y: 20)
         player.name = "player"
         
-        let playerBody = SKPhysicsBody(rectangleOf: player.size)
-        playerBody.affectedByGravity = false
-        playerBody.allowsRotation = false
-        playerBody.isDynamic = false
-        
-        player.physicsBody = playerBody
+
 
         
         self.addChild(player)
