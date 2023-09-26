@@ -11,8 +11,8 @@ import SwiftUI
 struct ChickenKartApp: App {
     var body: some Scene {
         WindowGroup {
-           // ContentView()
-            MotionBasicsView()
+            ContentView()
+//            MotionBasicsView()
         }
     }
 }

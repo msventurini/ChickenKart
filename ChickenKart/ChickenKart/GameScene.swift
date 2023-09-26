@@ -13,6 +13,7 @@ class GameScene: SKScene {
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
+        backgroundColor = .purple
     }
     
     override func didMove(to view: SKView) {
