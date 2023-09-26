@@ -14,9 +14,14 @@ import SpriteKit
 class GameScene: SKScene {
     
     private var motionManager = CMMotionManager()
+    
+    var turnOfGround: Double = 0.0
+    
     let motionQueue = OperationQueue()
     let ground  = SKSpriteNode(imageNamed: "circuit")
     let kart = SKShapeNode(rect: CGRect(x: 0, y: 0, width: 20, height: 20))
+    
+    
     override func sceneDidLoad() {
         super.sceneDidLoad()
     }
@@ -26,15 +31,13 @@ class GameScene: SKScene {
         createBackground()
         createKart()
         motionBackground()
-        
     }
 
     private func createBackground() {
         ground.name = "ground"
-        ground.size = CGSize(width: (self.scene?.size.width)! / 2, height: (self.scene?.size.width)! / 2)
-       
+        ground.size = CGSize(width: (self.scene?.size.width)!, height: (self.scene?.size.width)!)
+        ground.anchorPoint = CGPoint(x: 0, y: 0)
         self.addChild(ground)
-        
     }
     
     private func createKart() {
@@ -53,11 +56,28 @@ class GameScene: SKScene {
             motionManager.startGyroUpdates(to: motionQueue) { data, _ in
                 if let rotationRate = data?.rotationRate {
                     DispatchQueue.main.async {
-                        self.ground.zRotation += 0.005
-                        self.ground.position.x += (rotationRate.z)
-                        //self.ground.anchorPoint.y += (rotationRate.z / 10)
+                        self.ground.zRotation -= (rotationRate.z / 75)
+                        self.turnOfGround -= (rotationRate.z / 10)
                         
-                        
+                        if self.turnOfGround > 0.0 {
+                            self.ground.position.x -= 0.5
+                            if self.turnOfGround < 4 {
+                                self.ground.position.y -= 0.5
+                            }
+                            else {
+                                self.ground.position.y += 0.5
+                            }
+                        }
+                        else {
+                            self.ground.position.x += 0.5
+                            if self.turnOfGround > -4 {
+                                self.ground.position.y -= 0.5
+                            }
+                            else {
+                                self.ground.position.y += 0.5
+                            }
+                        }
+
                     }
                 }
             }
