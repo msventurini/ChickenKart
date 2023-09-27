@@ -9,10 +9,13 @@ import SpriteKit
 import SwiftUI
 import GameController
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
 //    let circuitTexture = SKTexture(imageNamed: "circuit")
-    let circuitNode = SKTransformNode()
+    
+    var player = SKNode()
+    
+    var circuitNode = SKSpriteNode()
 
     var vectorGravity = CGVector(dx: 0, dy: -2.0)
     
@@ -35,37 +38,46 @@ class GameScene: SKScene {
 //    }
     
     override func didMove(to view: SKView) {
-        self.removeAllChildren()
+//        self.removeAllChildren()
+        
+        self.addChild(player)
+        
+        self.physicsWorld.gravity = CGVectorMake(0.0, 0.0)
+                self.physicsWorld.contactDelegate = self
+        
+        
+        
         setupVirtualController()
         
         
-        let player = SKSpriteNode(color: .red, size: .init(width: 10, height: 10))
-        player.position = CGPoint(x: size.width/2, y: size.height/2)
-        player.name = "player"
+        player.position = CGPoint(x: frame.midX, y: frame.midY)
+        
+        circuitNode = SKSpriteNode(color: .blue, size: .init(width: 160, height: 144))
+        circuitNode.anchorPoint = CGPoint(x: 0, y: 0)
+        circuitNode.position = CGPoint(x: -20, y: -20)
 
         
         let ground = SKSpriteNode(color: .brown, size: .init(width: 160, height: 10))
         
-        
-        ground.position = CGPoint(x: size.width/2, y: ground.size.height/2)
+        ground.anchorPoint = CGPoint(x: 0, y: 0)
+        ground.position = CGPoint(x: circuitNode.frame.minX + 20, y: circuitNode.frame.minY + 20)
         ground.name = "ground"
         
         
-        
-        circuitNode.position = CGPoint(x: player.position.x - 20, y: player.position.y - 20)
 
         circuitNode.addChild(ground)
         
         let ceil = SKSpriteNode(color: .brown, size: .init(width: 160, height: 10))
-
-        ceil.position = CGPoint(x: size.width/2, y: self.size.height - 5)
+        ceil.anchorPoint = CGPoint(x: 0, y: 0)
+        ceil.position = CGPoint(x: circuitNode.frame.minX + 20, y: circuitNode.frame.maxY + 20)
         ceil.name = "ceil"
 
 
         circuitNode.addChild(ceil)
 
         let wall1 = SKSpriteNode(color: .brown, size: .init(width: 10, height: 144))
-        wall1.position = CGPoint(x: 5, y: size.height / 2)
+        wall1.anchorPoint = CGPoint(x: 0, y: 0)
+        wall1.position = CGPoint(x: circuitNode.frame.maxX + 20, y: circuitNode.frame.minY + 20)
         wall1.name = "wall"
 
 
@@ -74,29 +86,35 @@ class GameScene: SKScene {
 
 
         let wall2 = SKSpriteNode(color: .brown, size: .init(width: 10, height: 144))
-        wall2.position = CGPoint(x: size.width - 5, y: size.height / 2)
+        wall2.anchorPoint = CGPoint(x: 0, y: 0)
+        wall2.position = CGPoint(x: circuitNode.frame.minX + 20, y: circuitNode.frame.minY + 20)
         wall2.name = "wall"
 
         circuitNode.addChild(wall2)
         
         let center = SKSpriteNode(color: .brown, size: .init(width: 85, height: 85))
-        center.position = CGPoint(x: size.width/2, y: size.height/2)
+        center.anchorPoint = CGPoint(x: 0, y: 0)
+        center.position = CGPoint(x: circuitNode.frame.midX + 20, y: circuitNode.frame.midY - 20)
         center.name = "center"
         
 
         circuitNode.name = "circuit"
+        
         circuitNode.addChild(center)
 
         
-        self.addChild(circuitNode)
+        player.addChild(circuitNode)
         
         
         
+        
+        let playerSprite = SKSpriteNode(color: .red, size: .init(width: 10, height: 10))
+//        player.position = CGPoint(x: size.width/2, y: size.height/2)
+        playerSprite.name = "player"
         
 
-
         
-        self.addChild(player)
+        player.addChild(playerSprite)
 
         
     }
@@ -137,14 +155,23 @@ class GameScene: SKScene {
         left.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("esquerdo")
-                self.circuitNode.zRotation -= CGFloat(Double.pi / 180)
+                self.player.zRotation -= CGFloat(Double.pi / 180)
+                
+//                for i in stride(from: 0, to: self.circuitNode.children.count, by: 1) {
+//                    self.circuitNode.children[i].zRotation -= CGFloat(Double.pi / 180)
+//                }
+                
             }
             
         }
         right.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("direito")
-                self.circuitNode.zRotation += CGFloat(Double.pi / 180)
+                self.player.zRotation += CGFloat(Double.pi / 180)
+                
+//                for i in stride(from: 0, to: self.circuitNode.children.count, by: 1) {
+//                    self.circuitNode.children[i].zRotation += CGFloat(Double.pi / 180)
+//                }
 
             }
             
@@ -152,7 +179,10 @@ class GameScene: SKScene {
         up.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("cima")
-                self.circuitNode.position.y += 1
+//                self.circuitNode.position.y += 1
+//                self.circuitNode.position.y += 1
+                self.player.childNode(withName: "circuit")!.position.y += 1
+                
 
             }
             
