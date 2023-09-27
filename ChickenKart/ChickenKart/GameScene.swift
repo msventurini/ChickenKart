@@ -123,6 +123,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var direction: Direction = .n
     
+    var angle: Double = 0
+    
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
@@ -180,12 +182,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         wall1.anchorPoint = CGPoint(x: 0, y: 0)
         wall1.position = CGPoint(x: circuitNode.frame.maxX + 20, y: circuitNode.frame.minY + 20)
         wall1.name = "wall"
-        
-        
-        
+
         circuitNode.addChild(wall1)
-        
-        
+
         let wall2 = SKSpriteNode(color: .brown, size: .init(width: 10, height: 144))
         wall2.anchorPoint = CGPoint(x: 0, y: 0)
         wall2.position = CGPoint(x: circuitNode.frame.minX + 20, y: circuitNode.frame.minY + 20)
@@ -205,21 +204,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         player.addChild(circuitNode)
-        
-        
-        
-        
+
         let playerSprite = SKSpriteNode(color: .red, size: .init(width: 10, height: 10))
-        //        player.position = CGPoint(x: size.width/2, y: size.height/2)
         playerSprite.name = "player"
         
         
         
         player.addChild(playerSprite)
         
-        player.xRotation = Angle(degrees: 85).radians
-        
-        player.setScale(CGFloat(5))
     }
     
     
@@ -237,15 +229,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func getInput() {
         
-        
-        //        var jumpButton: GCControllerButtonInput?
-        //        var actionButton: GCControllerButtonInput?
-        //        var left: GCControllerButtonInput?
-        //        var right: GCControllerButtonInput?
-        //        var up: GCControllerButtonInput?
-        //        var down: GCControllerButtonInput?
-        //        var stickYAxis: GCControllerAxisInput?
-        
         guard let buttons = virtualController!.controller?.extendedGamepad else { return }
         
         let breakButton = buttons.buttonB
@@ -258,36 +241,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         left.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("esquerdo")
-                self.player.zRotation += CGFloat(Angle(degrees: 45).radians)
-                self.direction = self.direction.turnLeft
-                print("\(self.direction)")
                 
-                //                for i in stride(from: 0, to: self.circuitNode.children.count, by: 1) {
-                //                    self.circuitNode.children[i].zRotation -= CGFloat(Double.pi / 180)
-                //                }
+                self.angle += 0.5
                 
+                self.player.zRotation = CGFloat(Angle(degrees: self.angle).radians)
+
             }
             
         }
         right.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("direito")
-                self.player.zRotation -= CGFloat(Angle(degrees: 45).radians)
-                self.direction = self.direction.turnRight
-                print("\(self.direction)")
+                self.angle -= 0.5
+
                 
-                //                for i in stride(from: 0, to: self.circuitNode.children.count, by: 1) {
-                //                    self.circuitNode.children[i].zRotation += CGFloat(Double.pi / 180)
-                //                }
-                
+                self.player.zRotation = CGFloat(Angle(degrees: self.angle).radians)
+
             }
             
         }
         up.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("cima")
-                self.circuitNode.position.x -= self.direction.offsetX * 3
-                self.circuitNode.position.y -= self.direction.offsetY * 3
+                self.circuitNode.position.x +=  sin(Angle(degrees: self.angle).radians) * 10
+                self.circuitNode.position.y -=  cos(Angle(degrees: self.angle).radians) * 10
                 
                 
             }
@@ -296,8 +273,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         down.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("baixo")
-                self.circuitNode.position.x += self.direction.offsetX * 3
-                self.circuitNode.position.y += self.direction.offsetY * 3
+                self.circuitNode.position.x -=  sin(Angle(degrees: self.angle).radians) * 10
+                self.circuitNode.position.y +=  cos(Angle(degrees: self.angle).radians) * 10
                 
             }
             
