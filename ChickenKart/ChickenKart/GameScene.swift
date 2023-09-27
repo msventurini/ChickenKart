@@ -8,6 +8,7 @@
 import SpriteKit
 import SwiftUI
 import GameController
+import CoreMotion
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -33,6 +34,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var thumbstickValue: Double = 0.0
     
+    var motionManager = MotionManager()
+    
     override func sceneDidLoad() {
         super.sceneDidLoad()
         setupVirtualController()
@@ -45,11 +48,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.circuitNode.position.y -=  cos(Angle(degrees: self.angle).radians)
         }
         
-        if isUsingThumbstick {
-            self.angle -= thumbstickValue// - log(abs(thumbstickValue))
-            self.player.zRotation = CGFloat(Angle(degrees: self.angle).radians)
-
-        }
+        motionBackground()
         
     }
 
@@ -97,10 +96,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.setScale(CGFloat(15))
     }
     
+    func motionBackground() {
+        self.angle = motionManager.rotationRateValue.z * 5
+        self.player.zRotation = CGFloat(Angle(degrees: self.angle).radians)
+        
+    }
+    
     
     func setupVirtualController() {
         let virtualControllerConfig = GCVirtualController.Configuration()
-        virtualControllerConfig.elements = [GCInputLeftThumbstick, GCInputButtonA, GCInputButtonB]
+        virtualControllerConfig.elements = [GCInputButtonA]
         
         virtualController = GCVirtualController(configuration: virtualControllerConfig)
         
@@ -112,31 +117,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         guard let buttons = virtualController!.controller?.extendedGamepad else { return }
         
-        let breakButton = buttons.buttonB
         let speedButton = buttons.buttonA
-        let stickXAxis = buttons.leftThumbstick.xAxis
 
-        stickXAxis.valueChangedHandler = { button, value in
-            
-            if value != 0.0 {
-                self.isUsingThumbstick = true
-                self.thumbstickValue = Double(value)
-            } else {
-                self.isUsingThumbstick = false
-                self.thumbstickValue = Double(0.0)
-            }
-            
-        }
-        
-        breakButton.pressedChangedHandler = { button, value, pressed in
-            
-            if pressed {
-                print("break Pressed")
-            }
-            
-            
-        }
-        
         speedButton.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 self.isSpeedPressed = true

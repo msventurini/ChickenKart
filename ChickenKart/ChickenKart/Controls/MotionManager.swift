@@ -19,7 +19,7 @@ class MotionManager: ObservableObject {
             motionManager.startGyroUpdates(to: motionQueue) { data, _ in
                 if let rotationRate = data?.rotationRate {
                     DispatchQueue.main.async {
-                        self.rotationRateValue.z -= rotationRate.z
+                        self.rotationRateValue.z += rotationRate.z
                     }
                 }
             }
