@@ -105,7 +105,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         virtualController!.connect()
         
-        
     }
     
     func getInput() {
@@ -143,7 +142,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 print("cima")
                 self.circuitNode.position.x +=  sin(Angle(degrees: self.angle).radians) * 10
                 self.circuitNode.position.y -=  cos(Angle(degrees: self.angle).radians) * 10
-                
                 
             }
             
