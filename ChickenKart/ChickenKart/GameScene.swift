@@ -115,8 +115,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let speedButton = buttons.buttonA
         let left = buttons.dpad.left
         let right = buttons.dpad.right
-        let up = buttons.dpad.up
-        let down = buttons.dpad.down
         
         left.pressedChangedHandler = { button, value, pressed in
             if pressed {
@@ -134,24 +132,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
             } else {
                 self.isTurningRight = false
-            }
-            
-        }
-        up.pressedChangedHandler = { button, value, pressed in
-            if pressed {
-                print("cima")
-                self.circuitNode.position.x +=  sin(Angle(degrees: self.angle).radians) * 10
-                self.circuitNode.position.y -=  cos(Angle(degrees: self.angle).radians) * 10
-                
-            }
-            
-        }
-        down.pressedChangedHandler = { button, value, pressed in
-            if pressed {
-                print("baixo")
-                self.circuitNode.position.x -=  sin(Angle(degrees: self.angle).radians) * 10
-                self.circuitNode.position.y +=  cos(Angle(degrees: self.angle).radians) * 10
-                
             }
             
         }
@@ -178,6 +158,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
     }
-    
     
 }
