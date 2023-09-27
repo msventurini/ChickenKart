@@ -283,11 +283,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         up.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("cima")
-                //                self.circuitNode.position.y += 1
-                //                self.circuitNode.position.y += 1
-//                self.circuitNode.position.y += 1
-                self.circuitNode.position.x -= self.direction.offsetX
-                self.circuitNode.position.y -= self.direction.offsetY
+                self.circuitNode.position.x -= self.direction.offsetX * 3
+                self.circuitNode.position.y -= self.direction.offsetY * 3
                 
                 
             }
@@ -296,9 +293,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         down.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("baixo")
-//                self.circuitNode.position.y -= 1
-                self.circuitNode.position.x -= self.direction.offsetX
-                self.circuitNode.position.y -= self.direction.offsetY
+                self.circuitNode.position.x += self.direction.offsetX * 3
+                self.circuitNode.position.y += self.direction.offsetY * 3
                 
             }
             
