@@ -111,7 +111,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //    let circuitTexture = SKTexture(imageNamed: "circuit")
     
-    var player = SKNode()
+    var player = SKTransformNode()
     
     var playerSprite = SKSpriteNode()
     
@@ -122,6 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var virtualController: GCVirtualController?
     
     var direction: Direction = .n
+    
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
@@ -216,7 +217,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player.addChild(playerSprite)
         
+        player.xRotation = Angle(degrees: 85).radians
         
+        player.setScale(CGFloat(5))
     }
     
     
@@ -255,7 +258,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         left.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("esquerdo")
-                self.player.zRotation -= CGFloat(Angle(degrees: 45).radians)
+                self.player.zRotation += CGFloat(Angle(degrees: 45).radians)
                 self.direction = self.direction.turnLeft
                 print("\(self.direction)")
                 
@@ -269,7 +272,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         right.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("direito")
-                self.player.zRotation += CGFloat(Angle(degrees: 45).radians)
+                self.player.zRotation -= CGFloat(Angle(degrees: 45).radians)
                 self.direction = self.direction.turnRight
                 print("\(self.direction)")
                 
