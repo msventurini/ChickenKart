@@ -33,6 +33,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var thumbstickValue: Double = 0.0
     
+    var crowd = SKSpriteNode()
+    
     override func sceneDidLoad() {
         super.sceneDidLoad()
         setupVirtualController()
@@ -95,6 +97,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.xRotation = Angle(degrees: 85).radians
         
         player.setScale(CGFloat(15))
+        
+        // Set up player
+        let crowd = Crowd()
+        crowd.position = CGPoint(x: circuitNode.frame.minX + 300, y: circuitNode.frame.maxY - 300)
+        addChild(crowd)
+        crowd.walk()
     }
     
     

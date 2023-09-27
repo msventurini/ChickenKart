@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09D01E322AC4B326008EDE9E /* Crowd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D01E312AC4B326008EDE9E /* Crowd.swift */; };
+		09D01E342AC4B37F008EDE9E /* SpriteKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D01E332AC4B37F008EDE9E /* SpriteKitHelper.swift */; };
 		CCFB61222AC213600006445C /* MotionBasicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFB61212AC213600006445C /* MotionBasicsView.swift */; };
 		EA0399F22AC21025004CC6D7 /* ChickenKartApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */; };
 		EA0399F42AC21025004CC6D7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0399F32AC21025004CC6D7 /* ContentView.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09D01E312AC4B326008EDE9E /* Crowd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crowd.swift; sourceTree = "<group>"; };
+		09D01E332AC4B37F008EDE9E /* SpriteKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitHelper.swift; sourceTree = "<group>"; };
 		CCFB61212AC213600006445C /* MotionBasicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionBasicsView.swift; sourceTree = "<group>"; };
 		EA0399EE2AC21025004CC6D7 /* ChickenKart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChickenKart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChickenKartApp.swift; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 				EA039A062AC34BBF004CC6D7 /* Circuit.swift */,
 				EA112FCC2AC40CF2006105BB /* CircuitShape.swift */,
 				EA112FCE2AC432F1006105BB /* PlayerView.swift */,
+				09D01E312AC4B326008EDE9E /* Crowd.swift */,
+				09D01E332AC4B37F008EDE9E /* SpriteKitHelper.swift */,
 			);
 			path = ChickenKart;
 			sourceTree = "<group>";
@@ -167,12 +173,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA112FCF2AC432F1006105BB /* PlayerView.swift in Sources */,
+				09D01E322AC4B326008EDE9E /* Crowd.swift in Sources */,
 				CCFB61222AC213600006445C /* MotionBasicsView.swift in Sources */,
 				EA112FCD2AC40CF2006105BB /* CircuitShape.swift in Sources */,
 				EA039A032AC27625004CC6D7 /* MotionManager.swift in Sources */,
 				EA0399F42AC21025004CC6D7 /* ContentView.swift in Sources */,
 				EA039A002AC27030004CC6D7 /* GameScene.swift in Sources */,
 				EA039A052AC34A8E004CC6D7 /* SwiftUITestView.swift in Sources */,
+				09D01E342AC4B37F008EDE9E /* SpriteKitHelper.swift in Sources */,
 				EA0399F22AC21025004CC6D7 /* ChickenKartApp.swift in Sources */,
 				EA039A072AC34BBF004CC6D7 /* Circuit.swift in Sources */,
 			);
