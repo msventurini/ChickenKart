@@ -207,11 +207,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         let playerSprite = SKSpriteNode(color: .red, size: .init(width: 10, height: 10))
         playerSprite.name = "player"
-        
-        
-        
+                
         player.addChild(playerSprite)
         
+        player.xRotation = Angle(degrees: 85).radians
+        
+        player.setScale(CGFloat(5))
     }
     
     
