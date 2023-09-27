@@ -35,9 +35,27 @@ struct ContentView: View {
             return scene
         }
 
-        ZStack(alignment: .bottom) {
-            SpriteView(scene: scene, debugOptions: [.showsFPS, .showsNodeCount, .showsPhysics])
+        ZStack {
+            
+            ZStack {
                 
+                
+                SpriteView(scene: scene, debugOptions: [.showsFPS, .showsNodeCount, .showsPhysics])
+                
+            }        .frame(width: 520, height: 450)
+
+            VStack {
+                HStack {
+                    Spacer()
+                    PlayerView()
+                    Spacer()
+
+                }
+                .offset(y: -50)
+            }
+            
+            
+            
                 
 
 //            VStack {
@@ -50,7 +68,7 @@ struct ContentView: View {
 
 
         }
-        .edgesIgnoringSafeArea(.all)
+//        .edgesIgnoringSafeArea(.all)
         
         
         

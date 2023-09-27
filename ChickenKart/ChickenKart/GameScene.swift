@@ -73,17 +73,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player.addChild(circuitNode)
 
-        let playerSprite = SKSpriteNode(color: .red, size: .init(width: 10, height: 10))
+        let playerSprite = SKSpriteNode(color: .clear, size: .init(width: 10, height: 10))
         playerSprite.name = "player"
         
-        let playerBody = SKPhysicsBody(rectangleOf: CGSize(width: 10, height: 10))
-        
-        playerBody.affectedByGravity = true
-        playerBody.allowsRotation = true
-        playerBody.isDynamic = true
-//        playerBody.velocity = CGVector(dx: 0, dy: 10.0)
-        
-        playerSprite.physicsBody = playerBody
+//        let playerBody = SKPhysicsBody(rectangleOf: CGSize(width: 10, height: 10))
+//        
+//        playerBody.affectedByGravity = true
+//        playerBody.allowsRotation = true
+//        playerBody.isDynamic = true
+////        playerBody.velocity = CGVector(dx: 0, dy: 10.0)
+//        
+//        playerSprite.physicsBody = playerBody
 //        bodyGround.contactTestBitMask = 1
                 
         player.addChild(playerSprite)
@@ -120,7 +120,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if pressed {
                 print("esquerdo")
                 
-                self.angle += 0.5
+                self.angle += 0.5 * 10
                 
                 self.player.zRotation = CGFloat(Angle(degrees: self.angle).radians)
 
@@ -130,7 +130,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         right.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("direito")
-                self.angle -= 0.5
+                self.angle -= 0.5 * 10
 
                 
                 self.player.zRotation = CGFloat(Angle(degrees: self.angle).radians)
