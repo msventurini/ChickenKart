@@ -29,6 +29,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var isTurningLeft: Bool = false
     
+    var isUsingThumbstick: Bool = false
+    
+    var thumbstickValue: Double = 0.0
+    
     override func sceneDidLoad() {
         super.sceneDidLoad()
         setupVirtualController()
@@ -41,15 +45,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.circuitNode.position.y -=  cos(Angle(degrees: self.angle).radians)
         }
         
-        if isTurningRight {
-            self.angle -= 1
+        if isUsingThumbstick {
+            self.angle -= thumbstickValue - log(abs(thumbstickValue))
             self.player.zRotation = CGFloat(Angle(degrees: self.angle).radians)
+
         }
-     
-        if isTurningLeft {
-            self.angle += 1
-            self.player.zRotation = CGFloat(Angle(degrees: self.angle).radians)
-        }
+        
     }
 
     
@@ -99,7 +100,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setupVirtualController() {
         let virtualControllerConfig = GCVirtualController.Configuration()
-        virtualControllerConfig.elements = [GCInputDirectionPad, GCInputButtonA, GCInputButtonB]
+        virtualControllerConfig.elements = [GCInputLeftThumbstick, GCInputButtonA, GCInputButtonB]
         
         virtualController = GCVirtualController(configuration: virtualControllerConfig)
         
@@ -113,25 +114,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let breakButton = buttons.buttonB
         let speedButton = buttons.buttonA
-        let left = buttons.dpad.left
-        let right = buttons.dpad.right
-        
-        left.pressedChangedHandler = { button, value, pressed in
-            if pressed {
-                print("esquerdo")
-                self.isTurningLeft = true
-            } else {
-                self.isTurningLeft = false
-            }
-            
-        }
-        right.pressedChangedHandler = { button, value, pressed in
-            if pressed {
-                print("direito")
-                self.isTurningRight = true
+        let stickXAxis = buttons.leftThumbstick.xAxis
 
+        stickXAxis.valueChangedHandler = { button, value in
+            
+            if value != 0.0 {
+                self.isUsingThumbstick = true
+                self.thumbstickValue = Double(value)
             } else {
-                self.isTurningRight = false
+                self.isUsingThumbstick = false
+                self.thumbstickValue = Double(0.0)
             }
             
         }
