@@ -9,7 +9,7 @@ import SpriteKit
 import SwiftUI
 import GameController
 
-enum direction {
+enum Direction {
     case w
     case nw
     case n
@@ -21,7 +21,7 @@ enum direction {
     case sw
     
     
-    var turnRight: direction {
+    var turnRight: Direction {
         switch self {
         case .w:
             return .nw
@@ -42,7 +42,7 @@ enum direction {
         }
     }
     
-    var turnLeft: direction {
+    var turnLeft: Direction {
         switch self {
         case .w:
             return .sw
@@ -60,6 +60,48 @@ enum direction {
             return .so
         case .sw:
             return .s
+        }
+    }
+    
+    var offsetX: Double {
+        switch self {
+        case .w:
+            return -1
+        case .nw:
+            return -0.7
+        case .n:
+            return 0
+        case .no:
+            return 0.7
+        case .o:
+            return 1
+        case .so:
+            return 0.7
+        case .s:
+            return 0
+        case .sw:
+            return -0.7
+        }
+    }
+    
+    var offsetY: Double {
+        switch self {
+        case .w:
+            return 0
+        case .nw:
+            return 0.7
+        case .n:
+            return 1
+        case .no:
+            return 0.7
+        case .o:
+            return 0
+        case .so:
+            return -0.7
+        case .s:
+            return -1
+        case .sw:
+            return -0.7
         }
     }
     
@@ -79,7 +121,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var virtualController: GCVirtualController?
     
-    
+    var direction: Direction = .n
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
