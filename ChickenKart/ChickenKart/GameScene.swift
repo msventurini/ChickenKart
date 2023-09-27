@@ -43,13 +43,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        if isSpeedPressed {
-            self.circuitNode.position.x +=  sin(Angle(degrees: self.angle).radians)
-            self.circuitNode.position.y -=  cos(Angle(degrees: self.angle).radians)
-        }
-        
         motionBackground()
-        
     }
 
     
@@ -99,6 +93,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func motionBackground() {
         self.angle = motionManager.rotationRateValue.z * 5
         self.player.zRotation = CGFloat(Angle(degrees: self.angle).radians)
+        if Int(motionManager.rotationRateValue.y) > 1 {
+            self.circuitNode.position.x += sin(Angle(degrees: self.angle).radians)
+            self.circuitNode.position.y -= cos(Angle(degrees: self.angle).radians)
+        } else if Int(motionManager.rotationRateValue.y) < 0 {
+            self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians)
+            self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians)
+        }
         
     }
     

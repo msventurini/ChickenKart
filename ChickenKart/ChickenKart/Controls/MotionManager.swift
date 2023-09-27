@@ -20,6 +20,7 @@ class MotionManager: ObservableObject {
                 if let rotationRate = data?.rotationRate {
                     DispatchQueue.main.async {
                         self.rotationRateValue.z += rotationRate.z
+                        self.rotationRateValue.y += rotationRate.y
                     }
                 }
             }
