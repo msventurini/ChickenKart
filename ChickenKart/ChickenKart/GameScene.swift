@@ -16,12 +16,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var playerSprite = SKSpriteNode()
     
+    var ceil = SKSpriteNode()
+    
+    var ground = SKSpriteNode()
+
     var circuitNode = SKSpriteNode()
     
     var vectorGravity = CGVector(dx: 0, dy: -2.0)
     
     var virtualController: GCVirtualController?
-        
+    
     var angle: Double = 0
     
     var isSpeedPressed: Bool = false
@@ -34,18 +38,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var thumbstickValue: Double = 0.0
     
+    var isColiding: Bool = false
+    
     var motionManager = MotionManager()
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
         setupVirtualController()
-
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
-        motionBackground()
-    }
+                
+        if ground.intersects(playerSprite) {
+            self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians) * 5
+            self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians) * 5
+            motionBackground()
 
+        } else if ceil.intersects(playerSprite) {
+
+            self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians) * 5
+            self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians) * 5
+            motionBackground()
+            
+        } else {
+            motionBackground()
+
+        }
+
+        
+    }
+    
     
     override func didMove(to view: SKView) {
         
@@ -55,44 +78,50 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         getInput()
-
+        
         player.position = CGPoint(x: frame.midX, y: frame.midY)
         
         circuitNode = SKSpriteNode(color: .brown, size: .init(width: 520, height: 450))
         circuitNode.anchorPoint = CGPoint(x: 0, y: 0)
         
-        let ground = SKSpriteNode(imageNamed: "circuitpt1")
+        ground = SKSpriteNode(imageNamed: "circuitpt1")
         
         ground.anchorPoint = CGPoint(x: 0.5, y: 0)
         ground.position = CGPoint(x: circuitNode.frame.midX, y: circuitNode.frame.minY)
         ground.name = "ground"
-
+        
         circuitNode.addChild(ground)
-
-        let ceil = SKSpriteNode(imageNamed: "circuitpt2")
+        
+        ceil = SKSpriteNode(imageNamed: "circuitpt2")
         ceil.anchorPoint = CGPoint(x: 0, y: 1)
         ceil.position = CGPoint(x: circuitNode.frame.minX, y: circuitNode.frame.maxY)
         ceil.name = "ceil"
-
+        
         circuitNode.addChild(ceil)
-
+        
         circuitNode.name = "circuit"
         
         player.addChild(circuitNode)
-
-        let playerSprite = SKSpriteNode(color: .clear, size: .init(width: 10, height: 10))
+        
+        playerSprite = SKSpriteNode(color: .black, size: .init(width: 10, height: 10))
         playerSprite.name = "player"
-                
+        
         player.addChild(playerSprite)
         
-        player.xRotation = Angle(degrees: 85).radians
+//        player.xRotation = Angle(degrees: 85).radians
         
-        player.setScale(CGFloat(15))
+        player.setScale(CGFloat(5))
+        
+        
+        
     }
     
     func motionBackground() {
         self.angle = motionManager.rotationRateValue.z * 5
         self.player.zRotation = CGFloat(Angle(degrees: self.angle).radians)
+        
+        
+        
         if Int(motionManager.rotationRateValue.y) > 1 {
             self.circuitNode.position.x += sin(Angle(degrees: self.angle).radians)
             self.circuitNode.position.y -= cos(Angle(degrees: self.angle).radians)
@@ -119,7 +148,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         guard let buttons = virtualController!.controller?.extendedGamepad else { return }
         
         let speedButton = buttons.buttonA
-
+        
         speedButton.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 self.isSpeedPressed = true
@@ -127,7 +156,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             } else {
                 print("speed Unpressed")
                 self.isSpeedPressed = false
-
+                
             }
             
         }
