@@ -255,7 +255,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         left.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("esquerdo")
-                self.player.zRotation -= CGFloat(Double.pi / 8)
+                self.player.zRotation -= CGFloat(Angle(degrees: 45).radians)
+                self.direction = self.direction.turnLeft
+                print("\(self.direction)")
                 
                 //                for i in stride(from: 0, to: self.circuitNode.children.count, by: 1) {
                 //                    self.circuitNode.children[i].zRotation -= CGFloat(Double.pi / 180)
@@ -267,7 +269,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         right.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("direito")
-                self.player.zRotation += CGFloat(Double.pi / 8)
+                self.player.zRotation += CGFloat(Angle(degrees: 45).radians)
+                self.direction = self.direction.turnRight
+                print("\(self.direction)")
                 
                 //                for i in stride(from: 0, to: self.circuitNode.children.count, by: 1) {
                 //                    self.circuitNode.children[i].zRotation += CGFloat(Double.pi / 180)
@@ -281,7 +285,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 print("cima")
                 //                self.circuitNode.position.y += 1
                 //                self.circuitNode.position.y += 1
-                self.circuitNode.position.y += 1
+//                self.circuitNode.position.y += 1
+                self.circuitNode.position.x -= self.direction.offsetX
+                self.circuitNode.position.y -= self.direction.offsetY
                 
                 
             }
@@ -290,7 +296,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         down.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("baixo")
-                self.circuitNode.position.y -= 1
+//                self.circuitNode.position.y -= 1
+                self.circuitNode.position.x -= self.direction.offsetX
+                self.circuitNode.position.y -= self.direction.offsetY
                 
             }
             
