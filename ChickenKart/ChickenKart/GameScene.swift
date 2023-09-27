@@ -119,7 +119,7 @@ class GameScene: SKScene {
     
     func setupVirtualController() {
         let virtualControllerConfig = GCVirtualController.Configuration()
-        virtualControllerConfig.elements = [GCInputLeftThumbstick, GCInputButtonA, GCInputButtonB]
+        virtualControllerConfig.elements = [GCInputDirectionPad, GCInputButtonA, GCInputButtonB]
         
         virtualController = GCVirtualController(configuration: virtualControllerConfig)
         
@@ -130,39 +130,63 @@ class GameScene: SKScene {
     }
     
     func getInput() {
-        var jumpButton: GCControllerButtonInput?
-        var actionButton: GCControllerButtonInput?
-        var stickXAxis: GCControllerAxisInput?
         
-        if let buttons = virtualController!.controller?.extendedGamepad {
-            jumpButton = buttons.buttonA
-            actionButton = buttons.buttonB
-            stickXAxis = buttons.leftThumbstick.xAxis
-        }
         
-        stickXAxis?.valueChangedHandler  = {(_ button: GCControllerAxisInput, _ value: Float) -> Void in
-            print(value)
-//            self.player.velocityX = -value //conferir o pq deste negativo depois
-            self.circuitNode.position.x += CGFloat(value)
-            if value == 0.0 {
-                self.circuitNode.removeAllActions()
+//        var jumpButton: GCControllerButtonInput?
+//        var actionButton: GCControllerButtonInput?
+//        var left: GCControllerButtonInput?
+//        var right: GCControllerButtonInput?
+//        var up: GCControllerButtonInput?
+//        var down: GCControllerButtonInput?
+//        var stickYAxis: GCControllerAxisInput?
+        
+        guard let buttons = virtualController!.controller?.extendedGamepad else { return }
+        
+        let breakButton = buttons.buttonB
+        let speedButton = buttons.buttonA
+        let left = buttons.dpad.left
+        let right = buttons.dpad.right
+        let up = buttons.dpad.up
+        let down = buttons.dpad.down
+        
+        left.pressedChangedHandler = { button, value, pressed in
+            if pressed {
+                print("esquerdo")
             }
+            
+        }
+        right.pressedChangedHandler = { button, value, pressed in
+            if pressed {
+                print("direito")
+            }
+            
+        }
+        up.pressedChangedHandler = { button, value, pressed in
+            if pressed {
+                print("cima")
+            }
+            
+        }
+        down.pressedChangedHandler = { button, value, pressed in
+            if pressed {
+                print("baixo")
+            }
+            
         }
         
-        //está sendo acionado tanto quando pressionamos como quando terminamos de pressionar, consertar isso
-        jumpButton?.valueChangedHandler = {(_ button: GCControllerButtonInput, _ value: Float, _ pressed: Bool) -> Void in
+        breakButton.pressedChangedHandler = { button, value, pressed in
             
             if pressed {
 //                self.player.jump()
-                print("Button A Pressed")
+                print("break Pressed")
             }
             
-            
+
         }
-        
-        actionButton?.valueChangedHandler = {(_ button: GCControllerButtonInput, _ value: Float, _ pressed: Bool) -> Void in
+    
+        speedButton.pressedChangedHandler = { button, value, pressed in
             if pressed {
-                print("Button B Pressed")
+                print("speed Pressed")
             }
             
         }
