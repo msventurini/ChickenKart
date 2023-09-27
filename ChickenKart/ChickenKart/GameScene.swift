@@ -28,6 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
+        setupVirtualController()
 
     }
 
@@ -39,51 +40,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVectorMake(0.0, 0.0)
         self.physicsWorld.contactDelegate = self
         
-        setupVirtualController()
-        
+        getInput()
+
         player.position = CGPoint(x: frame.midX, y: frame.midY)
         
-        circuitNode = SKSpriteNode(color: .blue, size: .init(width: 160, height: 144))
+        circuitNode = SKSpriteNode(color: .brown, size: .init(width: 520, height: 450))
         circuitNode.anchorPoint = CGPoint(x: 0, y: 0)
-        circuitNode.position = CGPoint(x: -20, y: -20)
+//        circuitNode.position = CGPoint(x: -20, y: -20)
         
-        let ground = SKSpriteNode(color: .brown, size: .init(width: 160, height: 10))
+        let ground = SKSpriteNode(imageNamed: "circuitpt1")
         
-        ground.anchorPoint = CGPoint(x: 0, y: 0)
-        ground.position = CGPoint(x: circuitNode.frame.minX + 20, y: circuitNode.frame.minY + 20)
+        ground.anchorPoint = CGPoint(x: 0.5, y: 0)
+        ground.position = CGPoint(x: circuitNode.frame.midX, y: circuitNode.frame.minY)
         ground.name = "ground"
 
+//        let groundBody = SKPhysicsBody(edgeLoopFrom: ground.frame)
+//        ground.physicsBody = groundBody
+//
+        
         circuitNode.addChild(ground)
-        
-        let ceil = SKSpriteNode(color: .brown, size: .init(width: 160, height: 10))
-        ceil.anchorPoint = CGPoint(x: 0, y: 0)
-        ceil.position = CGPoint(x: circuitNode.frame.minX + 20, y: circuitNode.frame.maxY + 20)
+//
+        let ceil = SKSpriteNode(imageNamed: "circuitpt2")
+        ceil.anchorPoint = CGPoint(x: 0, y: 1)
+        ceil.position = CGPoint(x: circuitNode.frame.minX, y: circuitNode.frame.maxY)
         ceil.name = "ceil"
-       
+
         circuitNode.addChild(ceil)
-        
-        let wall1 = SKSpriteNode(color: .brown, size: .init(width: 10, height: 144))
-        wall1.anchorPoint = CGPoint(x: 0, y: 0)
-        wall1.position = CGPoint(x: circuitNode.frame.maxX + 20, y: circuitNode.frame.minY + 20)
-        wall1.name = "wall"
-
-        circuitNode.addChild(wall1)
-
-        let wall2 = SKSpriteNode(color: .brown, size: .init(width: 10, height: 144))
-        wall2.anchorPoint = CGPoint(x: 0, y: 0)
-        wall2.position = CGPoint(x: circuitNode.frame.minX + 20, y: circuitNode.frame.minY + 20)
-        wall2.name = "wall"
-        
-        circuitNode.addChild(wall2)
-        
-        let center = SKSpriteNode(color: .brown, size: .init(width: 85, height: 85))
-        center.anchorPoint = CGPoint(x: 0, y: 0)
-        center.position = CGPoint(x: circuitNode.frame.midX + 20, y: circuitNode.frame.midY - 20)
-        center.name = "center"
 
         circuitNode.name = "circuit"
         
-        circuitNode.addChild(center)
         
         
         player.addChild(circuitNode)
@@ -105,7 +90,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player.xRotation = Angle(degrees: 85).radians
         
-        player.setScale(CGFloat(5))
+        player.setScale(CGFloat(15))
     }
     
     
@@ -117,7 +102,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         virtualController!.connect()
         
-        getInput()
         
     }
     
