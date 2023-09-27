@@ -46,7 +46,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if isUsingThumbstick {
-            self.angle -= thumbstickValue - log(abs(thumbstickValue))
+            self.angle -= thumbstickValue// - log(abs(thumbstickValue))
             self.player.zRotation = CGFloat(Angle(degrees: self.angle).radians)
 
         }
