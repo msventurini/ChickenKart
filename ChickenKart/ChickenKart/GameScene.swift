@@ -152,24 +152,31 @@ class GameScene: SKScene {
         left.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("esquerdo")
+                self.circuitNode.zRotation += CGFloat(Double.pi / 180)
             }
             
         }
         right.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("direito")
+                self.circuitNode.zRotation -= CGFloat(Double.pi / 180)
+
             }
             
         }
         up.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("cima")
+                self.circuitNode.position.y -= 1
+
             }
             
         }
         down.pressedChangedHandler = { button, value, pressed in
             if pressed {
                 print("baixo")
+                self.circuitNode.position.y += 1
+
             }
             
         }
@@ -177,7 +184,6 @@ class GameScene: SKScene {
         breakButton.pressedChangedHandler = { button, value, pressed in
             
             if pressed {
-//                self.player.jump()
                 print("break Pressed")
             }
             
