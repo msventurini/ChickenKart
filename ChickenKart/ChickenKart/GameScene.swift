@@ -90,6 +90,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         let playerSprite = SKSpriteNode(color: .red, size: .init(width: 10, height: 10))
         playerSprite.name = "player"
+        
+        let playerBody = SKPhysicsBody(rectangleOf: CGSize(width: 10, height: 10))
+        
+        playerBody.affectedByGravity = true
+        playerBody.allowsRotation = true
+        playerBody.isDynamic = true
+//        playerBody.velocity = CGVector(dx: 0, dy: 10.0)
+        
+        playerSprite.physicsBody = playerBody
+//        bodyGround.contactTestBitMask = 1
                 
         player.addChild(playerSprite)
         

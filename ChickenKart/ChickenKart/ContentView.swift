@@ -27,6 +27,8 @@ struct ContentView: View {
         
         var scene: GameScene {
             let scene = GameScene()
+            
+            
             scene.size = CGSize(width: 160, height: 144)
 
             scene.scaleMode = .aspectFit
@@ -34,7 +36,9 @@ struct ContentView: View {
         }
 
         ZStack(alignment: .bottom) {
-            SpriteView(scene: scene)
+            SpriteView(scene: scene, debugOptions: [.showsFPS, .showsNodeCount, .showsPhysics])
+                
+                
 
 //            VStack {
 //
