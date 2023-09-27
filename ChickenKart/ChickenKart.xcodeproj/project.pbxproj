@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC6552BC2AC4A62D0007D8F5 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6552BB2AC4A62D0007D8F5 /* Timer.swift */; };
 		CCFB61222AC213600006445C /* MotionBasicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFB61212AC213600006445C /* MotionBasicsView.swift */; };
 		EA0399F22AC21025004CC6D7 /* ChickenKartApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */; };
 		EA0399F42AC21025004CC6D7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0399F32AC21025004CC6D7 /* ContentView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC6552BB2AC4A62D0007D8F5 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		CCFB61212AC213600006445C /* MotionBasicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionBasicsView.swift; sourceTree = "<group>"; };
 		EA0399EE2AC21025004CC6D7 /* ChickenKart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChickenKart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChickenKartApp.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				EA039A062AC34BBF004CC6D7 /* Circuit.swift */,
 				EA112FCC2AC40CF2006105BB /* CircuitShape.swift */,
 				EA112FCE2AC432F1006105BB /* PlayerView.swift */,
+				CC6552BB2AC4A62D0007D8F5 /* Timer.swift */,
 			);
 			path = ChickenKart;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				EA112FCF2AC432F1006105BB /* PlayerView.swift in Sources */,
 				CCFB61222AC213600006445C /* MotionBasicsView.swift in Sources */,
 				EA112FCD2AC40CF2006105BB /* CircuitShape.swift in Sources */,
+				CC6552BC2AC4A62D0007D8F5 /* Timer.swift in Sources */,
 				EA039A032AC27625004CC6D7 /* MotionManager.swift in Sources */,
 				EA0399F42AC21025004CC6D7 /* ContentView.swift in Sources */,
 				EA039A002AC27030004CC6D7 /* GameScene.swift in Sources */,

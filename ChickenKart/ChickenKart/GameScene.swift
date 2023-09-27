@@ -36,6 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var motionManager = MotionManager()
     
+    
     override func sceneDidLoad() {
         super.sceneDidLoad()
         setupVirtualController()
@@ -88,6 +89,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.xRotation = Angle(degrees: 85).radians
         
         player.setScale(CGFloat(15))
+        
+        
     }
     
     func motionBackground() {

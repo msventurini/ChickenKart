@@ -8,9 +8,6 @@
 import SwiftUI
 import SpriteKit
 
-
-
-
 struct ContentView: View {
     
     @State var angleDeg: Double = 0
@@ -20,8 +17,9 @@ struct ContentView: View {
     @State var offSetXValue: Double = 0
     @State var offSetYValue: Double = 15
     
-//    @State
-
+    @State var secondsTimer: Double = 15
+    
+    @StateObject var timer = RaceTimer()
     
     var body: some View {
         
@@ -30,49 +28,37 @@ struct ContentView: View {
             
             
             scene.size = CGSize(width: 520, height: 450)
-
+            
             scene.scaleMode = .aspectFit
             return scene
         }
-
+        
         ZStack {
             
             ZStack {
                 
-                
                 SpriteView(scene: scene, debugOptions: [.showsFPS, .showsNodeCount, .showsPhysics])
                 
-            }        .frame(width: 520, height: 450)
-
+                
+            }.frame(width: 520, height: 450)
+            
             VStack {
                 HStack {
                     Spacer()
                     PlayerView()
                     Spacer()
-
+                    
                 }
                 .offset(y: -50)
             }
-            
-            
-            
-                
-
-//            VStack {
-//
-//                MotionBasicsView()
-//
-//            }
-//            .frame(height: 100)
-
-
-
+            HStack{
+                Text("\(timer.seconds)")
+                    .foregroundColor(.red)
+                Spacer()
+            }
         }
-//        .edgesIgnoringSafeArea(.all)
-        
-        
-        
-        
+        .onAppear(perform: timer.startTimer)
+        .onDisappear(perform: timer.stopTimer)
     }
 }
 
