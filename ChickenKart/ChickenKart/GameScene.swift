@@ -83,11 +83,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         
         mapNode.size = CGSize(width: (25 + 8 + 19 + 9
-                                      + 14 + 4 + 5 + 6), height: 96)
+                                     + 14 + 4 + 5 + 6
+                                     + 6 + 7 + 7 + 34), height: 96)
         mapNode.color = .blue
         
         self.addChild(mapNode)
-        mapNode.setScale(CGFloat(2))
+        mapNode.setScale(CGFloat(6))
         
         
         
