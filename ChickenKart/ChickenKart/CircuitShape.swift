@@ -148,6 +148,115 @@ struct CircuitShape: Shape {
     }
 }
 
+struct CircuitOuterSide: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        let width = rect.size.width
+        let height = rect.size.height
+        path.move(to: CGPoint(x: 0.10688*width, y: 0.9985*height))
+        path.addLine(to: CGPoint(x: 0.88991*width, y: 0.9985*height))
+        path.addLine(to: CGPoint(x: 0.9555*width, y: 0.92929*height))
+        path.addLine(to: CGPoint(x: 0.9555*width, y: 0.80642*height))
+        path.addLine(to: CGPoint(x: 0.79862*width, y: 0.6319*height))
+        path.addLine(to: CGPoint(x: 0.79862*width, y: 0.34704*height))
+        path.addLine(to: CGPoint(x: 0.85826*width, y: 0.28987*height))
+        path.addLine(to: CGPoint(x: 0.9211*width, y: 0.28987*height))
+        path.addLine(to: CGPoint(x: 0.99862*width, y: 0.20261*height))
+        path.addLine(to: CGPoint(x: 0.99862*width, y: 0.12889*height))
+        path.addLine(to: CGPoint(x: 0.99128*width, y: 0.11284*height))
+        path.addLine(to: CGPoint(x: 0.97339*width, y: 0.08024*height))
+        path.addLine(to: CGPoint(x: 0.94954*width, y: 0.05968*height))
+        path.addLine(to: CGPoint(x: 0.9289*width, y: 0.05065*height))
+        path.addLine(to: CGPoint(x: 0.91835*width, y: 0.05065*height))
+        path.addLine(to: CGPoint(x: 0.91376*width, y: 0.05968*height))
+        path.addLine(to: CGPoint(x: 0.90275*width, y: 0.05968*height))
+        path.addLine(to: CGPoint(x: 0.86789*width, y: 0.0988*height))
+        path.addLine(to: CGPoint(x: 0.85826*width, y: 0.0988*height))
+        path.addLine(to: CGPoint(x: 0.84495*width, y: 0.08024*height))
+        path.addLine(to: CGPoint(x: 0.83211*width, y: 0.05416*height))
+        path.addLine(to: CGPoint(x: 0.81697*width, y: 0.01805*height))
+        path.addLine(to: CGPoint(x: 0.8055*width, y: 0.00201*height))
+        path.addLine(to: CGPoint(x: 0.63945*width, y: 0.00201*height))
+        path.addLine(to: CGPoint(x: 0.56927*width, y: 0.08024*height))
+        path.addLine(to: CGPoint(x: 0.56927*width, y: 0.29789*height))
+        path.addLine(to: CGPoint(x: 0.61284*width, y: 0.34704*height))
+        path.addLine(to: CGPoint(x: 0.61284*width, y: 0.41374*height))
+        path.addLine(to: CGPoint(x: 0.60413*width, y: 0.41374*height))
+        path.addLine(to: CGPoint(x: 0.53532*width, y: 0.48997*height))
+        path.addLine(to: CGPoint(x: 0.44771*width, y: 0.48997*height))
+        path.addLine(to: CGPoint(x: 0.35872*width, y: 0.58576*height))
+        path.addLine(to: CGPoint(x: 0.35872*width, y: 0.1675*height))
+        path.addLine(to: CGPoint(x: 0.3344*width, y: 0.13691*height))
+        path.addLine(to: CGPoint(x: 0.30826*width, y: 0.10782*height))
+        path.addLine(to: CGPoint(x: 0.29862*width, y: 0.10782*height))
+        path.addLine(to: CGPoint(x: 0.28211*width, y: 0.08927*height))
+        path.addLine(to: CGPoint(x: 0.22018*width, y: 0.08927*height))
+        path.addLine(to: CGPoint(x: 0.17661*width, y: 0.13691*height))
+        path.addLine(to: CGPoint(x: 0.17661*width, y: 0.33701*height))
+        path.addLine(to: CGPoint(x: 0.15872*width, y: 0.35707*height))
+        path.addLine(to: CGPoint(x: 0.07064*width, y: 0.35707*height))
+        path.addLine(to: CGPoint(x: 0.01835*width, y: 0.41575*height))
+        path.addLine(to: CGPoint(x: 0.00183*width, y: 0.67252*height))
+        path.addLine(to: CGPoint(x: 0.00183*width, y: 0.89017*height))
+        path.addLine(to: CGPoint(x: 0.02752*width, y: 0.93029*height))
+        path.addLine(to: CGPoint(x: 0.0555*width, y: 0.95988*height))
+        path.addLine(to: CGPoint(x: 0.10688*width, y: 0.9985*height))
+        path.closeSubpath()
+        return path
+    }
+}
+
+struct CircuitInnerSide: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        let width = rect.size.width
+        let height = rect.size.height
+        path.move(to: CGPoint(x: 0.26558*width, y: 0.64847*height))
+        path.addLine(to: CGPoint(x: 0.26558*width, y: 0.13439*height))
+        path.addLine(to: CGPoint(x: 0.22809*width, y: 0.08803*height))
+        path.addLine(to: CGPoint(x: 0.21489*width, y: 0.08803*height))
+        path.addLine(to: CGPoint(x: 0.20433*width, y: 0.10153*height))
+        path.addLine(to: CGPoint(x: 0.20433*width, y: 0.33451*height))
+        path.addLine(to: CGPoint(x: 0.13305*width, y: 0.41491*height))
+        path.addLine(to: CGPoint(x: 0.04541*width, y: 0.41491*height))
+        path.addLine(to: CGPoint(x: 0.0227*width, y: 0.43545*height))
+        path.addLine(to: CGPoint(x: 0.00211*width, y: 0.76408*height))
+        path.addLine(to: CGPoint(x: 0.00211*width, y: 0.94014*height))
+        path.addLine(to: CGPoint(x: 0.05385*width, y: 0.99765*height))
+        path.addLine(to: CGPoint(x: 0.91816*width, y: 0.99765*height))
+        path.addLine(to: CGPoint(x: 0.94087*width, y: 0.97124*height))
+        path.addLine(to: CGPoint(x: 0.94087*width, y: 0.89671*height))
+        path.addLine(to: CGPoint(x: 0.7698*width, y: 0.70775*height))
+        path.addLine(to: CGPoint(x: 0.7698*width, y: 0.29225*height))
+        path.addLine(to: CGPoint(x: 0.79989*width, y: 0.27406*height))
+        path.addLine(to: CGPoint(x: 0.83105*width, y: 0.24531*height))
+        path.addLine(to: CGPoint(x: 0.86589*width, y: 0.19308*height))
+        path.addLine(to: CGPoint(x: 0.94087*width, y: 0.19308*height))
+        path.addLine(to: CGPoint(x: 0.98733*width, y: 0.16549*height))
+        path.addLine(to: CGPoint(x: 0.99842*width, y: 0.13439*height))
+        path.addLine(to: CGPoint(x: 0.99842*width, y: 0.05927*height))
+        path.addLine(to: CGPoint(x: 0.98733*width, y: 0.05927*height))
+        path.addLine(to: CGPoint(x: 0.94087*width, y: 0.11209*height))
+        path.addLine(to: CGPoint(x: 0.86589*width, y: 0.11209*height))
+        path.addLine(to: CGPoint(x: 0.83105*width, y: 0.04519*height))
+        path.addLine(to: CGPoint(x: 0.79989*width, y: 0.00235*height))
+        path.addLine(to: CGPoint(x: 0.68743*width, y: 0.00235*height))
+        path.addLine(to: CGPoint(x: 0.64889*width, y: 0.05927*height))
+        path.addLine(to: CGPoint(x: 0.64889*width, y: 0.24531*height))
+        path.addLine(to: CGPoint(x: 0.68743*width, y: 0.29225*height))
+        path.addLine(to: CGPoint(x: 0.68743*width, y: 0.43545*height))
+        path.addLine(to: CGPoint(x: 0.55808*width, y: 0.56984*height))
+        path.addLine(to: CGPoint(x: 0.45565*width, y: 0.56984*height))
+        path.addLine(to: CGPoint(x: 0.3886*width, y: 0.64847*height))
+        path.addLine(to: CGPoint(x: 0.37012*width, y: 0.64847*height))
+        path.addLine(to: CGPoint(x: 0.33685*width, y: 0.69425*height))
+        path.addLine(to: CGPoint(x: 0.30306*width, y: 0.69425*height))
+        path.addLine(to: CGPoint(x: 0.26558*width, y: 0.64847*height))
+        path.closeSubpath()
+        return path
+    }
+}
+
 struct CircuitShapeTest: View {
     var body: some View {
         CircuitShape().scaledToFit()
@@ -156,6 +265,11 @@ struct CircuitShapeTest: View {
 
 struct CircuitShapeTest_Previews: PreviewProvider {
     static var previews: some View {
-        CircuitShapeTest()
+        
+        VStack {
+            CircuitInnerSide()
+CircuitOuterSide()
+            
+        }
     }
 }
