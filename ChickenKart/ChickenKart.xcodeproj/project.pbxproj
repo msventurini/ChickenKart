@@ -74,8 +74,8 @@
 				EA0399FF2AC27030004CC6D7 /* GameScene.swift */,
 				EA039A042AC34A8E004CC6D7 /* SwiftUITestView.swift */,
 				EA039A062AC34BBF004CC6D7 /* Circuit.swift */,
-				EA112FCC2AC40CF2006105BB /* CircuitShape.swift */,
 				EA112FCE2AC432F1006105BB /* PlayerView.swift */,
+				EA112FCC2AC40CF2006105BB /* CircuitShape.swift */,
 			);
 			path = ChickenKart;
 			sourceTree = "<group>";

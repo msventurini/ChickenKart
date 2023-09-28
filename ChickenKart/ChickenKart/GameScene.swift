@@ -186,23 +186,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         circuitNode = SKSpriteNode(color: .brown, size: .init(width: 520, height: 450))
         circuitNode.anchorPoint = CGPoint(x: 0, y: 0)
-        
-        ground = SKSpriteNode(imageNamed: "circuitpt1")
-        
-        ground.anchorPoint = CGPoint(x: 0.5, y: 0)
-        ground.position = CGPoint(x: circuitNode.frame.midX, y: circuitNode.frame.minY)
-        ground.name = "ground"
-        
-        circuitNode.addChild(ground)
-        
-        ceil = SKSpriteNode(imageNamed: "circuitpt2")
-        ceil.anchorPoint = CGPoint(x: 0, y: 1)
-        ceil.position = CGPoint(x: circuitNode.frame.minX, y: circuitNode.frame.maxY)
-        ceil.name = "ceil"
-        
-        circuitNode.addChild(ceil)
-        
         circuitNode.name = "circuit"
+
+        let part_1_1_grass = SKSpriteNode(imageNamed: "pt1")
+        
+//        ground = SKSpriteNode(imageNamed: "circuitpt1")
+//
+//        ground.anchorPoint = CGPoint(x: 0.5, y: 0)
+//        ground.position = CGPoint(x: circuitNode.frame.midX, y: circuitNode.frame.minY)
+//        ground.name = "ground"
+//
+//        circuitNode.addChild(ground)
+//
+//        ceil = SKSpriteNode(imageNamed: "circuitpt2")
+//        ceil.anchorPoint = CGPoint(x: 0, y: 1)
+//        ceil.position = CGPoint(x: circuitNode.frame.minX, y: circuitNode.frame.maxY)
+//        ceil.name = "ceil"
+//
+//        circuitNode.addChild(ceil)
+//
         
         player.addChild(circuitNode)
         
