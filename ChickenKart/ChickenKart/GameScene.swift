@@ -11,6 +11,9 @@ import GameController
 import CoreMotion
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
+
+    
+    var mapNode = SKSpriteNode()
     
     var player = SKTransformNode()
     
@@ -79,46 +82,56 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         
-        self.addChild(player)
+        mapNode.size = CGSize(width: (25 + 8 + 19 + 9
+                                      + 14 + 4 + 5 + 6), height: 96)
+        mapNode.color = .blue
         
-        self.physicsWorld.gravity = CGVectorMake(0.0, 0.0)
-        self.physicsWorld.contactDelegate = self
+        self.addChild(mapNode)
+        mapNode.setScale(CGFloat(2))
         
-        getInput()
         
-        player.position = CGPoint(x: frame.midX, y: frame.midY)
         
-        circuitNode = SKSpriteNode(color: .clear, size: .init(width: 520, height: 450))
-        circuitNode.anchorPoint = CGPoint(x: 0, y: 0)
-        circuitNode.name = "circuit"
-
         
-        ground = SKSpriteNode(imageNamed: "circuitpt1")
-
-        ground.anchorPoint = CGPoint(x: 0.5, y: 0)
-        ground.position = CGPoint(x: circuitNode.frame.midX, y: circuitNode.frame.minY)
-        ground.name = "ground"
-
-        circuitNode.addChild(ground)
-
-        ceil = SKSpriteNode(imageNamed: "circuitpt2")
-        ceil.anchorPoint = CGPoint(x: 0, y: 1)
-        ceil.position = CGPoint(x: circuitNode.frame.minX, y: circuitNode.frame.maxY)
-        ceil.name = "ceil"
-
-        circuitNode.addChild(ceil)
-
-        
-        player.addChild(circuitNode)
-        
-        playerSprite = SKSpriteNode(color: .black, size: .init(width: 10, height: 10))
-        playerSprite.name = "player"
-        
-        player.addChild(playerSprite)
-        
-//        player.xRotation = Angle(degrees: 85).radians
-        
-        player.setScale(CGFloat(5))
+//        self.addChild(player)
+//
+//        self.physicsWorld.gravity = CGVectorMake(0.0, 0.0)
+//        self.physicsWorld.contactDelegate = self
+//
+//        getInput()
+//
+//        player.position = CGPoint(x: frame.midX, y: frame.midY)
+//
+//        circuitNode = SKSpriteNode(color: .clear, size: .init(width: 520, height: 450))
+//        circuitNode.anchorPoint = CGPoint(x: 0, y: 0)
+//        circuitNode.name = "circuit"
+//
+//
+//        ground = SKSpriteNode(imageNamed: "circuitpt1")
+//
+//        ground.anchorPoint = CGPoint(x: 0.5, y: 0)
+//        ground.position = CGPoint(x: circuitNode.frame.midX, y: circuitNode.frame.minY)
+//        ground.name = "ground"
+//
+//        circuitNode.addChild(ground)
+//
+//        ceil = SKSpriteNode(imageNamed: "circuitpt2")
+//        ceil.anchorPoint = CGPoint(x: 0, y: 1)
+//        ceil.position = CGPoint(x: circuitNode.frame.minX, y: circuitNode.frame.maxY)
+//        ceil.name = "ceil"
+//
+//        circuitNode.addChild(ceil)
+//
+//
+//        player.addChild(circuitNode)
+//
+//        playerSprite = SKSpriteNode(color: .black, size: .init(width: 10, height: 10))
+//        playerSprite.name = "player"
+//
+//        player.addChild(playerSprite)
+//
+////        player.xRotation = Angle(degrees: 85).radians
+//
+//        player.setScale(CGFloat(5))
         
         
         

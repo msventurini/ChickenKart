@@ -41,18 +41,19 @@ struct ContentView: View {
                 
                 
                 SpriteView(scene: scene, debugOptions: [.showsFPS, .showsNodeCount, .showsPhysics])
+                    .frame(width: 520 / 2, height: 450 / 2)
                 
-            }        .frame(width: 520, height: 450)
-
-            VStack {
-                HStack {
-                    Spacer()
-                    PlayerView()
-                    Spacer()
-
-                }
-                .offset(y: -50)
             }
+
+//            VStack {
+//                HStack {
+//                    Spacer()
+//                    PlayerView()
+//                    Spacer()
+//
+//                }
+//                .offset(y: -50)
+//            }
             
             
             
