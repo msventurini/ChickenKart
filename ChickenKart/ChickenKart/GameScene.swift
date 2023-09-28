@@ -36,15 +36,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
    var motionManager = MotionManager()
     
+    var soundManager = SoundManager()
+    
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
         setupVirtualController()
+        self.soundManager.playSound(name: .start)
 
     }
     
     override func update(_ currentTime: TimeInterval) {
         motionBackground()
+        
     }
 
     
@@ -99,6 +103,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if Float(motionManager.rotationRateValue.y) > 0.5 {
             self.circuitNode.position.x += sin(Angle(degrees: self.angle).radians)
             self.circuitNode.position.y -= cos(Angle(degrees: self.angle).radians)
+        
         } else if Int(motionManager.rotationRateValue.y) < 0 {
             self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians)
             self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians)
