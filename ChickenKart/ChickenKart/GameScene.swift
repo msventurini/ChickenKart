@@ -10,7 +10,7 @@ import SwiftUI
 import GameController
 import CoreMotion
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate{
     
     var player = SKTransformNode()
     
@@ -34,7 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var thumbstickValue: Double = 0.0
     
-    var motionManager = MotionManager()
+   var motionManager = MotionManager()
     
     
     override func sceneDidLoad() {
@@ -96,7 +96,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func motionBackground() {
         self.angle = motionManager.rotationRateValue.z * 5
         self.player.zRotation = CGFloat(Angle(degrees: self.angle).radians)
-        if Int(motionManager.rotationRateValue.y) > 1 {
+        if Float(motionManager.rotationRateValue.y) > 0.5 {
             self.circuitNode.position.x += sin(Angle(degrees: self.angle).radians)
             self.circuitNode.position.y -= cos(Angle(degrees: self.angle).radians)
         } else if Int(motionManager.rotationRateValue.y) < 0 {

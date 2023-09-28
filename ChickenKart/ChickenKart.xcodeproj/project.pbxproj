@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CC6552BC2AC4A62D0007D8F5 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6552BB2AC4A62D0007D8F5 /* Timer.swift */; };
+		CC6552C52AC5F1BF0007D8F5 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6552C42AC5F1BF0007D8F5 /* Hud.swift */; };
 		CCFB61222AC213600006445C /* MotionBasicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFB61212AC213600006445C /* MotionBasicsView.swift */; };
 		EA0399F22AC21025004CC6D7 /* ChickenKartApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */; };
 		EA0399F42AC21025004CC6D7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0399F32AC21025004CC6D7 /* ContentView.swift */; };
@@ -23,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		CC6552BB2AC4A62D0007D8F5 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		CC6552C42AC5F1BF0007D8F5 /* Hud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
+		CC6552C92AC5F2100007D8F5 /* DotGothic16-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DotGothic16-Regular.ttf"; sourceTree = "<group>"; };
+		CC6552CB2AC5F28F0007D8F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CCFB61212AC213600006445C /* MotionBasicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionBasicsView.swift; sourceTree = "<group>"; };
 		EA0399EE2AC21025004CC6D7 /* ChickenKart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChickenKart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChickenKartApp.swift; sourceTree = "<group>"; };
@@ -48,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC6552C82AC5F20A0007D8F5 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CC6552C92AC5F2100007D8F5 /* DotGothic16-Regular.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		EA0399E52AC21025004CC6D7 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +79,7 @@
 		EA0399F02AC21025004CC6D7 /* ChickenKart */ = {
 			isa = PBXGroup;
 			children = (
+				CC6552CB2AC5F28F0007D8F5 /* Info.plist */,
 				EA039A012AC2760A004CC6D7 /* Controls */,
 				EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */,
 				EA0399F32AC21025004CC6D7 /* ContentView.swift */,
@@ -79,6 +92,8 @@
 				EA112FCC2AC40CF2006105BB /* CircuitShape.swift */,
 				EA112FCE2AC432F1006105BB /* PlayerView.swift */,
 				CC6552BB2AC4A62D0007D8F5 /* Timer.swift */,
+				CC6552C42AC5F1BF0007D8F5 /* Hud.swift */,
+				CC6552C82AC5F20A0007D8F5 /* fonts */,
 			);
 			path = ChickenKart;
 			sourceTree = "<group>";
@@ -169,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC6552C52AC5F1BF0007D8F5 /* Hud.swift in Sources */,
 				EA112FCF2AC432F1006105BB /* PlayerView.swift in Sources */,
 				CCFB61222AC213600006445C /* MotionBasicsView.swift in Sources */,
 				EA112FCD2AC40CF2006105BB /* CircuitShape.swift in Sources */,
@@ -310,6 +326,7 @@
 				DEVELOPMENT_TEAM = 8LJ8ZQT8NW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChickenKart/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -339,6 +356,7 @@
 				DEVELOPMENT_TEAM = 8LJ8ZQT8NW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChickenKart/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

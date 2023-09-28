@@ -21,6 +21,7 @@ struct ContentView: View {
     
     @StateObject var timer = RaceTimer()
     
+    
     var body: some View {
         
         var scene: GameScene {
@@ -51,11 +52,10 @@ struct ContentView: View {
                 }
                 .offset(y: -50)
             }
-            HStack{
-                Text("\(timer.seconds)")
-                    .foregroundColor(.red)
-                Spacer()
-            }
+            VStack{
+                Spacer(minLength: CGFloat(2))
+                Hud(time: Int(timer.seconds), speed: scene.motionManager.rotationRateValue.y)
+            } .offset(y: -20 )
         }
         .onAppear(perform: timer.startTimer)
         .onDisappear(perform: timer.stopTimer)
