@@ -42,7 +42,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     override func sceneDidLoad() {
         super.sceneDidLoad()
         setupVirtualController()
-        self.soundManager.playSound(name: .start)
+        //self.soundManager.playSound(name: .start)
 
     }
     
