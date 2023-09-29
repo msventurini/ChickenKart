@@ -55,7 +55,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let innerPath = CGMutablePath()
     
     //desestanciar isso
-    
+
     //gramas
     var firstColumn1Grass = SKSpriteNode(imageNamed: "1pt1")
     
@@ -63,9 +63,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var secondColumn3Grass = SKSpriteNode(imageNamed: "2pt3")
 
     var thirdColumn1Grass = SKSpriteNode(imageNamed: "3pt1")
+    var thirdColumn5Grass = SKSpriteNode(imageNamed: "3pt5")
+    
     //estradas
     var secondColumn2Road = SKSpriteNode(imageNamed: "2pt2")
+    
     var thirdColumn2Road = SKSpriteNode(imageNamed: "3pt2")
+    var thirdColumn4Road = SKSpriteNode(imageNamed: "3pt4")
     
     //feno
     var thirdColumn3Hay = SKSpriteNode(fileNamed: "3pt3")
@@ -86,31 +90,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return Double(secondColumnOffsetX + secondColumn1Grass.size.width/2 + thirdColumn1Grass.size.width/2)
     }()
     
-    
-    //valores constantes de offset em Y
-    
-    //primeira coluna
-    lazy var firstColumnOffsetY: Double = {
-        return Double(0)
-    }()
-    
-    //segunda coluna
-    lazy var secondColumn1GrassOffsetY: Double = {
-        return Double(circuitNode.size.height/2 - secondColumn1Grass.size.height/2)
-    }()
-    
-    lazy var secondColumn2RoadOffsetY: Double = {
-        return Double(secondColumn1GrassOffsetY - secondColumn1Grass.size.height/2 - secondColumn2Road.size.height/2)
-    }()
-    
-    lazy var secondColumn3GrassOffsetY: Double = {
-        return Double(secondColumn2RoadOffsetY - secondColumn2Road.size.height/2 - secondColumn3Grass.size.height/2)
-    }()
-    
-    //terceira coluna
-//    lazy var thirdColumn1GrassOffsetY: Double = {
-//
-//    }
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
@@ -206,11 +185,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         secondColumn2Road.position.x = secondColumnOffsetX
         circuitNode.addChild(secondColumn2Road)
-
+        
         secondColumn3Grass.position.x = secondColumnOffsetX
         circuitNode.addChild(secondColumn3Grass)
         
         SKVStack(inputArray: [secondColumn1Grass, secondColumn2Road, secondColumn3Grass])
+        
+        //terceira coluna
+        thirdColumn1Grass.position.x = thirdColumnOffsetX
+        circuitNode.addChild(thirdColumn1Grass)
+        
+        thirdColumn2Road.position.x = thirdColumnOffsetX
+        circuitNode.addChild(thirdColumn2Road)
+        
+//        var thirdColumn3Hay = SKSpriteNode(fileNamed: "3pt3")
+//
+//
+//        var thirdColumn4Road = SKSpriteNode(imageNamed: "3pt4")
+//
+//
+//
+//        var thirdColumn15rass = SKSpriteNode(imageNamed: "3pt5")
+        
+        
+        
+        SKVStack(inputArray: [thirdColumn1Grass, thirdColumn2Road])
+
+        
+        
         
         
         
