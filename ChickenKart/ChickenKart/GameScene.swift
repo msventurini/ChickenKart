@@ -55,13 +55,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let innerPath = CGMutablePath()
     
     //desestanciar isso
-
+    
     //gramas
     var firstColumn1Grass = SKSpriteNode(imageNamed: "1pt1")
     
     var secondColumn1Grass = SKSpriteNode(imageNamed: "2pt1")
     var secondColumn3Grass = SKSpriteNode(imageNamed: "2pt3")
-
+    
     var thirdColumn1Grass = SKSpriteNode(imageNamed: "3pt1")
     var thirdColumn5Grass = SKSpriteNode(imageNamed: "3pt5")
     
@@ -104,7 +104,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         
-
+        
         let grassBodiesArray = [firstColumn1Grass, secondColumn1Grass, secondColumn3Grass]
         
         for body in grassBodiesArray {
@@ -112,105 +112,120 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 print("colisao")
             }
         }
-            moveMap()
-            
-            
-        }
+        moveMap()
         
-        func moveMap() {
-            if motionEnabled {
-                motionBackground()
-            } else {
-                if isSpeedPressed {
-                    self.circuitNode.position.x +=  sin(Angle(degrees: self.angle).radians)
-                    self.circuitNode.position.y -=  cos(Angle(degrees: self.angle).radians)
-                } else if isBreakPressed {
-                    self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians)
-                    self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians)
-                }
+        
+    }
+    
+    func moveMap() {
+        if motionEnabled {
+            motionBackground()
+        } else {
+            if isSpeedPressed {
+                self.circuitNode.position.x +=  sin(Angle(degrees: self.angle).radians)
+                self.circuitNode.position.y -=  cos(Angle(degrees: self.angle).radians)
+            } else if isBreakPressed {
+                self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians)
+                self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians)
+            }
+            
+            
+            
+            if isUsingThumbstick {
+                self.angle -= thumbstickValue// - log(abs(thumbstickValue))
+                self.mapNode.zRotation = CGFloat(Angle(degrees: self.angle).radians)
                 
-                
-                
-                if isUsingThumbstick {
-                    self.angle -= thumbstickValue// - log(abs(thumbstickValue))
-                    self.mapNode.zRotation = CGFloat(Angle(degrees: self.angle).radians)
-                    
-                }
             }
         }
+    }
+    
+    override func didMove(to view: SKView) {
         
-        override func didMove(to view: SKView) {
-            
-            self.addChild(mapNode)
-            
-            getInput()
-            
-            
-            
-            mapNode.position = CGPoint(x: frame.midX, y: frame.midY)
-            
-            
-            circuitNode = SKSpriteNode(color: .red, size: .init(width: 144, height: 96))
-            circuitNode.name = "circuit"
-            
-            
-            addScenario()
-            
-            
-            playerSprite = SKSpriteNode(color: .blue, size: .init(width: 10, height: 10))
-            playerSprite.name = "player"
-            
-            
-            mapNode.addChild(circuitNode)
-            circuitNode.setScale(CGFloat(5))
-
-            
-            mapNode.addChild(playerSprite)
-            
-            mapNode.xRotation = 1
-            
-        }
+        self.addChild(mapNode)
+        
+        getInput()
+        
+        
+        
+        mapNode.position = CGPoint(x: frame.midX, y: frame.midY)
+        
+        
+        circuitNode = SKSpriteNode(color: .red, size: .init(width: 144, height: 96))
+        circuitNode.name = "circuit"
+        
+        
+        addScenario()
+        
+        
+        playerSprite = SKSpriteNode(color: .blue, size: .init(width: 10, height: 10))
+        playerSprite.name = "player"
+        
+        
+        mapNode.addChild(circuitNode)
+        circuitNode.setScale(CGFloat(5))
+        
+        
+        mapNode.addChild(playerSprite)
+        
+        mapNode.xRotation = 1
+        
+    }
     
     func addScenario() {
         
-//        let firstColumn =
+        let firstColumn: [SKSpriteNode] = [firstColumn1Grass]
+        let secondColumn: [SKSpriteNode] = [secondColumn1Grass, secondColumn2Road, secondColumn3Grass]
+        
+        let fullTileMap: [[SKSpriteNode]] = [firstColumn, secondColumn]
+        
         //primeira coluna
-//        firstColumn1Grass.position.x = firstColumnOffsetX
-        SKVStack(inputArray: [firstColumn1Grass])
-        SKHStack(inputArray: [[firstColumn1Grass]])
-        circuitNode.addChild(firstColumn1Grass)
-//
-//        //segunda coluna
-//        secondColumn1Grass.position.x = secondColumnOffsetX
-//        circuitNode.addChild(secondColumn1Grass)
-//
-//        secondColumn2Road.position.x = secondColumnOffsetX
-//        circuitNode.addChild(secondColumn2Road)
-//
-//        secondColumn3Grass.position.x = secondColumnOffsetX
-//        circuitNode.addChild(secondColumn3Grass)
-//
-//        SKVStack(inputArray: [secondColumn1Grass, secondColumn2Road, secondColumn3Grass])
-//
-//        //terceira coluna
-//        thirdColumn1Grass.position.x = thirdColumnOffsetX
-//        circuitNode.addChild(thirdColumn1Grass)
-//
-//        thirdColumn2Road.position.x = thirdColumnOffsetX
-//        circuitNode.addChild(thirdColumn2Road)
-//
-//        thirdColumn3Hay.position.x = thirdColumnOffsetX
-//        circuitNode.addChild(thirdColumn3Hay)
-//
-//        thirdColumn4Road.position.x = thirdColumnOffsetX
-//        circuitNode.addChild(thirdColumn4Road)
-//
-//        thirdColumn5Grass.position.x = thirdColumnOffsetX
-//        circuitNode.addChild(thirdColumn5Grass)
-//
-//        SKVStack(inputArray: [thirdColumn1Grass, thirdColumn2Road, thirdColumn3Hay, thirdColumn4Road, thirdColumn5Grass])
-
-
+        //        firstColumn1Grass.position.x = firstColumnOffsetX
+        //        SKVStack(inputArray: firstColumn)
+        
+        for i in stride(from: 0, to: fullTileMap.count, by: 1) {
+            
+            SKVStack(inputArray: fullTileMap[i])
+            
+            for j in stride(from: 0, to: fullTileMap[i].count, by: 1) {
+                circuitNode.addChild(fullTileMap[i][j])
+            }
+        }
+        
+        SKHStack(inputArray: fullTileMap)
+        
+        
+        //
+        //        //segunda coluna
+        //        secondColumn1Grass.position.x = secondColumnOffsetX
+        //        circuitNode.addChild(secondColumn1Grass)
+        //
+        //        secondColumn2Road.position.x = secondColumnOffsetX
+        //        circuitNode.addChild(secondColumn2Road)
+        //
+        //        secondColumn3Grass.position.x = secondColumnOffsetX
+        //        circuitNode.addChild(secondColumn3Grass)
+        //
+        //        SKVStack(inputArray: [secondColumn1Grass, secondColumn2Road, secondColumn3Grass])
+        //
+        //        //terceira coluna
+        //        thirdColumn1Grass.position.x = thirdColumnOffsetX
+        //        circuitNode.addChild(thirdColumn1Grass)
+        //
+        //        thirdColumn2Road.position.x = thirdColumnOffsetX
+        //        circuitNode.addChild(thirdColumn2Road)
+        //
+        //        thirdColumn3Hay.position.x = thirdColumnOffsetX
+        //        circuitNode.addChild(thirdColumn3Hay)
+        //
+        //        thirdColumn4Road.position.x = thirdColumnOffsetX
+        //        circuitNode.addChild(thirdColumn4Road)
+        //
+        //        thirdColumn5Grass.position.x = thirdColumnOffsetX
+        //        circuitNode.addChild(thirdColumn5Grass)
+        //
+        //        SKVStack(inputArray: [thirdColumn1Grass, thirdColumn2Road, thirdColumn3Hay, thirdColumn4Road, thirdColumn5Grass])
+        
+        
     }
     
     
@@ -221,7 +236,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 inputArray[index].position.y = circuitNode.size.height/2 - inputArray[index].size.height/2
             } else {
                 inputArray[index].position.y = (inputArray[index - 1].position.y) - (inputArray[index - 1].size.height/2) - inputArray[index].size.height/2
-
+                
             }
         }
     }
@@ -232,27 +247,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 for jindex in stride(from: 0, to: inputArray[index].count, by: 1) {
                     inputArray[index][jindex].position.x = -circuitNode.size.width/2 + inputArray[index][jindex].size.width
-
                 }
                 
-//            } else {
-//                inputArray[index].position.x = (inputArray[index - 1].position.x) + (inputArray[index - 1].size.width/2) - inputArray[index].size.width/2
-//
+            }else {
+                    
+                    for jindex in stride(from: 0, to: inputArray[index].count, by: 1) {
+//                        inputArray[index][jindex].position.x = -circuitNode.size.width/2 + inputArray[index][jindex].size.width
+                        inputArray[index][jindex].position.x = (inputArray[index - 1][0].position.x) + (inputArray[index - 1][0].size.width/2) - inputArray[index][jindex].size.width/2
+
+                    }
+                }
             }
         }
-    }
     
-//    lazy var firstColumnOffsetX: Double = {
-//        return Double(-circuitNode.size.width/2 + firstColumn1Grass.size.width/2)
-//    }()
-//
-//    lazy var secondColumnOffsetX: Double = {
-//        return Double(firstColumnOffsetX + firstColumn1Grass.size.width/2 + secondColumn1Grass.size.width/2)
-//    }()
-//
-//    lazy var thirdColumnOffsetX: Double = {
-//        return Double(secondColumnOffsetX + secondColumn1Grass.size.width/2 + thirdColumn1Grass.size.width/2)
-//    }()
+        
+        //    lazy var firstColumnOffsetX: Double = {
+        //        return Double(-circuitNode.size.width/2 + firstColumn1Grass.size.width/2)
+        //    }()
+        //
+        //    lazy var secondColumnOffsetX: Double = {
+        //        return Double(firstColumnOffsetX + firstColumn1Grass.size.width/2 + secondColumn1Grass.size.width/2)
+        //    }()
+        //
+        //    lazy var thirdColumnOffsetX: Double = {
+        //        return Double(secondColumnOffsetX + secondColumn1Grass.size.width/2 + thirdColumn1Grass.size.width/2)
+        //    }()
         
         func motionBackground() {
             self.angle = motionManager.rotationRateValue.z * 5
