@@ -195,21 +195,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             tenthColumn3Hay,
             tenthColumn7Hay
         ]
+        var contacFlag = false
         
         for body in grassBodiesArray {
             if playerSprite.intersects(body) {
-                print("colisaoGrass")
+//                self.circuitNode.position.x -= -sin(Angle(degrees: self.angle).radians)
+//                self.circuitNode.position.y += -cos(Angle(degrees: self.angle).radians)
+                contacFlag = true
+                break
+            } else {
+                contacFlag = false
+            }
+        }
+        if contacFlag == false {
+            for body in hayBodiesArray {
+                if playerSprite.intersects(body) {
+//                    self.circuitNode.position.x -= -sin(Angle(degrees: self.angle).radians)
+//                    self.circuitNode.position.y += -cos(Angle(degrees: self.angle).radians)
+                    contacFlag = true
+                    break
+                }
+                else {
+                    contacFlag = false
+                }
             }
         }
         
-        for body in hayBodiesArray {
-            if playerSprite.intersects(body) {
-                print("colisaoHay")
-            }
+        if contacFlag {
+            self.circuitNode.position.x -= -sin(Angle(degrees: self.angle).radians)
+            self.circuitNode.position.y += -cos(Angle(degrees: self.angle).radians)
+        } else {
+            moveMap()
+
         }
         
         
-        moveMap()
+        
+        
         
         
     }
