@@ -163,6 +163,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                               y: circuitNode.size.height/2 - secondColumn1Grass.size.height/2)
         circuitNode.addChild(secondColumn1Grass)
         
+        secondColumn2Road.position = CGPoint(x: secondColumnOffsetX,
+                                             y: circuitNode.size.height/2 - secondColumn1Grass.size.height - secondColumn2Road.size.height/2)
+        circuitNode.addChild(secondColumn2Road)
+        
+        
         playerSprite = SKSpriteNode(color: .blue, size: .init(width: 10, height: 10))
         playerSprite.name = "player"
         mapNode.addChild(playerSprite)
