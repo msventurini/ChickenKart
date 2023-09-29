@@ -72,7 +72,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var thirdColumn4Road = SKSpriteNode(imageNamed: "3pt4")
     
     //feno
-    var thirdColumn3Hay = SKSpriteNode(fileNamed: "3pt3")
+    var thirdColumn3Hay = SKSpriteNode(imageNamed: "3pt3")
     
     let motionEnabled: Bool = false
     
@@ -198,42 +198,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         thirdColumn2Road.position.x = thirdColumnOffsetX
         circuitNode.addChild(thirdColumn2Road)
         
-//        var thirdColumn3Hay = SKSpriteNode(fileNamed: "3pt3")
-//
-//
-//        var thirdColumn4Road = SKSpriteNode(imageNamed: "3pt4")
-//
-//
-//
-//        var thirdColumn15rass = SKSpriteNode(imageNamed: "3pt5")
+        thirdColumn3Hay.position.x = thirdColumnOffsetX
+        circuitNode.addChild(thirdColumn3Hay)
         
+        thirdColumn4Road.position.x = thirdColumnOffsetX
+        circuitNode.addChild(thirdColumn4Road)
         
+        thirdColumn5Grass.position.x = thirdColumnOffsetX
+        circuitNode.addChild(thirdColumn5Grass)
         
-        SKVStack(inputArray: [thirdColumn1Grass, thirdColumn2Road])
+        SKVStack(inputArray: [thirdColumn1Grass, thirdColumn2Road, thirdColumn3Hay, thirdColumn4Road, thirdColumn5Grass])
+
 
         
         
         
         
         
-        
-//
-//        //terceira coluna
-//        thirdColumn1Grass.position = CGPoint(x: thirdColumnOffsetX,
-//                                             y: circuitNode.size.height/2 - thirdColumn1Grass.size.height/2)
-//        circuitNode.addChild(thirdColumn1Grass)
-//
-//        thirdColumn2Road.position = CGPoint(x: thirdColumnOffsetX,
-//                                            y: thirdColumn1Grass.position.y - thirdColumn1Grass.size.height/2 - thirdColumn2Road.size.height/2)
-//        circuitNode.addChild(thirdColumn2Road)
-//
-//        thirdColumn3Hay?.position = CGPoint(
-        
-        
-        
-        
-        
     }
+    
+    
     
     func SKVStack(inputArray: [SKSpriteNode]) {
         for index in stride(from: 0, to: inputArray.count, by: 1) {
