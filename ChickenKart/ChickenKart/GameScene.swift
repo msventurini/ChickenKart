@@ -12,24 +12,12 @@ import CoreMotion
 
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
-    
-    
     var mapNode = SKTransformNode()
-    
-    var player = SKTransformNode()
     
     var playerSprite = SKSpriteNode()
     
-    var ceil = SKSpriteNode()
-    
-    var ground = SKSpriteNode()
-    
     var circuitNode = SKSpriteNode()
-    
-    var circuitShape = SKShapeNode()
-    
-    var vectorGravity = CGVector(dx: 0, dy: -2.0)
-    
+        
     var virtualController: GCVirtualController?
     
     var angle: Double = 0
@@ -37,7 +25,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var isSpeedPressed: Bool = false
     
     var isBreakPressed: Bool = false
-    
     
     var isTurningRight: Bool = false
     
@@ -49,27 +36,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     var isColiding: Bool = false
     
-    // var motionManager = MotionManager()
-   var motionManager = MotionManager()
+//   var motionManager = MotionManager()
     
     var soundManager = SoundManager()
     
-    
-    let outerPath = CGMutablePath()
-    let innerPath = CGMutablePath()
-    
-    
-    
-    ////aaaa
-    ///
-    ///
-    
-    
-    //desestanciar isso
-    
-    
-    
-    //gramas
+
     var firstColumn1Grass = SKSpriteNode(imageNamed: "1pt1")
     
     var secondColumn1Grass = SKSpriteNode(imageNamed: "2pt1")
@@ -165,59 +136,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var tenthColumn7Hay = SKSpriteNode(imageNamed: "10pt7")
 
     
-    // quarta coluna pra frente, organizo depois
-    
-    
-    
-    
-  
     
     let motionEnabled: Bool = false
 
-    
-    override func sceneDidLoad() {
-        super.sceneDidLoad()
-        if !motionEnabled {
-            setupVirtualController()
-        }
-        self.view?.ignoresSiblingOrder = true
-                //self.soundManager.playSound(name: .start)
 
-        
-    }
-    
-    
     
     override func update(_ currentTime: TimeInterval) {
-        if motionEnabled {
-            motionBackground()
-        }
 
+        let grassBodiesArray = [firstColumn1Grass,secondColumn1Grass, secondColumn3Grass, thirdColumn1Grass, thirdColumn5Grass, fourthColumn1Grass, fourthColumn5Grass, fifthColumn1Grass, fifthColumn5Grass, sixthColumn1Grass, sixthColumn3Grass, sixthColumn7Grass, seventhColumn1Grass, seventhColumn7Grass, eighthColumn1Grass, eighthColumn5Grass, ninthColumn1Grass, ninthColumn7Grass, tenthColumn1Grass,  tenthColumn5Grass,  tenthColumn9Green,  eleventhColumn1Grass,  eleventhColumn3Grass,  eleventhColumn5Grass,  twelfthColumn1Grass]
         
-        let grassBodiesArray = [
-            firstColumn1Grass,secondColumn1Grass, secondColumn3Grass, thirdColumn1Grass, thirdColumn5Grass, fourthColumn1Grass, fourthColumn5Grass, fifthColumn1Grass, fifthColumn5Grass, sixthColumn1Grass, sixthColumn3Grass, sixthColumn7Grass, seventhColumn1Grass, seventhColumn7Grass, eighthColumn1Grass, eighthColumn5Grass, ninthColumn1Grass, ninthColumn7Grass, tenthColumn1Grass,  tenthColumn5Grass,  tenthColumn9Green,  eleventhColumn1Grass,  eleventhColumn3Grass,  eleventhColumn5Grass,  twelfthColumn1Grass
-        ]
+        let hayBodiesArray = [thirdColumn3Hay,fourthColumn3hay,fifthColumn3hay,sixthColumn5Hay,seventhColumn3Hay,eighthColumn3Hay,ninthColumn3Hay,ninthColumn5Hay,tenthColumn3Hay,tenthColumn7Hay]
         
-        let hayBodiesArray = [
-            thirdColumn3Hay,
-            fourthColumn3hay,
-            fifthColumn3hay,
-            sixthColumn5Hay,
-            seventhColumn3Hay,
-            eighthColumn3Hay,
-            ninthColumn3Hay,
-            ninthColumn5Hay,
-            tenthColumn3Hay,
-            tenthColumn7Hay
-        ]
         var contacFlag = false
         
         if (isSpeedPressed || isBreakPressed) {
             for body in grassBodiesArray {
                 if playerSprite.intersects(body) {
-    //                self.circuitNode.position.x -= -sin(Angle(degrees: self.angle).radians)
-    //                self.circuitNode.position.y += -cos(Angle(degrees: self.angle).radians)
-                    contacFlag = true
+                  contacFlag = true
                     break
                 } else {
                     contacFlag = false
@@ -226,8 +161,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             if contacFlag == false {
                 for body in hayBodiesArray {
                     if playerSprite.intersects(body) {
-    //                    self.circuitNode.position.x -= -sin(Angle(degrees: self.angle).radians)
-    //                    self.circuitNode.position.y += -cos(Angle(degrees: self.angle).radians)
                         contacFlag = true
                         break
                     }
@@ -237,28 +170,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 }
             }
         }
-        
-//        print(mapNode.atPoint(playerSprite.position))
 
-        
         if contacFlag {
             self.circuitNode.position.x -= -sin(Angle(degrees: self.angle).radians) - 10 * sin(Angle(degrees: self.angle).radians)
             self.circuitNode.position.y += -cos(Angle(degrees: self.angle).radians) - 10 * cos(Angle(degrees: self.angle).radians)
         } else {
             moveMap()
-
         }
-        
-        
-        
-        
-        
-        
     }
     
     func moveMap() {
         if motionEnabled {
-            motionBackground()
+//            motionBackground()
         } else {
             if isSpeedPressed {
                 self.circuitNode.position.x +=  -sin(Angle(degrees: self.angle).radians) * 2
@@ -267,18 +190,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 self.circuitNode.position.x -= -sin(Angle(degrees: self.angle).radians) * 2
                 self.circuitNode.position.y += -cos(Angle(degrees: self.angle).radians) * 2
             }
-            
-            
-            
+
             if isUsingThumbstick {
                 self.angle -= thumbstickValue// - log(abs(thumbstickValue))
                 self.mapNode.zRotation = CGFloat(Angle(degrees: self.angle).radians) + Double.pi
-                
             }
         }
     }
     
     override func didMove(to view: SKView) {
+        
+        if motionEnabled {
+//            motionBackground()
+        } else {
+            setupVirtualController()
+            getInput()
+        }
         
         let cameraNode = SKCameraNode()
 
@@ -291,7 +218,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         self.addChild(mapNode)
         
-        getInput()
         
         
         
@@ -404,7 +330,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             }else {
                     
                     for jindex in stride(from: 0, to: inputArray[index].count, by: 1) {
-//                        inputArray[index][jindex].position.x = -circuitNode.size.width/2 + inputArray[index][jindex].size.width
                         inputArray[index][jindex].position.x = (inputArray[index - 1][0].position.x) + (inputArray[index - 1][0].size.width/2) + inputArray[index][jindex].size.width/2
 
                     }
@@ -413,38 +338,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
     
         
-        //    lazy var firstColumnOffsetX: Double = {
-        //        return Double(-circuitNode.size.width/2 + firstColumn1Grass.size.width/2)
-        //    }()
-        //
-        //    lazy var secondColumnOffsetX: Double = {
-        //        return Double(firstColumnOffsetX + firstColumn1Grass.size.width/2 + secondColumn1Grass.size.width/2)
-        //    }()
-        //
-        //    lazy var thirdColumnOffsetX: Double = {
-        //        return Double(secondColumnOffsetX + secondColumn1Grass.size.width/2 + thirdColumn1Grass.size.width/2)
-        //    }()
         
-        func motionBackground() {
-            self.angle = motionManager.rotationRateValue.z * 5
-            self.mapNode.zRotation = CGFloat(Angle(degrees: self.angle).radians)
-            
-            
-            
-            if Int(motionManager.rotationRateValue.y) > 1 {
-                self.circuitNode.position.x += sin(Angle(degrees: self.angle).radians)
-                self.circuitNode.position.y -= cos(Angle(degrees: self.angle).radians)
-            } else if Int(motionManager.rotationRateValue.y) < 0 {
-                self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians)
-                self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians)
-            }
-            
-        }
+//        func motionBackground() {
+//            self.angle = motionManager.rotationRateValue.z * 5
+//            self.mapNode.zRotation = CGFloat(Angle(degrees: self.angle).radians)
+//
+//            if Int(motionManager.rotationRateValue.y) > 1 {
+//                self.circuitNode.position.x += sin(Angle(degrees: self.angle).radians)
+//                self.circuitNode.position.y -= cos(Angle(degrees: self.angle).radians)
+//            } else if Int(motionManager.rotationRateValue.y) < 0 {
+//                self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians)
+//                self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians)
+//            }
+//
+//        }
         
         
         func setupVirtualController() {
             let virtualControllerConfig = GCVirtualController.Configuration()
-            virtualControllerConfig.elements = [GCInputLeftThumbstick, GCInputRightThumbstick, GCInputButtonA, GCInputButtonB, GCInputButtonX, GCInputButtonY]
+            virtualControllerConfig.elements = [GCInputLeftThumbstick, GCInputButtonA, GCInputButtonB]
             
             virtualController = GCVirtualController(configuration: virtualControllerConfig)
             
@@ -458,52 +370,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             
             let breakButton = buttons.buttonB
             let speedButton = buttons.buttonA
-            let yRotate = buttons.buttonY
-            let xRotate = buttons.buttonX
-
-
+       
             let stickXAxis = buttons.leftThumbstick.xAxis
             
-            let angleXAxis = buttons.rightThumbstick.xAxis
-            let angleYAxis = buttons.rightThumbstick.yAxis
-
             
             stickXAxis.valueChangedHandler = { button, value in
                 
                 if value != 0.0 {
                     self.isUsingThumbstick = true
-                    self.thumbstickValue = Double(value * 2)
+                    self.thumbstickValue = Double(value)
                 } else {
                     self.isUsingThumbstick = false
                     self.thumbstickValue = Double(0.0)
                 }
-                
-            }
-            
-            
-            angleXAxis.valueChangedHandler = { button, value in
-                
-                if value != 0.0 {
-//                    print("X: \(value)")
-//                    self.mapNode.xRotation = CGFloat(value * 2)
-
-                }
-//                else {
-//                    self.mapNode.xRotation = CGFloat(0)
-//                }
-                
-            }
-            
-            angleYAxis.valueChangedHandler = { button, value in
-                
-                if value != 0.0 {
-                    print("Y: \(value + 1)")
-                    self.mapNode.xRotation = CGFloat(value + 1)
-
-                }
-//                else {
-//                    self.mapNode.yRotation = CGFloat(0)
-//                }
                 
             }
             
@@ -531,28 +410,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 } else {
                     self.isSpeedPressed = false
                     print("speed Unpressed")
-                }
-                
-            }
-            
-            yRotate.pressedChangedHandler = { button, value, pressed in
-                if pressed {
-                    self.mapNode.yRotation = 0.0
-                    print("y Rotation start")
-                } else {
-//                    self.isSpeedPressed = false
-                    print("y Rotation end")
-                }
-                
-            }
-            
-            xRotate.pressedChangedHandler = { button, value, pressed in
-                if pressed {
-                    self.mapNode.xRotation = 0.0
-                    print("x Rotation start")
-                } else {
-//                    self.isSpeedPressed = false
-                    print("x Rotation end")
                 }
                 
             }

@@ -41,36 +41,7 @@ struct ContentView: View {
                 SpriteView(scene: scene, debugOptions: [.showsFPS, .showsNodeCount, .showsPhysics])
 //                    .rotationEffect(Angle(degrees: 90.0))
 //                    .frame(width: 520, height: 450)
-                
-// <<<<<<< HEAD
-            // }
-            // .ignoresSafeArea()
 
-//            VStack {
-//                HStack {
-//                    Spacer()
-//                    PlayerView()
-//                    Spacer()
-//
-//                }
-//                .offset(y: -50)
-//            }
-            
-            
-            
-                
-
-//            VStack {
-//
-//                MotionBasicsView()
-//
-//            }
-//            .frame(height: 100)
-
-
-
-// =======
-                
             }.frame(width: 520, height: 450)
             
             VStack {
@@ -84,7 +55,7 @@ struct ContentView: View {
             }
             VStack{
                 Spacer(minLength: CGFloat(2))
-                Hud(time: Int(timer.seconds), speed: scene.motionManager.rotationRateValue.y)
+                Hud(time: Int(timer.seconds), speed: 1234)
             } .offset(y: -20 )
 // >>>>>>> main
         }
