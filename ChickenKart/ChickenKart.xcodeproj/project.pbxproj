@@ -23,7 +23,8 @@
 		EA039A032AC27625004CC6D7 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA039A022AC27625004CC6D7 /* MotionManager.swift */; };
 		EA112FCF2AC432F1006105BB /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA112FCE2AC432F1006105BB /* PlayerView.swift */; };
 		EA4DF6CC2AC70E5500C9E047 /* GameplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4DF6CB2AC70E5500C9E047 /* GameplayView.swift */; };
-		EAFF7AF82AC6E6FF00C0DFBA /* TitleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFF7AF72AC6E6FF00C0DFBA /* TitleScreen.swift */; };
+		EA4DF6CE2AC7150100C9E047 /* GameSceneOSD.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4DF6CD2AC7150100C9E047 /* GameSceneOSD.swift */; };
+		EAFF7AF82AC6E6FF00C0DFBA /* GameplayViewOSD.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFF7AF72AC6E6FF00C0DFBA /* GameplayViewOSD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +47,8 @@
 		EA039A022AC27625004CC6D7 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		EA112FCE2AC432F1006105BB /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		EA4DF6CB2AC70E5500C9E047 /* GameplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayView.swift; sourceTree = "<group>"; };
-		EAFF7AF72AC6E6FF00C0DFBA /* TitleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScreen.swift; sourceTree = "<group>"; };
+		EA4DF6CD2AC7150100C9E047 /* GameSceneOSD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneOSD.swift; sourceTree = "<group>"; };
+		EAFF7AF72AC6E6FF00C0DFBA /* GameplayViewOSD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayViewOSD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				EA0399F52AC21026004CC6D7 /* Assets.xcassets */,
 				EA0399F72AC21026004CC6D7 /* Preview Content */,
 				EA0399FF2AC27030004CC6D7 /* GameScene.swift */,
+				EA4DF6CD2AC7150100C9E047 /* GameSceneOSD.swift */,
 				EA112FCE2AC432F1006105BB /* PlayerView.swift */,
 				CC6552BB2AC4A62D0007D8F5 /* Timer.swift */,
 				CC6552C42AC5F1BF0007D8F5 /* Hud.swift */,
@@ -128,7 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				EA0399F32AC21025004CC6D7 /* ContentView.swift */,
-				EAFF7AF72AC6E6FF00C0DFBA /* TitleScreen.swift */,
+				EAFF7AF72AC6E6FF00C0DFBA /* GameplayViewOSD.swift */,
 				EA4DF6CB2AC70E5500C9E047 /* GameplayView.swift */,
 			);
 			path = Views;
@@ -210,7 +213,7 @@
 			files = (
 				CC6552C52AC5F1BF0007D8F5 /* Hud.swift in Sources */,
 				EA112FCF2AC432F1006105BB /* PlayerView.swift in Sources */,
-				EAFF7AF82AC6E6FF00C0DFBA /* TitleScreen.swift in Sources */,
+				EAFF7AF82AC6E6FF00C0DFBA /* GameplayViewOSD.swift in Sources */,
 				CCFB61222AC213600006445C /* MotionBasicsView.swift in Sources */,
 				CC6552CD2AC5FDE20007D8F5 /* Sounds.swift in Sources */,
 				CC6552BC2AC4A62D0007D8F5 /* Timer.swift in Sources */,
@@ -219,6 +222,7 @@
 				EA0399F42AC21025004CC6D7 /* ContentView.swift in Sources */,
 				EA039A002AC27030004CC6D7 /* GameScene.swift in Sources */,
 				EA0399F22AC21025004CC6D7 /* ChickenKartApp.swift in Sources */,
+				EA4DF6CE2AC7150100C9E047 /* GameSceneOSD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
