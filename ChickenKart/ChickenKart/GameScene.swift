@@ -82,6 +82,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var fourthColumn4Road = SKSpriteNode(imageNamed: "4pt4")
     var fourthColumn5Grass = SKSpriteNode(imageNamed: "4pt5")
     
+    var fifthColumn1Grass = SKSpriteNode(imageNamed: "5pt1")
+    var fifthColumn2Road = SKSpriteNode(imageNamed: "5pt2")
+    var fifthColumn3hay = SKSpriteNode(imageNamed: "5pt3")
+    var fifthColumn4Road = SKSpriteNode(imageNamed: "5pt4")
+    var fifthColumn5Grass = SKSpriteNode(imageNamed: "5pt5")
+    
     let motionEnabled: Bool = false
     
     
@@ -175,9 +181,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let secondColumn: [SKSpriteNode] = [secondColumn1Grass, secondColumn2Road, secondColumn3Grass]
         let thirdColumn: [SKSpriteNode] = [thirdColumn1Grass, thirdColumn2Road, thirdColumn3Hay, thirdColumn4Road, thirdColumn5Grass]
         let fourthColumn: [SKSpriteNode] = [fourthColumn1Grass, fourthColumn2Road, fourthColumn3hay, fourthColumn4Road, fourthColumn5Grass]
+        let fifthColumn: [SKSpriteNode] = [fifthColumn1Grass, fifthColumn2Road, fifthColumn3hay, fifthColumn4Road, fifthColumn5Grass]
         
 
-        let fullTileMap: [[SKSpriteNode]] = [firstColumn, secondColumn, thirdColumn, fourthColumn]
+        let fullTileMap: [[SKSpriteNode]] = [firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn]
         
         //primeira coluna
         //        firstColumn1Grass.position.x = firstColumnOffsetX
