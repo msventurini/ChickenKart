@@ -39,8 +39,6 @@ struct GameplayViewOSD: View {
             ZStack {
                 
                 SpriteView(scene: scene, debugOptions: [.showsFPS, .showsNodeCount, .showsPhysics])
-//                    .rotationEffect(Angle(degrees: 90.0))
-//                    .frame(width: 520, height: 450)
 
             }
             .ignoresSafeArea()
