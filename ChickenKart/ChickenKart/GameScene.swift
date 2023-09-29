@@ -67,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let motionEnabled: Bool = false
     
-    //valores constantes
+    //valores constantes de offset em X
 
     lazy var firstColumnOffsetX: Double = {
         return Double(-self.circuitNode.size.width/2 + firstColumn1Grass.size.width/2)
@@ -77,13 +77,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return Double(-circuitNode.size.width/2 + firstColumn1Grass.size.width + secondColumn1Grass.size.width/2)
     }()
     
+    //valores constantes de offset em Y
+    lazy var firstColumnOffsetY: Double = {
+        return Double(0)
+    }()
+    
+    
+    lazy var secondColumn1GrassOffsetY: Double = {
+        return Double(circuitNode.size.height/2 - secondColumn1Grass.size.height/2)
+    }()
+    
+    lazy var secondColumn2RoadOffsetY: Double = {
+        return Double(circuitNode.size.height/2 - secondColumn1Grass.size.height - secondColumn2Road.size.height/2)
+    }()
+    
+    
     override func sceneDidLoad() {
         super.sceneDidLoad()
         if !motionEnabled {
             setupVirtualController()
         }
-        
-//        self.firstColumnOffsetX = Double(-circuitNode.size.width/2 + firstColumn1Grass.size.width/2)
         
     }
     
@@ -156,15 +169,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         mapNode.addChild(circuitNode)
         
-        firstColumn1Grass.position = CGPoint(x: firstColumnOffsetX, y: 0)
+        firstColumn1Grass.position = CGPoint(x: firstColumnOffsetX, y: firstColumnOffsetY)
         circuitNode.addChild(firstColumn1Grass)
         
         secondColumn1Grass.position = CGPoint(x: secondColumnOffsetX,
-                                              y: circuitNode.size.height/2 - secondColumn1Grass.size.height/2)
+                                              y: secondColumn1GrassOffsetY)
         circuitNode.addChild(secondColumn1Grass)
         
         secondColumn2Road.position = CGPoint(x: secondColumnOffsetX,
-                                             y: circuitNode.size.height/2 - secondColumn1Grass.size.height - secondColumn2Road.size.height/2)
+                                             y: secondColumn2RoadOffsetY)
+        
         circuitNode.addChild(secondColumn2Road)
         
         
