@@ -74,7 +74,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //feno
     var thirdColumn3Hay = SKSpriteNode(imageNamed: "3pt3")
     
+    // quarta coluna pra frente, organizo depois
+    
+    var fourthColumn1Grass = SKSpriteNode(imageNamed: "4pt1")
+    var fourthColumn2Road = SKSpriteNode(imageNamed: "4pt2")
+    var fourthColumn3hay = SKSpriteNode(imageNamed: "4pt3")
+    var fourthColumn4Road = SKSpriteNode(imageNamed: "4pt4")
+    var fourthColumn5Grass = SKSpriteNode(imageNamed: "4pt5")
+    
     let motionEnabled: Bool = false
+    
+    
+    
     
 
     
@@ -163,8 +174,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let firstColumn: [SKSpriteNode] = [firstColumn1Grass]
         let secondColumn: [SKSpriteNode] = [secondColumn1Grass, secondColumn2Road, secondColumn3Grass]
         let thirdColumn: [SKSpriteNode] = [thirdColumn1Grass, thirdColumn2Road, thirdColumn3Hay, thirdColumn4Road, thirdColumn5Grass]
+        let fourthColumn: [SKSpriteNode] = [fourthColumn1Grass, fourthColumn2Road, fourthColumn3hay, fourthColumn4Road, fourthColumn5Grass]
         
-        let fullTileMap: [[SKSpriteNode]] = [firstColumn, secondColumn, thirdColumn]
+
+        let fullTileMap: [[SKSpriteNode]] = [firstColumn, secondColumn, thirdColumn, fourthColumn]
         
         //primeira coluna
         //        firstColumn1Grass.position.x = firstColumnOffsetX
@@ -182,25 +195,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         SKHStack(inputArray: fullTileMap)
         
         
-  
-        //
-        //        //terceira coluna
-        //        thirdColumn1Grass.position.x = thirdColumnOffsetX
-        //        circuitNode.addChild(thirdColumn1Grass)
-        //
-        //        thirdColumn2Road.position.x = thirdColumnOffsetX
-        //        circuitNode.addChild(thirdColumn2Road)
-        //
-        //        thirdColumn3Hay.position.x = thirdColumnOffsetX
-        //        circuitNode.addChild(thirdColumn3Hay)
-        //
-        //        thirdColumn4Road.position.x = thirdColumnOffsetX
-        //        circuitNode.addChild(thirdColumn4Road)
-        //
-        //        thirdColumn5Grass.position.x = thirdColumnOffsetX
-        //        circuitNode.addChild(thirdColumn5Grass)
-        //
-        //        SKVStack(inputArray: )
         
         
     }
