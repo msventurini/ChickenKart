@@ -197,33 +197,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ]
         var contacFlag = false
         
-        for body in grassBodiesArray {
-            if playerSprite.intersects(body) {
-//                self.circuitNode.position.x -= -sin(Angle(degrees: self.angle).radians)
-//                self.circuitNode.position.y += -cos(Angle(degrees: self.angle).radians)
-                contacFlag = true
-                break
-            } else {
-                contacFlag = false
-            }
-        }
-        if contacFlag == false {
-            for body in hayBodiesArray {
+        if (isSpeedPressed || isBreakPressed) {
+            for body in grassBodiesArray {
                 if playerSprite.intersects(body) {
-//                    self.circuitNode.position.x -= -sin(Angle(degrees: self.angle).radians)
-//                    self.circuitNode.position.y += -cos(Angle(degrees: self.angle).radians)
+    //                self.circuitNode.position.x -= -sin(Angle(degrees: self.angle).radians)
+    //                self.circuitNode.position.y += -cos(Angle(degrees: self.angle).radians)
                     contacFlag = true
                     break
-                }
-                else {
+                } else {
                     contacFlag = false
+                }
+            }
+            if contacFlag == false {
+                for body in hayBodiesArray {
+                    if playerSprite.intersects(body) {
+    //                    self.circuitNode.position.x -= -sin(Angle(degrees: self.angle).radians)
+    //                    self.circuitNode.position.y += -cos(Angle(degrees: self.angle).radians)
+                        contacFlag = true
+                        break
+                    }
+                    else {
+                        contacFlag = false
+                    }
                 }
             }
         }
         
+        print(mapNode.atPoint(playerSprite.position))
+
+        
         if contacFlag {
-            self.circuitNode.position.x -= -sin(Angle(degrees: self.angle).radians)
-            self.circuitNode.position.y += -cos(Angle(degrees: self.angle).radians)
+            self.circuitNode.position.x -= -sin(Angle(degrees: self.angle).radians) - 10 * sin(Angle(degrees: self.angle).radians)
+            self.circuitNode.position.y += -cos(Angle(degrees: self.angle).radians) - 10 * cos(Angle(degrees: self.angle).radians)
         } else {
             moveMap()
 
@@ -241,11 +246,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             motionBackground()
         } else {
             if isSpeedPressed {
-                self.circuitNode.position.x +=  -sin(Angle(degrees: self.angle).radians)
-                self.circuitNode.position.y -=  -cos(Angle(degrees: self.angle).radians)
+                self.circuitNode.position.x +=  -sin(Angle(degrees: self.angle).radians) * 2
+                self.circuitNode.position.y -=  -cos(Angle(degrees: self.angle).radians) * 2
             } else if isBreakPressed {
-                self.circuitNode.position.x -= -sin(Angle(degrees: self.angle).radians)
-                self.circuitNode.position.y += -cos(Angle(degrees: self.angle).radians)
+                self.circuitNode.position.x -= -sin(Angle(degrees: self.angle).radians) * 2
+                self.circuitNode.position.y += -cos(Angle(degrees: self.angle).radians) * 2
             }
             
             
@@ -289,9 +294,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         mapNode.addChild(playerSprite)
         playerSprite.zPosition = 2
         mapNode.zRotation = Double.pi
-        mapNode.setScale(6)
+        
+        mapNode.xRotation = 0.72
 
-//        mapNode.yRotation = 0.12
+        
+//        mapNode.setScale(3)
+
 //        mapNode.xRotation = 0.12
 //
 //        mapNode.
@@ -464,7 +472,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 if value != 0.0 {
                     print("Y: \(value * 2)")
-                    self.mapNode.xRotation = CGFloat(value * 2)
+                    self.mapNode.xRotation = CGFloat(value + 1)
 
                 }
 //                else {
