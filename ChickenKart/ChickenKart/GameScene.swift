@@ -306,7 +306,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         mapNode.addChild(circuitNode)
-        circuitNode.setScale(CGFloat(5))
+        circuitNode.setScale(CGFloat(8))
         circuitNode.zPosition = 1
         
         
@@ -314,7 +314,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerSprite.zPosition = 2
         mapNode.zRotation = Double.pi
         
-        mapNode.xRotation = 1.45
+        mapNode.xRotation = 1.45 * cos(Angle(degrees: self.angle).radians)
+        mapNode.yRotation = 1.45 * sin(Angle(degrees: self.angle).radians)
 
 //        mapNode.setScale(3)
 
