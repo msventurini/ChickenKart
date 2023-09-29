@@ -31,7 +31,7 @@ struct ContentView: View {
             
             scene.size = CGSize(width: 520, height: 450)
 
-            scene.scaleMode = .aspectFit
+            scene.scaleMode = .aspectFill
             return scene
         }
 
@@ -41,9 +41,11 @@ struct ContentView: View {
                 
                 
                 SpriteView(scene: scene, debugOptions: [.showsFPS, .showsNodeCount, .showsPhysics])
-                    .frame(width: 520 / 2, height: 450 / 2)
+//                    .rotationEffect(Angle(degrees: 90.0))
+//                    .frame(width: 520, height: 450)
                 
             }
+            .ignoresSafeArea()
 
 //            VStack {
 //                HStack {
