@@ -15,7 +15,7 @@ class MotionManager: ObservableObject {
 
     init() {
         if motionManager.isGyroAvailable {
-            motionManager.gyroUpdateInterval = 0.001
+            motionManager.gyroUpdateInterval = 0.03
             motionManager.startGyroUpdates(to: motionQueue) { data, _ in
                 if let rotationRate = data?.rotationRate {
                     DispatchQueue.main.async {

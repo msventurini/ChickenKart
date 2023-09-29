@@ -22,6 +22,7 @@
 		EA039A002AC27030004CC6D7 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0399FF2AC27030004CC6D7 /* GameScene.swift */; };
 		EA039A032AC27625004CC6D7 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA039A022AC27625004CC6D7 /* MotionManager.swift */; };
 		EA112FCF2AC432F1006105BB /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA112FCE2AC432F1006105BB /* PlayerView.swift */; };
+		EA4DF6CC2AC70E5500C9E047 /* GameplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4DF6CB2AC70E5500C9E047 /* GameplayView.swift */; };
 		EAFF7AF82AC6E6FF00C0DFBA /* TitleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFF7AF72AC6E6FF00C0DFBA /* TitleScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		EA0399FF2AC27030004CC6D7 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		EA039A022AC27625004CC6D7 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		EA112FCE2AC432F1006105BB /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		EA4DF6CB2AC70E5500C9E047 /* GameplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayView.swift; sourceTree = "<group>"; };
 		EAFF7AF72AC6E6FF00C0DFBA /* TitleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,10 +87,10 @@
 		EA0399F02AC21025004CC6D7 /* ChickenKart */ = {
 			isa = PBXGroup;
 			children = (
+				EA4DF6CA2AC70E3800C9E047 /* Views */,
 				CC6552CB2AC5F28F0007D8F5 /* Info.plist */,
 				EA039A012AC2760A004CC6D7 /* Controls */,
 				EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */,
-				EA0399F32AC21025004CC6D7 /* ContentView.swift */,
 				CCFB61212AC213600006445C /* MotionBasicsView.swift */,
 				EA0399F52AC21026004CC6D7 /* Assets.xcassets */,
 				EA0399F72AC21026004CC6D7 /* Preview Content */,
@@ -102,7 +104,6 @@
 				CC6552D42AC616810007D8F5 /* chickenDefault.m4a */,
 				CC6552D62AC616880007D8F5 /* crash.m4a */,
 				CC6552C82AC5F20A0007D8F5 /* fonts */,
-				EAFF7AF72AC6E6FF00C0DFBA /* TitleScreen.swift */,
 			);
 			path = ChickenKart;
 			sourceTree = "<group>";
@@ -121,6 +122,16 @@
 				EA039A022AC27625004CC6D7 /* MotionManager.swift */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		EA4DF6CA2AC70E3800C9E047 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EA0399F32AC21025004CC6D7 /* ContentView.swift */,
+				EAFF7AF72AC6E6FF00C0DFBA /* TitleScreen.swift */,
+				EA4DF6CB2AC70E5500C9E047 /* GameplayView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +214,7 @@
 				CCFB61222AC213600006445C /* MotionBasicsView.swift in Sources */,
 				CC6552CD2AC5FDE20007D8F5 /* Sounds.swift in Sources */,
 				CC6552BC2AC4A62D0007D8F5 /* Timer.swift in Sources */,
+				EA4DF6CC2AC70E5500C9E047 /* GameplayView.swift in Sources */,
 				EA039A032AC27625004CC6D7 /* MotionManager.swift in Sources */,
 				EA0399F42AC21025004CC6D7 /* ContentView.swift in Sources */,
 				EA039A002AC27030004CC6D7 /* GameScene.swift in Sources */,

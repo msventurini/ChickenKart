@@ -35,23 +35,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var thumbstickValue: Double = 0.0
     
     var isColiding: Bool = false
-    
-    
-    
-    
-    
-    
+
     
    var motionManager = MotionManager()
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     var soundManager = SoundManager()
     
 
@@ -230,12 +217,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         self.camera = cameraNode
         
         cameraNode.setScale(0.1)
-        
-        
+
         self.addChild(mapNode)
-        
-        
-        
+
         
         mapNode.position = CGPoint(x: frame.midX, y: frame.midY)
         
@@ -264,13 +248,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         mapNode.zRotation = Double.pi
         
         mapNode.xRotation = 1.45 * cos(Angle(degrees: self.angle).radians)
-//        mapNode.yRotation = 1.45 * sin(Angle(degrees: self.angle).radians)
 
-//        mapNode.setScale(3)
-
-//        mapNode.xRotation = 0.12
-//
-//        mapNode.
         
     }
     
@@ -294,14 +272,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         let twelfthColumn: [SKSpriteNode] = [twelfthColumn1Grass]
         
         let fullTileMap: [[SKSpriteNode]] = [firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn, sixthColumn, seventhColumn, eighthColumn, ninthColumn, tenthColumn, eleventhColumn, twelfthColumn]
-        
 
-        
-            
-        
-        
-        //        firstColumn1Grass.position.x = firstColumnOffsetX
-        //        SKVStack(inputArray: firstColumn)
         
         for i in stride(from: 0, to: fullTileMap.count, by: 1) {
             
@@ -319,10 +290,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
 
 
     }
-// =======
-
-
-    
     
     
     func SKVStack(inputArray: [SKSpriteNode]) {
@@ -373,7 +340,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         func setupVirtualController() {
             let virtualControllerConfig = GCVirtualController.Configuration()
-            virtualControllerConfig.elements = [GCInputLeftThumbstick, GCInputButtonA, GCInputButtonB]
+            virtualControllerConfig.elements = [GCInputLeftThumbstick, GCInputButtonA]
             
             virtualController = GCVirtualController(configuration: virtualControllerConfig)
             
@@ -385,7 +352,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             
             guard let buttons = virtualController!.controller?.extendedGamepad else { return }
             
-            let breakButton = buttons.buttonB
             let speedButton = buttons.buttonA
        
             let stickXAxis = buttons.leftThumbstick.xAxis
@@ -400,23 +366,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                     self.isUsingThumbstick = false
                     self.thumbstickValue = Double(0.0)
                 }
-                
-            }
-            
-            
-            breakButton.pressedChangedHandler = { button, value, pressed in
-                
-                if pressed {
-                    self.isBreakPressed = true
-                    print("break Pressed")
-                    
-                    
-                    
-                } else {
-                    self.isBreakPressed = false
-                    print("break Pressed")
-                }
-                
                 
             }
             

@@ -1,14 +1,14 @@
 //
-//  ContentView.swift
+//  GameplayView.swift
 //  ChickenKart
 //
-//  Created by Matheus Silveira Venturini on 25/09/23.
+//  Created by Matheus Silveira Venturini on 29/09/23.
 //
 
 import SwiftUI
 import SpriteKit
 
-struct ContentView: View {
+struct GameplayView: View {
     
     @State var angleDeg: Double = 0
     @State var offSetX: Double = 0
@@ -65,8 +65,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct GameplayView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        GameplayView()
     }
 }
