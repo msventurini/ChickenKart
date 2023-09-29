@@ -179,11 +179,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let grassBodiesArray = [
             firstColumn1Grass,secondColumn1Grass, secondColumn3Grass, thirdColumn1Grass, thirdColumn5Grass, fourthColumn1Grass, fourthColumn5Grass, fifthColumn1Grass, fifthColumn5Grass, sixthColumn1Grass, sixthColumn3Grass, sixthColumn7Grass, seventhColumn1Grass, seventhColumn7Grass, eighthColumn1Grass, eighthColumn5Grass, ninthColumn1Grass, ninthColumn7Grass, tenthColumn1Grass,  tenthColumn5Grass,  tenthColumn9Green,  eleventhColumn1Grass,  eleventhColumn3Grass,  eleventhColumn5Grass,  twelfthColumn1Grass
         ]
+        
+        let hayBodiesArray = [
+            thirdColumn3Hay,
+            fourthColumn3hay,
+            fifthColumn3hay,
+            sixthColumn5Hay,
+            seventhColumn3Hay,
+            eighthColumn3Hay,
+            ninthColumn3Hay,
+            ninthColumn5Hay,
+            tenthColumn3Hay,
+            tenthColumn7Hay
+        ]
+        
         for body in grassBodiesArray {
             if playerSprite.intersects(body) {
-                print("colisao")
+                print("colisaoGrass")
             }
         }
+        
+        for body in hayBodiesArray {
+            if playerSprite.intersects(body) {
+                print("colisaoHay")
+            }
+        }
+        
+        
         moveMap()
         
         
