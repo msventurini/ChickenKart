@@ -37,7 +37,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var isSpeedPressed: Bool = false
     
     var isBreakPressed: Bool = false
-
+    
     
     var isTurningRight: Bool = false
     
@@ -56,17 +56,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //desestanciar isso
     
+    //gramas
     var firstColumn1Grass = SKSpriteNode(imageNamed: "1pt1")
+    var secondColumn1Grass = SKSpriteNode(imageNamed: "2pt1")
+    
+    //estradas
+    var secondColumn2Road = SKSpriteNode(imageNamed: "2pt2")
+    
     
     
     let motionEnabled: Bool = false
     
+    //valores constantes
+
+    lazy var firstColumnOffsetX: Double = {
+        return Double(-self.circuitNode.size.width/2 + firstColumn1Grass.size.width/2)
+    }()
+    
+    lazy var secondColumnOffsetX: Double = {
+        return Double(-circuitNode.size.width/2 + firstColumn1Grass.size.width + secondColumn1Grass.size.width/2)
+    }()
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
         if !motionEnabled {
             setupVirtualController()
         }
+        
+//        self.firstColumnOffsetX = Double(-circuitNode.size.width/2 + firstColumn1Grass.size.width/2)
         
     }
     
@@ -77,16 +94,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians) * 5 * (isBreakPressed ? -5 : 1)
             moveMap()
             
-//        } else if ceil.intersects(playerSprite) {
-//
-//            self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians) * 5
-//            self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians) * 5
-//            motionBackground()
-
+            //        } else if ceil.intersects(playerSprite) {
+            //
+            //            self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians) * 5
+            //            self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians) * 5
+            //            motionBackground()
+            
         } else {
-
+            
             moveMap()
-
+            
         }
         
         
@@ -110,7 +127,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if isUsingThumbstick {
                 self.angle -= thumbstickValue// - log(abs(thumbstickValue))
                 self.mapNode.zRotation = CGFloat(Angle(degrees: self.angle).radians)
-
+                
             }
         }
     }
@@ -129,17 +146,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         mapNode.position = CGPoint(x: frame.midX, y: frame.midY)
-
+        
         
         circuitNode = SKSpriteNode(color: .red, size: .init(width: 144, height: 96))
-//        circuitNode.anchorPoint = CGPoint(x: 0, y: 0)
         circuitNode.name = "circuit"
         
+        
+        
+        
         mapNode.addChild(circuitNode)
+        
+        firstColumn1Grass.position = CGPoint(x: firstColumnOffsetX, y: 0)
         circuitNode.addChild(firstColumn1Grass)
-
-                playerSprite = SKSpriteNode(color: .blue, size: .init(width: 10, height: 10))
-                playerSprite.name = "player"
+        
+        secondColumn1Grass.position = CGPoint(x: secondColumnOffsetX,
+                                              y: circuitNode.size.height/2 - secondColumn1Grass.size.height/2)
+        circuitNode.addChild(secondColumn1Grass)
+        
+        playerSprite = SKSpriteNode(color: .blue, size: .init(width: 10, height: 10))
+        playerSprite.name = "player"
         mapNode.addChild(playerSprite)
         
         
@@ -216,52 +241,52 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func getInput() {
+        
+        guard let buttons = virtualController!.controller?.extendedGamepad else { return }
+        
+        let breakButton = buttons.buttonB
+        let speedButton = buttons.buttonA
+        let stickXAxis = buttons.leftThumbstick.xAxis
+        
+        stickXAxis.valueChangedHandler = { button, value in
             
-            guard let buttons = virtualController!.controller?.extendedGamepad else { return }
-            
-            let breakButton = buttons.buttonB
-            let speedButton = buttons.buttonA
-            let stickXAxis = buttons.leftThumbstick.xAxis
-
-            stickXAxis.valueChangedHandler = { button, value in
-                
-                if value != 0.0 {
-                    self.isUsingThumbstick = true
-                    self.thumbstickValue = Double(value)
-                } else {
-                    self.isUsingThumbstick = false
-                    self.thumbstickValue = Double(0.0)
-                }
-                
-            }
-            
-            breakButton.pressedChangedHandler = { button, value, pressed in
-                
-                if pressed {
-                    self.isBreakPressed = true
-                    print("break Pressed")
-
-
-                    
-                } else {
-                    self.isBreakPressed = false
-                    print("break Pressed")
-                }
-                
-                
-            }
-            
-            speedButton.pressedChangedHandler = { button, value, pressed in
-                if pressed {
-                    self.isSpeedPressed = true
-                    print("speed Pressed")
-                } else {
-                    self.isSpeedPressed = false
-                    print("speed Unpressed")
-                }
-                
+            if value != 0.0 {
+                self.isUsingThumbstick = true
+                self.thumbstickValue = Double(value)
+            } else {
+                self.isUsingThumbstick = false
+                self.thumbstickValue = Double(0.0)
             }
             
         }
+        
+        breakButton.pressedChangedHandler = { button, value, pressed in
+            
+            if pressed {
+                self.isBreakPressed = true
+                print("break Pressed")
+                
+                
+                
+            } else {
+                self.isBreakPressed = false
+                print("break Pressed")
+            }
+            
+            
+        }
+        
+        speedButton.pressedChangedHandler = { button, value, pressed in
+            if pressed {
+                self.isSpeedPressed = true
+                print("speed Pressed")
+            } else {
+                self.isSpeedPressed = false
+                print("speed Unpressed")
+            }
+            
+        }
+        
+    }
     
 }
