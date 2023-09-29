@@ -173,48 +173,44 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addScenario() {
         
-        
+//        let firstColumn =
         //primeira coluna
-        firstColumn1Grass.position.x = firstColumnOffsetX
+//        firstColumn1Grass.position.x = firstColumnOffsetX
         SKVStack(inputArray: [firstColumn1Grass])
+        SKHStack(inputArray: [[firstColumn1Grass]])
         circuitNode.addChild(firstColumn1Grass)
-        
-        //segunda coluna
-        secondColumn1Grass.position.x = secondColumnOffsetX
-        circuitNode.addChild(secondColumn1Grass)
+//
+//        //segunda coluna
+//        secondColumn1Grass.position.x = secondColumnOffsetX
+//        circuitNode.addChild(secondColumn1Grass)
+//
+//        secondColumn2Road.position.x = secondColumnOffsetX
+//        circuitNode.addChild(secondColumn2Road)
+//
+//        secondColumn3Grass.position.x = secondColumnOffsetX
+//        circuitNode.addChild(secondColumn3Grass)
+//
+//        SKVStack(inputArray: [secondColumn1Grass, secondColumn2Road, secondColumn3Grass])
+//
+//        //terceira coluna
+//        thirdColumn1Grass.position.x = thirdColumnOffsetX
+//        circuitNode.addChild(thirdColumn1Grass)
+//
+//        thirdColumn2Road.position.x = thirdColumnOffsetX
+//        circuitNode.addChild(thirdColumn2Road)
+//
+//        thirdColumn3Hay.position.x = thirdColumnOffsetX
+//        circuitNode.addChild(thirdColumn3Hay)
+//
+//        thirdColumn4Road.position.x = thirdColumnOffsetX
+//        circuitNode.addChild(thirdColumn4Road)
+//
+//        thirdColumn5Grass.position.x = thirdColumnOffsetX
+//        circuitNode.addChild(thirdColumn5Grass)
+//
+//        SKVStack(inputArray: [thirdColumn1Grass, thirdColumn2Road, thirdColumn3Hay, thirdColumn4Road, thirdColumn5Grass])
 
-        secondColumn2Road.position.x = secondColumnOffsetX
-        circuitNode.addChild(secondColumn2Road)
-        
-        secondColumn3Grass.position.x = secondColumnOffsetX
-        circuitNode.addChild(secondColumn3Grass)
-        
-        SKVStack(inputArray: [secondColumn1Grass, secondColumn2Road, secondColumn3Grass])
-        
-        //terceira coluna
-        thirdColumn1Grass.position.x = thirdColumnOffsetX
-        circuitNode.addChild(thirdColumn1Grass)
-        
-        thirdColumn2Road.position.x = thirdColumnOffsetX
-        circuitNode.addChild(thirdColumn2Road)
-        
-        thirdColumn3Hay.position.x = thirdColumnOffsetX
-        circuitNode.addChild(thirdColumn3Hay)
-        
-        thirdColumn4Road.position.x = thirdColumnOffsetX
-        circuitNode.addChild(thirdColumn4Road)
-        
-        thirdColumn5Grass.position.x = thirdColumnOffsetX
-        circuitNode.addChild(thirdColumn5Grass)
-        
-        SKVStack(inputArray: [thirdColumn1Grass, thirdColumn2Road, thirdColumn3Hay, thirdColumn4Road, thirdColumn5Grass])
 
-
-        
-        
-        
-        
-        
     }
     
     
@@ -229,6 +225,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
+    
+    func SKHStack(inputArray: [[SKSpriteNode]]) {
+        for index in stride(from: 0, to: inputArray.count, by: 1) {
+            if index == 0 {
+                
+                for jindex in stride(from: 0, to: inputArray[index].count, by: 1) {
+                    inputArray[index][jindex].position.x = -circuitNode.size.width/2 + inputArray[index][jindex].size.width
+
+                }
+                
+//            } else {
+//                inputArray[index].position.x = (inputArray[index - 1].position.x) + (inputArray[index - 1].size.width/2) - inputArray[index].size.width/2
+//
+            }
+        }
+    }
+    
+//    lazy var firstColumnOffsetX: Double = {
+//        return Double(-circuitNode.size.width/2 + firstColumn1Grass.size.width/2)
+//    }()
+//
+//    lazy var secondColumnOffsetX: Double = {
+//        return Double(firstColumnOffsetX + firstColumn1Grass.size.width/2 + secondColumn1Grass.size.width/2)
+//    }()
+//
+//    lazy var thirdColumnOffsetX: Double = {
+//        return Double(secondColumnOffsetX + secondColumn1Grass.size.width/2 + thirdColumn1Grass.size.width/2)
+//    }()
         
         func motionBackground() {
             self.angle = motionManager.rotationRateValue.z * 5
