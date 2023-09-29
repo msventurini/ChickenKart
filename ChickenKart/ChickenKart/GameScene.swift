@@ -11,9 +11,10 @@ import GameController
 import CoreMotion
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-
     
-    var mapNode = SKSpriteNode()
+    
+    
+    var mapNode = SKTransformNode()
     
     var player = SKTransformNode()
     
@@ -22,7 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var ceil = SKSpriteNode()
     
     var ground = SKSpriteNode()
-
+    
     var circuitNode = SKSpriteNode()
     
     var circuitShape = SKShapeNode()
@@ -34,6 +35,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var angle: Double = 0
     
     var isSpeedPressed: Bool = false
+    
+    var isBreakPressed: Bool = false
+
     
     var isTurningRight: Bool = false
     
@@ -49,90 +53,136 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let outerPath = CGMutablePath()
     let innerPath = CGMutablePath()
-
+    
+    //desestanciar isso
+    
+    var firstColumn1Grass = SKSpriteNode(imageNamed: "1pt1")
+    
+    
+    let motionEnabled: Bool = false
     
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
-        setupVirtualController()
+        if !motionEnabled {
+            setupVirtualController()
+        }
         
     }
     
     override func update(_ currentTime: TimeInterval) {
-                
-        if ground.intersects(playerSprite) {
-            self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians) * 5
-            self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians) * 5
-            motionBackground()
-
-        } else if ceil.intersects(playerSprite) {
-
-            self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians) * 5
-            self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians) * 5
-            motionBackground()
+        
+        if firstColumn1Grass.intersects(playerSprite) {
+            self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians) * 5 * (isBreakPressed ? -5 : 1)
+            self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians) * 5 * (isBreakPressed ? -5 : 1)
+            moveMap()
             
+//        } else if ceil.intersects(playerSprite) {
+//
+//            self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians) * 5
+//            self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians) * 5
+//            motionBackground()
+
         } else {
-            motionBackground()
+
+            moveMap()
 
         }
-
+        
+        
         
     }
     
+    func moveMap() {
+        if motionEnabled {
+            motionBackground()
+        } else {
+            if isSpeedPressed {
+                self.circuitNode.position.x +=  sin(Angle(degrees: self.angle).radians)
+                self.circuitNode.position.y -=  cos(Angle(degrees: self.angle).radians)
+            } else if isBreakPressed {
+                self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians)
+                self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians)
+            }
+            
+            
+            
+            if isUsingThumbstick {
+                self.angle -= thumbstickValue// - log(abs(thumbstickValue))
+                self.mapNode.zRotation = CGFloat(Angle(degrees: self.angle).radians)
+
+            }
+        }
+    }
     
     override func didMove(to view: SKView) {
         
-        mapNode.size = CGSize(width: (25 + 8 + 19 + 9
-                                     + 14 + 4 + 5 + 6
-                                     + 6 + 7 + 7 + 34), height: 96)
-        mapNode.color = .blue
+        let tam = 25 + 8 + 19 + 9 + 14 + 4 + 5 + 6 + 6 + 7 + 7 + 34
+        
+        //        mapNode.size = CGSize(width: (tam), height: 96)
+        //        mapNode.color = .blue
         
         self.addChild(mapNode)
-        mapNode.setScale(CGFloat(6))
+        
+        getInput()
         
         
         
+        mapNode.position = CGPoint(x: frame.midX, y: frame.midY)
+
         
-//        self.addChild(player)
-//
-//        self.physicsWorld.gravity = CGVectorMake(0.0, 0.0)
-//        self.physicsWorld.contactDelegate = self
-//
-//        getInput()
-//
-//        player.position = CGPoint(x: frame.midX, y: frame.midY)
-//
-//        circuitNode = SKSpriteNode(color: .clear, size: .init(width: 520, height: 450))
+        circuitNode = SKSpriteNode(color: .red, size: .init(width: 144, height: 96))
 //        circuitNode.anchorPoint = CGPoint(x: 0, y: 0)
-//        circuitNode.name = "circuit"
-//
-//
-//        ground = SKSpriteNode(imageNamed: "circuitpt1")
-//
-//        ground.anchorPoint = CGPoint(x: 0.5, y: 0)
-//        ground.position = CGPoint(x: circuitNode.frame.midX, y: circuitNode.frame.minY)
-//        ground.name = "ground"
-//
-//        circuitNode.addChild(ground)
-//
-//        ceil = SKSpriteNode(imageNamed: "circuitpt2")
-//        ceil.anchorPoint = CGPoint(x: 0, y: 1)
-//        ceil.position = CGPoint(x: circuitNode.frame.minX, y: circuitNode.frame.maxY)
-//        ceil.name = "ceil"
-//
-//        circuitNode.addChild(ceil)
-//
-//
-//        player.addChild(circuitNode)
-//
-//        playerSprite = SKSpriteNode(color: .black, size: .init(width: 10, height: 10))
-//        playerSprite.name = "player"
-//
-//        player.addChild(playerSprite)
-//
-////        player.xRotation = Angle(degrees: 85).radians
-//
-//        player.setScale(CGFloat(5))
+        circuitNode.name = "circuit"
+        
+        mapNode.addChild(circuitNode)
+        circuitNode.addChild(firstColumn1Grass)
+
+                playerSprite = SKSpriteNode(color: .blue, size: .init(width: 10, height: 10))
+                playerSprite.name = "player"
+        mapNode.addChild(playerSprite)
+        
+        
+        //        self.addChild(player)
+        //
+        //        self.physicsWorld.gravity = CGVectorMake(0.0, 0.0)
+        //        self.physicsWorld.contactDelegate = self
+        //
+        //        getInput()
+        //
+        //        player.position = CGPoint(x: frame.midX, y: frame.midY)
+        //
+        //        circuitNode = SKSpriteNode(color: .clear, size: .init(width: 520, height: 450))
+        //        circuitNode.anchorPoint = CGPoint(x: 0, y: 0)
+        //        circuitNode.name = "circuit"
+        //
+        //
+        //        ground = SKSpriteNode(imageNamed: "circuitpt1")
+        //
+        //        ground.anchorPoint = CGPoint(x: 0.5, y: 0)
+        //        ground.position = CGPoint(x: circuitNode.frame.midX, y: circuitNode.frame.minY)
+        //        ground.name = "ground"
+        //
+        //        circuitNode.addChild(ground)
+        //
+        //        ceil = SKSpriteNode(imageNamed: "circuitpt2")
+        //        ceil.anchorPoint = CGPoint(x: 0, y: 1)
+        //        ceil.position = CGPoint(x: circuitNode.frame.minX, y: circuitNode.frame.maxY)
+        //        ceil.name = "ceil"
+        //
+        //        circuitNode.addChild(ceil)
+        //
+        //
+        //        player.addChild(circuitNode)
+        //
+        //        playerSprite = SKSpriteNode(color: .black, size: .init(width: 10, height: 10))
+        //        playerSprite.name = "player"
+        //
+        //        player.addChild(playerSprite)
+        //
+        ////        player.xRotation = Angle(degrees: 85).radians
+        //
+        //        player.setScale(CGFloat(5))
         
         
         
@@ -140,7 +190,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func motionBackground() {
         self.angle = motionManager.rotationRateValue.z * 5
-        self.player.zRotation = CGFloat(Angle(degrees: self.angle).radians)
+        self.mapNode.zRotation = CGFloat(Angle(degrees: self.angle).radians)
         
         
         
@@ -157,7 +207,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setupVirtualController() {
         let virtualControllerConfig = GCVirtualController.Configuration()
-        virtualControllerConfig.elements = [GCInputButtonA]
+        virtualControllerConfig.elements = [GCInputLeftThumbstick, GCInputButtonA, GCInputButtonB]
         
         virtualController = GCVirtualController(configuration: virtualControllerConfig)
         
@@ -166,23 +216,52 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func getInput() {
-        
-        guard let buttons = virtualController!.controller?.extendedGamepad else { return }
-        
-        let speedButton = buttons.buttonA
-        
-        speedButton.pressedChangedHandler = { button, value, pressed in
-            if pressed {
-                self.isSpeedPressed = true
-                print("speed Pressed")
-            } else {
-                print("speed Unpressed")
-                self.isSpeedPressed = false
+            
+            guard let buttons = virtualController!.controller?.extendedGamepad else { return }
+            
+            let breakButton = buttons.buttonB
+            let speedButton = buttons.buttonA
+            let stickXAxis = buttons.leftThumbstick.xAxis
+
+            stickXAxis.valueChangedHandler = { button, value in
+                
+                if value != 0.0 {
+                    self.isUsingThumbstick = true
+                    self.thumbstickValue = Double(value)
+                } else {
+                    self.isUsingThumbstick = false
+                    self.thumbstickValue = Double(0.0)
+                }
+                
+            }
+            
+            breakButton.pressedChangedHandler = { button, value, pressed in
+                
+                if pressed {
+                    self.isBreakPressed = true
+                    print("break Pressed")
+
+
+                    
+                } else {
+                    self.isBreakPressed = false
+                    print("break Pressed")
+                }
+                
+                
+            }
+            
+            speedButton.pressedChangedHandler = { button, value, pressed in
+                if pressed {
+                    self.isSpeedPressed = true
+                    print("speed Pressed")
+                } else {
+                    self.isSpeedPressed = false
+                    print("speed Unpressed")
+                }
                 
             }
             
         }
-        
-    }
     
 }
