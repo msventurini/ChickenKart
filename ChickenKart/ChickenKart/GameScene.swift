@@ -76,20 +76,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let motionEnabled: Bool = false
     
-    //valores constantes de offset em X
-    
-    lazy var firstColumnOffsetX: Double = {
-        return Double(-circuitNode.size.width/2 + firstColumn1Grass.size.width/2)
-    }()
-    
-    lazy var secondColumnOffsetX: Double = {
-        return Double(firstColumnOffsetX + firstColumn1Grass.size.width/2 + secondColumn1Grass.size.width/2)
-    }()
-    
-    lazy var thirdColumnOffsetX: Double = {
-        return Double(secondColumnOffsetX + secondColumn1Grass.size.width/2 + thirdColumn1Grass.size.width/2)
-    }()
-    
+
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
@@ -175,8 +162,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let firstColumn: [SKSpriteNode] = [firstColumn1Grass]
         let secondColumn: [SKSpriteNode] = [secondColumn1Grass, secondColumn2Road, secondColumn3Grass]
+        let thirdColumn: [SKSpriteNode] = [thirdColumn1Grass, thirdColumn2Road, thirdColumn3Hay, thirdColumn4Road, thirdColumn5Grass]
         
-        let fullTileMap: [[SKSpriteNode]] = [firstColumn, secondColumn]
+        let fullTileMap: [[SKSpriteNode]] = [firstColumn, secondColumn, thirdColumn]
         
         //primeira coluna
         //        firstColumn1Grass.position.x = firstColumnOffsetX
@@ -194,18 +182,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         SKHStack(inputArray: fullTileMap)
         
         
-        //
-        //        //segunda coluna
-        //        secondColumn1Grass.position.x = secondColumnOffsetX
-        //        circuitNode.addChild(secondColumn1Grass)
-        //
-        //        secondColumn2Road.position.x = secondColumnOffsetX
-        //        circuitNode.addChild(secondColumn2Road)
-        //
-        //        secondColumn3Grass.position.x = secondColumnOffsetX
-        //        circuitNode.addChild(secondColumn3Grass)
-        //
-        //        SKVStack(inputArray: [secondColumn1Grass, secondColumn2Road, secondColumn3Grass])
+  
         //
         //        //terceira coluna
         //        thirdColumn1Grass.position.x = thirdColumnOffsetX
@@ -223,7 +200,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //        thirdColumn5Grass.position.x = thirdColumnOffsetX
         //        circuitNode.addChild(thirdColumn5Grass)
         //
-        //        SKVStack(inputArray: [thirdColumn1Grass, thirdColumn2Road, thirdColumn3Hay, thirdColumn4Road, thirdColumn5Grass])
+        //        SKVStack(inputArray: )
         
         
     }
@@ -253,7 +230,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     
                     for jindex in stride(from: 0, to: inputArray[index].count, by: 1) {
 //                        inputArray[index][jindex].position.x = -circuitNode.size.width/2 + inputArray[index][jindex].size.width
-                        inputArray[index][jindex].position.x = (inputArray[index - 1][0].position.x) + (inputArray[index - 1][0].size.width/2) - inputArray[index][jindex].size.width/2
+                        inputArray[index][jindex].position.x = (inputArray[index - 1][0].position.x) + (inputArray[index - 1][0].size.width/2) + inputArray[index][jindex].size.width/2
 
                     }
                 }
