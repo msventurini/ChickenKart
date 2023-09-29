@@ -36,7 +36,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     var isColiding: Bool = false
     
-//   var motionManager = MotionManager()
+    
+    
+    
+    
+    
+    
+   var motionManager = MotionManager()
+    
+    
+    
+    
+    
+    
+    
+    
     
     var soundManager = SoundManager()
     
@@ -137,7 +151,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
 
     
     
-    let motionEnabled: Bool = false
+    let motionEnabled: Bool = true
 
 
     
@@ -181,7 +195,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     func moveMap() {
         if motionEnabled {
-//            motionBackground()
+            motionBackground()
         } else {
             if isSpeedPressed {
                 self.circuitNode.position.x +=  -sin(Angle(degrees: self.angle).radians) * 2
@@ -203,7 +217,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         let smokeEmitter = SKEmitterNode(fileNamed: "smoke.sks")
         
         if motionEnabled {
-//            motionBackground()
+            motionBackground()
         } else {
             setupVirtualController()
             getInput()
@@ -342,19 +356,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
         
         
-//        func motionBackground() {
-//            self.angle = motionManager.rotationRateValue.z * 5
-//            self.mapNode.zRotation = CGFloat(Angle(degrees: self.angle).radians)
-//
-//            if Int(motionManager.rotationRateValue.y) > 1 {
-//                self.circuitNode.position.x += sin(Angle(degrees: self.angle).radians)
-//                self.circuitNode.position.y -= cos(Angle(degrees: self.angle).radians)
-//            } else if Int(motionManager.rotationRateValue.y) < 0 {
-//                self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians)
-//                self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians)
-//            }
-//
-//        }
+        func motionBackground() {
+            self.angle = motionManager.rotationRateValue.z * 5
+            self.mapNode.zRotation = CGFloat(Angle(degrees: self.angle).radians)
+
+            if Int(motionManager.rotationRateValue.y) > 1 {
+                self.circuitNode.position.x += sin(Angle(degrees: self.angle).radians)
+                self.circuitNode.position.y -= cos(Angle(degrees: self.angle).radians)
+            } else if Int(motionManager.rotationRateValue.y) < 0 {
+                self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians)
+                self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians)
+            }
+
+        }
         
         
         func setupVirtualController() {
