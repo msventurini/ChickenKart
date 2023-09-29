@@ -54,7 +54,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let outerPath = CGMutablePath()
     let innerPath = CGMutablePath()
     
+    
+    
+    ////aaaa
+    ///
+    ///
+    
+    
     //desestanciar isso
+    
+    
     
     //gramas
     var firstColumn1Grass = SKSpriteNode(imageNamed: "1pt1")
@@ -266,6 +275,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         
+        let cameraNode = SKCameraNode()
+
+        cameraNode.position = CGPoint(x: frame.midX, y: frame.midY)
+        self.addChild(cameraNode)
+        self.camera = cameraNode
+        
+        cameraNode.setScale(0.1)
+        
+        
         self.addChild(mapNode)
         
         getInput()
@@ -288,7 +306,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         mapNode.addChild(circuitNode)
-        circuitNode.setScale(CGFloat(30))
+        circuitNode.setScale(CGFloat(5))
         circuitNode.zPosition = 1
         
         
@@ -296,7 +314,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerSprite.zPosition = 2
         mapNode.zRotation = Double.pi
         
-        mapNode.xRotation = 1.55
+        mapNode.xRotation = 1.45
 
 //        mapNode.setScale(3)
 
