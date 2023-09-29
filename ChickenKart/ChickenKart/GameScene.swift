@@ -65,78 +65,102 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var thirdColumn1Grass = SKSpriteNode(imageNamed: "3pt1")
     var thirdColumn5Grass = SKSpriteNode(imageNamed: "3pt5")
     
+    var fourthColumn1Grass = SKSpriteNode(imageNamed: "4pt1")
+    var fourthColumn5Grass = SKSpriteNode(imageNamed: "4pt5")
+
+    var fifthColumn1Grass = SKSpriteNode(imageNamed: "5pt1")
+    var fifthColumn5Grass = SKSpriteNode(imageNamed: "5pt5")
+
+    var sixthColumn1Grass = SKSpriteNode(imageNamed: "6pt1")
+    var sixthColumn3Grass = SKSpriteNode(imageNamed: "6pt3")
+    var sixthColumn7Grass = SKSpriteNode(imageNamed: "6pt7")
+
+    var seventhColumn1Grass = SKSpriteNode(imageNamed: "7pt1")
+    var seventhColumn7Grass = SKSpriteNode(imageNamed: "7pt7")
+
+    var eighthColumn1Grass = SKSpriteNode(imageNamed: "8pt1")
+    var eighthColumn5Grass = SKSpriteNode(imageNamed: "8pt5")
+
+    var ninthColumn1Grass = SKSpriteNode(imageNamed: "9pt1")
+    var ninthColumn7Grass = SKSpriteNode(imageNamed: "9pt7")
+
+    var tenthColumn1Grass = SKSpriteNode(imageNamed: "10pt1")
+    var tenthColumn5Grass = SKSpriteNode(imageNamed: "10pt5")
+    var tenthColumn9Green = SKSpriteNode(imageNamed: "10pt9")
+
+    var eleventhColumn1Grass = SKSpriteNode(imageNamed: "11pt1")
+    var eleventhColumn3Grass = SKSpriteNode(imageNamed: "11pt3")
+    var eleventhColumn5Grass = SKSpriteNode(imageNamed: "11pt5")
+
+    var twelfthColumn1Grass = SKSpriteNode(imageNamed: "12pt1")
+
+    
     //estradas
     var secondColumn2Road = SKSpriteNode(imageNamed: "2pt2")
     
     var thirdColumn2Road = SKSpriteNode(imageNamed: "3pt2")
     var thirdColumn4Road = SKSpriteNode(imageNamed: "3pt4")
     
-    //feno
-    var thirdColumn3Hay = SKSpriteNode(imageNamed: "3pt3")
-    
-    // quarta coluna pra frente, organizo depois
-    
-    var fourthColumn1Grass = SKSpriteNode(imageNamed: "4pt1")
     var fourthColumn2Road = SKSpriteNode(imageNamed: "4pt2")
-    var fourthColumn3hay = SKSpriteNode(imageNamed: "4pt3")
     var fourthColumn4Road = SKSpriteNode(imageNamed: "4pt4")
-    var fourthColumn5Grass = SKSpriteNode(imageNamed: "4pt5")
-    
-    var fifthColumn1Grass = SKSpriteNode(imageNamed: "5pt1")
+
     var fifthColumn2Road = SKSpriteNode(imageNamed: "5pt2")
-    var fifthColumn3hay = SKSpriteNode(imageNamed: "5pt3")
     var fifthColumn4Road = SKSpriteNode(imageNamed: "5pt4")
-    var fifthColumn5Grass = SKSpriteNode(imageNamed: "5pt5")
-    
-    let motionEnabled: Bool = false
-    
-    var sixthColumn1Grass = SKSpriteNode(imageNamed: "6pt1")
+
     var sixthColumn2Road = SKSpriteNode(imageNamed: "6pt2")
-    var sixthColumn3Grass = SKSpriteNode(imageNamed: "6pt3")
     var sixthColumn4Road = SKSpriteNode(imageNamed: "6pt4")
-    var sixthColumn5Hay = SKSpriteNode(imageNamed: "6pt5")
     var sixthColumn6Road = SKSpriteNode(imageNamed: "6pt6")
-    var sixthColumn7Grass = SKSpriteNode(imageNamed: "6pt7")
     
-    var seventhColumn1Grass = SKSpriteNode(imageNamed: "7pt1")
     var seventhColumn2Road = SKSpriteNode(imageNamed: "7pt2")
-    var seventhColumn3Hay = SKSpriteNode(imageNamed: "7pt3")
     var seventhColumn4Road = SKSpriteNode(imageNamed: "7pt4")
     var seventhColumn5Hay = SKSpriteNode(imageNamed: "7pt5")
     var seventhColumn6Road = SKSpriteNode(imageNamed: "7pt6")
-    var seventhColumn7Grass = SKSpriteNode(imageNamed: "7pt7")
 
-    var eighthColumn1Grass = SKSpriteNode(imageNamed: "8pt1")
     var eighthColumn2Road = SKSpriteNode(imageNamed: "8pt2")
-    var eighthColumn3Hay = SKSpriteNode(imageNamed: "8pt3")
     var eighthColumn4Road = SKSpriteNode(imageNamed: "8pt4")
-    var eighthColumn5Grass = SKSpriteNode(imageNamed: "8pt5")
     
-    var ninthColumn1Grass = SKSpriteNode(imageNamed: "9pt1")
     var ninthColumn2Road = SKSpriteNode(imageNamed: "9pt2")
-    var ninthColumn3Hay = SKSpriteNode(imageNamed: "9pt3")
     var ninthColumn4Road = SKSpriteNode(imageNamed: "9pt4")
-    var ninthColumn5Hay = SKSpriteNode(imageNamed: "9pt5")
     var ninthColumn6Road = SKSpriteNode(imageNamed: "9pt6")
-    var ninthColumn7Grass = SKSpriteNode(imageNamed: "9pt7")
     
-    var tenthColumn1Grass = SKSpriteNode(imageNamed: "10pt1")
     var tenthColumn2Road = SKSpriteNode(imageNamed: "10pt2")
-    var tenthColumn3Hay = SKSpriteNode(imageNamed: "10pt3")
     var tenthColumn4Road = SKSpriteNode(imageNamed: "10pt4")
-    var tenthColumn5Grass = SKSpriteNode(imageNamed: "10pt5")
     var tenthColumn6Road = SKSpriteNode(imageNamed: "10pt6")
-    var tenthColumn7Hay = SKSpriteNode(imageNamed: "10pt7")
     var tenthColumn8Road = SKSpriteNode(imageNamed: "10pt8")
-    var tenthColumn9Green = SKSpriteNode(imageNamed: "10pt9")
     
-    var eleventhColumn1Grass = SKSpriteNode(imageNamed: "11pt1")
     var eleventhColumn2Road = SKSpriteNode(imageNamed: "11pt2")
-    var eleventhColumn3Grass = SKSpriteNode(imageNamed: "11pt3")
     var eleventhColumn4Road = SKSpriteNode(imageNamed: "11pt4")
-    var eleventhColumn5Grass = SKSpriteNode(imageNamed: "11pt5")
     
-    var twelfthColumn1Grass = SKSpriteNode(imageNamed: "12pt1")
+    //feno
+    var thirdColumn3Hay = SKSpriteNode(imageNamed: "3pt3")
+    
+    var fourthColumn3hay = SKSpriteNode(imageNamed: "4pt3")
+
+    var fifthColumn3hay = SKSpriteNode(imageNamed: "5pt3")
+    
+    var sixthColumn5Hay = SKSpriteNode(imageNamed: "6pt5")
+
+    var seventhColumn3Hay = SKSpriteNode(imageNamed: "7pt3")
+
+    var eighthColumn3Hay = SKSpriteNode(imageNamed: "8pt3")
+
+    var ninthColumn3Hay = SKSpriteNode(imageNamed: "9pt3")
+
+    var ninthColumn5Hay = SKSpriteNode(imageNamed: "9pt5")
+
+    var tenthColumn3Hay = SKSpriteNode(imageNamed: "10pt3")
+    var tenthColumn7Hay = SKSpriteNode(imageNamed: "10pt7")
+
+    
+    // quarta coluna pra frente, organizo depois
+    
+    
+    
+    
+  
+    
+    let motionEnabled: Bool = false
+
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
