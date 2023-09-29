@@ -169,6 +169,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         self.view?.ignoresSiblingOrder = true
         
+        
     }
     
     
@@ -223,7 +224,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
-        print(mapNode.atPoint(playerSprite.position))
+//        print(mapNode.atPoint(playerSprite.position))
 
         
         if contacFlag {
@@ -287,7 +288,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         mapNode.addChild(circuitNode)
-        circuitNode.setScale(CGFloat(12))
+        circuitNode.setScale(CGFloat(30))
         circuitNode.zPosition = 1
         
         
@@ -295,9 +296,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerSprite.zPosition = 2
         mapNode.zRotation = Double.pi
         
-        mapNode.xRotation = 0.72
+        mapNode.xRotation = 1.55
 
-        
 //        mapNode.setScale(3)
 
 //        mapNode.xRotation = 0.12
@@ -471,7 +471,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             angleYAxis.valueChangedHandler = { button, value in
                 
                 if value != 0.0 {
-                    print("Y: \(value * 2)")
+                    print("Y: \(value + 1)")
                     self.mapNode.xRotation = CGFloat(value + 1)
 
                 }
