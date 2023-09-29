@@ -106,6 +106,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var seventhColumn6Road = SKSpriteNode(imageNamed: "7pt6")
     var seventhColumn7Grass = SKSpriteNode(imageNamed: "7pt7")
 
+    var eighthColumn1Grass = SKSpriteNode(imageNamed: "8pt1")
+    var eighthColumn2Road = SKSpriteNode(imageNamed: "8pt2")
+    var eighthColumn3Hay = SKSpriteNode(imageNamed: "8pt3")
+    var eighthColumn4Road = SKSpriteNode(imageNamed: "8pt4")
+    var eighthColumn5Grass = SKSpriteNode(imageNamed: "8pt5")
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
@@ -196,12 +201,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let fifthColumn: [SKSpriteNode] = [fifthColumn1Grass, fifthColumn2Road, fifthColumn3hay, fifthColumn4Road, fifthColumn5Grass]
         let sixthColumn: [SKSpriteNode] = [sixthColumn1Grass, sixthColumn2Road, sixthColumn3Grass, sixthColumn4Road, sixthColumn5Hay, sixthColumn6Road, sixthColumn7Grass]
         var seventhColumn: [SKSpriteNode] = [seventhColumn1Grass, seventhColumn2Road, seventhColumn3Hay, seventhColumn4Road, seventhColumn5Hay, seventhColumn6Road, seventhColumn7Grass]
+        var eighthColumn: [SKSpriteNode] = [eighthColumn1Grass, eighthColumn2Road, eighthColumn3Hay, eighthColumn4Road, eighthColumn5Grass]
 
-        let fullTileMap: [[SKSpriteNode]] = [firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn, sixthColumn, seventhColumn]
+        let fullTileMap: [[SKSpriteNode]] = [firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn, sixthColumn, seventhColumn, eighthColumn]
         
 
-        
-         
+               
         //        firstColumn1Grass.position.x = firstColumnOffsetX
         //        SKVStack(inputArray: firstColumn)
         
