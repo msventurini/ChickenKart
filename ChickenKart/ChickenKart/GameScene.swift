@@ -112,7 +112,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         
 
-        let grassBodiesArray = [firstColumn1Grass, secondColumn1Grass]
+        let grassBodiesArray = [firstColumn1Grass, secondColumn1Grass, secondColumn3Grass]
         
         for body in grassBodiesArray {
             if playerSprite.intersects(body) {
