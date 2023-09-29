@@ -59,7 +59,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //gramas
     var firstColumn1Grass = SKSpriteNode(imageNamed: "1pt1")
     var secondColumn1Grass = SKSpriteNode(imageNamed: "2pt1")
-    
+    var secondColumn3Grass = SKSpriteNode(imageNamed: "2pt3")
+
     //estradas
     var secondColumn2Road = SKSpriteNode(imageNamed: "2pt2")
     
@@ -68,7 +69,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let motionEnabled: Bool = false
     
     //valores constantes de offset em X
-
+    
     lazy var firstColumnOffsetX: Double = {
         return Double(-self.circuitNode.size.width/2 + firstColumn1Grass.size.width/2)
     }()
@@ -88,8 +89,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }()
     
     lazy var secondColumn2RoadOffsetY: Double = {
-        return Double(circuitNode.size.height/2 - secondColumn1Grass.size.height - secondColumn2Road.size.height/2)
+        return Double(secondColumn1GrassOffsetY - secondColumn1Grass.size.height/2 - secondColumn2Road.size.height/2)
     }()
+    
+    lazy var secondColumn3GrassOffsetY: Double = {
+        return Double(secondColumn2RoadOffsetY - secondColumn2Road.size.height/2 - secondColumn3Grass.size.height/2)
+    }()
+    
     
     
     override func sceneDidLoad() {
@@ -98,80 +104,88 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             setupVirtualController()
         }
         
+        
     }
+    
+    
     
     override func update(_ currentTime: TimeInterval) {
         
-        if firstColumn1Grass.intersects(playerSprite) {
-            self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians) * 5 * (isBreakPressed ? -5 : 1)
-            self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians) * 5 * (isBreakPressed ? -5 : 1)
+
+        let grassBodiesArray = [firstColumn1Grass, secondColumn1Grass]
+        
+        for body in grassBodiesArray {
+            if playerSprite.intersects(body) {
+                print("colisao")
+            }
+        }
             moveMap()
             
-            //        } else if ceil.intersects(playerSprite) {
-            //
-            //            self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians) * 5
-            //            self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians) * 5
-            //            motionBackground()
-            
-        } else {
-            
-            moveMap()
             
         }
         
-        
-        
-    }
-    
-    func moveMap() {
-        if motionEnabled {
-            motionBackground()
-        } else {
-            if isSpeedPressed {
-                self.circuitNode.position.x +=  sin(Angle(degrees: self.angle).radians)
-                self.circuitNode.position.y -=  cos(Angle(degrees: self.angle).radians)
-            } else if isBreakPressed {
-                self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians)
-                self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians)
-            }
-            
-            
-            
-            if isUsingThumbstick {
-                self.angle -= thumbstickValue// - log(abs(thumbstickValue))
-                self.mapNode.zRotation = CGFloat(Angle(degrees: self.angle).radians)
+        func moveMap() {
+            if motionEnabled {
+                motionBackground()
+            } else {
+                if isSpeedPressed {
+                    self.circuitNode.position.x +=  sin(Angle(degrees: self.angle).radians)
+                    self.circuitNode.position.y -=  cos(Angle(degrees: self.angle).radians)
+                } else if isBreakPressed {
+                    self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians)
+                    self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians)
+                }
                 
+                
+                
+                if isUsingThumbstick {
+                    self.angle -= thumbstickValue// - log(abs(thumbstickValue))
+                    self.mapNode.zRotation = CGFloat(Angle(degrees: self.angle).radians)
+                    
+                }
             }
         }
-    }
+        
+        override func didMove(to view: SKView) {
+            
+            self.addChild(mapNode)
+            
+            getInput()
+            
+            
+            
+            mapNode.position = CGPoint(x: frame.midX, y: frame.midY)
+            
+            
+            circuitNode = SKSpriteNode(color: .red, size: .init(width: 144, height: 96))
+            circuitNode.name = "circuit"
+            
+            
+            addScenario()
+            
+            
+            playerSprite = SKSpriteNode(color: .blue, size: .init(width: 10, height: 10))
+            playerSprite.name = "player"
+            
+            
+            mapNode.addChild(circuitNode)
+            circuitNode.setScale(CGFloat(5))
+
+            
+            mapNode.addChild(playerSprite)
+            
+            mapNode.xRotation = 1
+            
+        }
     
-    override func didMove(to view: SKView) {
-        
-        let tam = 25 + 8 + 19 + 9 + 14 + 4 + 5 + 6 + 6 + 7 + 7 + 34
-        
-        //        mapNode.size = CGSize(width: (tam), height: 96)
-        //        mapNode.color = .blue
-        
-        self.addChild(mapNode)
-        
-        getInput()
+    func addScenario() {
         
         
-        
-        mapNode.position = CGPoint(x: frame.midX, y: frame.midY)
-        
-        
-        circuitNode = SKSpriteNode(color: .red, size: .init(width: 144, height: 96))
-        circuitNode.name = "circuit"
-        
-        
-        
-        
-        mapNode.addChild(circuitNode)
-        
+        //primeira coluna
         firstColumn1Grass.position = CGPoint(x: firstColumnOffsetX, y: firstColumnOffsetY)
         circuitNode.addChild(firstColumn1Grass)
         
+        //segunda coluna
         secondColumn1Grass.position = CGPoint(x: secondColumnOffsetX,
                                               y: secondColumn1GrassOffsetY)
         circuitNode.addChild(secondColumn1Grass)
@@ -181,131 +195,86 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         circuitNode.addChild(secondColumn2Road)
         
-        
-        playerSprite = SKSpriteNode(color: .blue, size: .init(width: 10, height: 10))
-        playerSprite.name = "player"
-        mapNode.addChild(playerSprite)
-        
-        
-        //        self.addChild(player)
-        //
-        //        self.physicsWorld.gravity = CGVectorMake(0.0, 0.0)
-        //        self.physicsWorld.contactDelegate = self
-        //
-        //        getInput()
-        //
-        //        player.position = CGPoint(x: frame.midX, y: frame.midY)
-        //
-        //        circuitNode = SKSpriteNode(color: .clear, size: .init(width: 520, height: 450))
-        //        circuitNode.anchorPoint = CGPoint(x: 0, y: 0)
-        //        circuitNode.name = "circuit"
-        //
-        //
-        //        ground = SKSpriteNode(imageNamed: "circuitpt1")
-        //
-        //        ground.anchorPoint = CGPoint(x: 0.5, y: 0)
-        //        ground.position = CGPoint(x: circuitNode.frame.midX, y: circuitNode.frame.minY)
-        //        ground.name = "ground"
-        //
-        //        circuitNode.addChild(ground)
-        //
-        //        ceil = SKSpriteNode(imageNamed: "circuitpt2")
-        //        ceil.anchorPoint = CGPoint(x: 0, y: 1)
-        //        ceil.position = CGPoint(x: circuitNode.frame.minX, y: circuitNode.frame.maxY)
-        //        ceil.name = "ceil"
-        //
-        //        circuitNode.addChild(ceil)
-        //
-        //
-        //        player.addChild(circuitNode)
-        //
-        //        playerSprite = SKSpriteNode(color: .black, size: .init(width: 10, height: 10))
-        //        playerSprite.name = "player"
-        //
-        //        player.addChild(playerSprite)
-        //
-        ////        player.xRotation = Angle(degrees: 85).radians
-        //
-        //        player.setScale(CGFloat(5))
-        
-        
+        secondColumn3Grass.position = CGPoint(x: secondColumnOffsetX,
+                                              y: secondColumn3GrassOffsetY)
+        circuitNode.addChild(secondColumn3Grass)
         
     }
-    
-    func motionBackground() {
-        self.angle = motionManager.rotationRateValue.z * 5
-        self.mapNode.zRotation = CGFloat(Angle(degrees: self.angle).radians)
         
-        
-        
-        if Int(motionManager.rotationRateValue.y) > 1 {
-            self.circuitNode.position.x += sin(Angle(degrees: self.angle).radians)
-            self.circuitNode.position.y -= cos(Angle(degrees: self.angle).radians)
-        } else if Int(motionManager.rotationRateValue.y) < 0 {
-            self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians)
-            self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians)
-        }
-        
-    }
-    
-    
-    func setupVirtualController() {
-        let virtualControllerConfig = GCVirtualController.Configuration()
-        virtualControllerConfig.elements = [GCInputLeftThumbstick, GCInputButtonA, GCInputButtonB]
-        
-        virtualController = GCVirtualController(configuration: virtualControllerConfig)
-        
-        virtualController!.connect()
-        
-    }
-    
-    func getInput() {
-        
-        guard let buttons = virtualController!.controller?.extendedGamepad else { return }
-        
-        let breakButton = buttons.buttonB
-        let speedButton = buttons.buttonA
-        let stickXAxis = buttons.leftThumbstick.xAxis
-        
-        stickXAxis.valueChangedHandler = { button, value in
+        func motionBackground() {
+            self.angle = motionManager.rotationRateValue.z * 5
+            self.mapNode.zRotation = CGFloat(Angle(degrees: self.angle).radians)
             
-            if value != 0.0 {
-                self.isUsingThumbstick = true
-                self.thumbstickValue = Double(value)
-            } else {
-                self.isUsingThumbstick = false
-                self.thumbstickValue = Double(0.0)
+            
+            
+            if Int(motionManager.rotationRateValue.y) > 1 {
+                self.circuitNode.position.x += sin(Angle(degrees: self.angle).radians)
+                self.circuitNode.position.y -= cos(Angle(degrees: self.angle).radians)
+            } else if Int(motionManager.rotationRateValue.y) < 0 {
+                self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians)
+                self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians)
             }
             
         }
         
-        breakButton.pressedChangedHandler = { button, value, pressed in
+        
+        func setupVirtualController() {
+            let virtualControllerConfig = GCVirtualController.Configuration()
+            virtualControllerConfig.elements = [GCInputLeftThumbstick, GCInputButtonA, GCInputButtonB]
             
-            if pressed {
-                self.isBreakPressed = true
-                print("break Pressed")
-                
-                
-                
-            } else {
-                self.isBreakPressed = false
-                print("break Pressed")
-            }
+            virtualController = GCVirtualController(configuration: virtualControllerConfig)
             
+            virtualController!.connect()
             
         }
         
-        speedButton.pressedChangedHandler = { button, value, pressed in
-            if pressed {
-                self.isSpeedPressed = true
-                print("speed Pressed")
-            } else {
-                self.isSpeedPressed = false
-                print("speed Unpressed")
+        func getInput() {
+            
+            guard let buttons = virtualController!.controller?.extendedGamepad else { return }
+            
+            let breakButton = buttons.buttonB
+            let speedButton = buttons.buttonA
+            let stickXAxis = buttons.leftThumbstick.xAxis
+            
+            stickXAxis.valueChangedHandler = { button, value in
+                
+                if value != 0.0 {
+                    self.isUsingThumbstick = true
+                    self.thumbstickValue = Double(value)
+                } else {
+                    self.isUsingThumbstick = false
+                    self.thumbstickValue = Double(0.0)
+                }
+                
+            }
+            
+            breakButton.pressedChangedHandler = { button, value, pressed in
+                
+                if pressed {
+                    self.isBreakPressed = true
+                    print("break Pressed")
+                    
+                    
+                    
+                } else {
+                    self.isBreakPressed = false
+                    print("break Pressed")
+                }
+                
+                
+            }
+            
+            speedButton.pressedChangedHandler = { button, value, pressed in
+                if pressed {
+                    self.isSpeedPressed = true
+                    print("speed Pressed")
+                } else {
+                    self.isSpeedPressed = false
+                    print("speed Unpressed")
+                }
+                
             }
             
         }
         
     }
-    
-}
