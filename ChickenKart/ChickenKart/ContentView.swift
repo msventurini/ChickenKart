@@ -8,9 +8,6 @@
 import SwiftUI
 import SpriteKit
 
-
-
-
 struct ContentView: View {
     
     @State var angleDeg: Double = 0
@@ -20,8 +17,10 @@ struct ContentView: View {
     @State var offSetXValue: Double = 0
     @State var offSetYValue: Double = 15
     
-//    @State
-
+    @State var secondsTimer: Double = 15
+    
+    @StateObject var timer = RaceTimer()
+    
     
     var body: some View {
         
@@ -34,18 +33,18 @@ struct ContentView: View {
             scene.scaleMode = .aspectFill
             return scene
         }
-
+        
         ZStack {
             
             ZStack {
-                
                 
                 SpriteView(scene: scene, debugOptions: [.showsFPS, .showsNodeCount, .showsPhysics])
 //                    .rotationEffect(Angle(degrees: 90.0))
 //                    .frame(width: 520, height: 450)
                 
-            }
-            .ignoresSafeArea()
+// <<<<<<< HEAD
+            // }
+            // .ignoresSafeArea()
 
 //            VStack {
 //                HStack {
@@ -70,12 +69,27 @@ struct ContentView: View {
 
 
 
+// =======
+                
+            }.frame(width: 520, height: 450)
+            
+            VStack {
+                HStack {
+                    Spacer()
+                    PlayerView()
+                    Spacer()
+                    
+                }
+                .offset(y: -50)
+            }
+            VStack{
+                Spacer(minLength: CGFloat(2))
+                Hud(time: Int(timer.seconds), speed: scene.motionManager.rotationRateValue.y)
+            } .offset(y: -20 )
+// >>>>>>> main
         }
-//        .edgesIgnoringSafeArea(.all)
-        
-        
-        
-        
+        .onAppear(perform: timer.startTimer)
+        .onDisappear(perform: timer.stopTimer)
     }
 }
 

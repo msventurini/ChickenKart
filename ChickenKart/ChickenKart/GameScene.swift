@@ -10,7 +10,7 @@ import SwiftUI
 import GameController
 import CoreMotion
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate{
     
     
     
@@ -49,7 +49,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var isColiding: Bool = false
     
-    var motionManager = MotionManager()
+    // var motionManager = MotionManager()
+   var motionManager = MotionManager()
+    
+    var soundManager = SoundManager()
+    
     
     let outerPath = CGMutablePath()
     let innerPath = CGMutablePath()
@@ -177,16 +181,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             setupVirtualController()
         }
         self.view?.ignoresSiblingOrder = true
-        
+                //self.soundManager.playSound(name: .start)
+
         
     }
     
     
     
     override func update(_ currentTime: TimeInterval) {
-        
-//        mapNode.yRotation += 0.01
-//        print(mapNode.yRotation)
+        if motionEnabled {
+            motionBackground()
+        }
 
         
         let grassBodiesArray = [
@@ -305,6 +310,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerSprite.name = "player"
         
         
+// <<<<<<< HEAD
         mapNode.addChild(circuitNode)
         circuitNode.setScale(CGFloat(8))
         circuitNode.zPosition = 1
@@ -365,8 +371,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
             }
         }
-        
+
         SKHStack(inputArray: fullTileMap)
+
+
+    }
+// =======
+
+    
+    func motionBackground() {
+        self.angle = motionManager.rotationRateValue.z * 5
+        self.player.zRotation = CGFloat(Angle(degrees: self.angle).radians)
+        if Float(motionManager.rotationRateValue.y) > 0.5 {
+            self.circuitNode.position.x += sin(Angle(degrees: self.angle).radians)
+            self.circuitNode.position.y -= cos(Angle(degrees: self.angle).radians)
+        
+        } else if Int(motionManager.rotationRateValue.y) < 0 {
+            self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians)
+            self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians)
+// >>>>>>> main
+        }
+        
         
         
         

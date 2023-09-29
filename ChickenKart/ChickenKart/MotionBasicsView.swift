@@ -9,7 +9,7 @@
 //import CoreMotion
 //
 //struct MotionBasicsView: View {
-//    @StateObject private var motionManager = MotionManager()
+//   // @StateObject private var motionManager = MotionManager()
 //    @State private var biggestX: Double = -100.0
 //
 //    var body: some View {
