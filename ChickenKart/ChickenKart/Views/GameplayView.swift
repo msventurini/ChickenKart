@@ -39,8 +39,6 @@ struct GameplayView: View {
             ZStack {
                 
                 SpriteView(scene: scene, debugOptions: [.showsFPS, .showsNodeCount, .showsPhysics])
-//                    .rotationEffect(Angle(degrees: 90.0))
-//                    .frame(width: 520, height: 450)
 
             }
             .ignoresSafeArea()
@@ -57,8 +55,7 @@ struct GameplayView: View {
             VStack{
                 Spacer(minLength: CGFloat(2))
                 Hud(time: Int(timer.seconds), speed: 1234)
-            } .offset(y: -20 )
-// >>>>>>> main
+            }
         }
         .onAppear(perform: timer.startTimer)
         .onDisappear(perform: timer.stopTimer)

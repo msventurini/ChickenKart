@@ -201,7 +201,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     override func didMove(to view: SKView) {
         
-        let smokeEmitter = SKEmitterNode(fileNamed: "smoke.sks")
         
         if motionEnabled {
             motionBackground()

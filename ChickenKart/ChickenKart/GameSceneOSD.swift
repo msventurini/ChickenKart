@@ -81,7 +81,7 @@ class GameSceneOSD: SKScene, SKPhysicsContactDelegate{
     var secondColumn2Road = SKSpriteNode(imageNamed: "2pt2")
     
     var thirdColumn2Road = SKSpriteNode(imageNamed: "3pt2")
-    var thirdColumn4Road = SKSpriteNode(imageNamed: "3pt4")
+    var thirdColumn4Road = SKSpriteNode(imageNamed: "3pt4") //checkerboard
     
     var fourthColumn2Road = SKSpriteNode(imageNamed: "4pt2")
     var fourthColumn4Road = SKSpriteNode(imageNamed: "4pt4")
@@ -167,6 +167,10 @@ class GameSceneOSD: SKScene, SKPhysicsContactDelegate{
                 }
             }
         }
+        
+        if playerSprite.intersects(thirdColumn4Road) {
+            print("Venceu!")
+        }
 
         if contacFlag {
             self.circuitNode.position.x -= -sin(Angle(degrees: self.angle).radians) - 10 * sin(Angle(degrees: self.angle).radians)
@@ -195,7 +199,6 @@ class GameSceneOSD: SKScene, SKPhysicsContactDelegate{
     
     override func didMove(to view: SKView) {
         
-        let smokeEmitter = SKEmitterNode(fileNamed: "smoke.sks")
         
         
             setupVirtualController()
@@ -223,7 +226,7 @@ class GameSceneOSD: SKScene, SKPhysicsContactDelegate{
         addScenario()
         
         
-        playerSprite = SKSpriteNode(color: .blue, size: .init(width: 10, height: 10))
+        playerSprite = SKSpriteNode(color: .black, size: .init(width: 5, height: 5))
     
         
         playerSprite.name = "player"
@@ -318,7 +321,7 @@ class GameSceneOSD: SKScene, SKPhysicsContactDelegate{
         func setupVirtualController() {
             let virtualControllerConfig = GCVirtualController.Configuration()
             virtualControllerConfig.elements = [GCInputLeftThumbstick, GCInputButtonA]
-            
+                        
             virtualController = GCVirtualController(configuration: virtualControllerConfig)
             
             virtualController!.connect()
@@ -330,6 +333,9 @@ class GameSceneOSD: SKScene, SKPhysicsContactDelegate{
             guard let buttons = virtualController!.controller?.extendedGamepad else { return }
             
             let speedButton = buttons.buttonA
+            
+            
+//            speedButton.sfSymbolsName = "hare"
        
             let stickXAxis = buttons.leftThumbstick.xAxis
             

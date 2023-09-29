@@ -50,13 +50,13 @@ struct GameplayViewOSD: View {
                     Spacer()
                     
                 }
-                .offset(y: -50)
+                .offset(y: -40)
             }
             VStack{
                 Spacer(minLength: CGFloat(2))
                 Hud(time: Int(timer.seconds), speed: 1234)
-            } .offset(y: -20 )
-// >>>>>>> main
+            }
+
         }
         .onAppear(perform: timer.startTimer)
         .onDisappear(perform: timer.stopTimer)
