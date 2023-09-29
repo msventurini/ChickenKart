@@ -378,25 +378,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
 // =======
 
-    
-    func motionBackground() {
-        self.angle = motionManager.rotationRateValue.z * 5
-        self.player.zRotation = CGFloat(Angle(degrees: self.angle).radians)
-        if Float(motionManager.rotationRateValue.y) > 0.5 {
-            self.circuitNode.position.x += sin(Angle(degrees: self.angle).radians)
-            self.circuitNode.position.y -= cos(Angle(degrees: self.angle).radians)
-        
-        } else if Int(motionManager.rotationRateValue.y) < 0 {
-            self.circuitNode.position.x -= sin(Angle(degrees: self.angle).radians)
-            self.circuitNode.position.y += cos(Angle(degrees: self.angle).radians)
-// >>>>>>> main
-        }
-        
-        
-        
-        
-        
-    }
+
     
     
     
