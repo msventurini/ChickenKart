@@ -90,9 +90,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let motionEnabled: Bool = false
     
+    var sixthColumn1Grass = SKSpriteNode(imageNamed: "6pt1")
+    var sixthColumn2Road = SKSpriteNode(imageNamed: "6pt2")
+    var sixthColumn3Grass = SKSpriteNode(imageNamed: "6pt3")
+    var sixthColumn4Road = SKSpriteNode(imageNamed: "6pt4")
+    var sixthColumn5Hay = SKSpriteNode(imageNamed: "6pt5")
+    var sixthColumn6Road = SKSpriteNode(imageNamed: "6pt6")
+    var sixthColumn7Grass = SKSpriteNode(imageNamed: "6pt7")
     
-    
-    
+    var seventhColumn1Grass = SKSpriteNode(imageNamed: "7pt1")
+    var seventhColumn2Road = SKSpriteNode(imageNamed: "7pt2")
+    var seventhColumn3Hay = SKSpriteNode(imageNamed: "7pt3")
+    var seventhColumn4Road = SKSpriteNode(imageNamed: "7pt4")
+    var seventhColumn5Hay = SKSpriteNode(imageNamed: "7pt5")
+    var seventhColumn6Road = SKSpriteNode(imageNamed: "7pt6")
+    var seventhColumn7Grass = SKSpriteNode(imageNamed: "7pt7")
 
     
     override func sceneDidLoad() {
@@ -182,11 +194,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let thirdColumn: [SKSpriteNode] = [thirdColumn1Grass, thirdColumn2Road, thirdColumn3Hay, thirdColumn4Road, thirdColumn5Grass]
         let fourthColumn: [SKSpriteNode] = [fourthColumn1Grass, fourthColumn2Road, fourthColumn3hay, fourthColumn4Road, fourthColumn5Grass]
         let fifthColumn: [SKSpriteNode] = [fifthColumn1Grass, fifthColumn2Road, fifthColumn3hay, fifthColumn4Road, fifthColumn5Grass]
+        let sixthColumn: [SKSpriteNode] = [sixthColumn1Grass, sixthColumn2Road, sixthColumn3Grass, sixthColumn4Road, sixthColumn5Hay, sixthColumn6Road, sixthColumn7Grass]
+        var seventhColumn: [SKSpriteNode] = [seventhColumn1Grass, seventhColumn2Road, seventhColumn3Hay, seventhColumn4Road, seventhColumn5Hay, seventhColumn6Road, seventhColumn7Grass]
+
+        let fullTileMap: [[SKSpriteNode]] = [firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn, sixthColumn, seventhColumn]
         
 
-        let fullTileMap: [[SKSpriteNode]] = [firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn]
         
-        //primeira coluna
+         
         //        firstColumn1Grass.position.x = firstColumnOffsetX
         //        SKVStack(inputArray: firstColumn)
         
