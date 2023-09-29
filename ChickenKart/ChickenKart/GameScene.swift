@@ -200,6 +200,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     override func didMove(to view: SKView) {
         
+        let smokeEmitter = SKEmitterNode(fileNamed: "smoke.sks")
+        
         if motionEnabled {
 //            motionBackground()
         } else {
@@ -233,12 +235,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         playerSprite = SKSpriteNode(color: .blue, size: .init(width: 10, height: 10))
     
+        
         playerSprite.name = "player"
         
         
 // <<<<<<< HEAD
         mapNode.addChild(circuitNode)
-        circuitNode.setScale(CGFloat(8))
+        circuitNode.setScale(CGFloat(7))
         circuitNode.zPosition = 1
         
         
@@ -247,7 +250,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         mapNode.zRotation = Double.pi
         
         mapNode.xRotation = 1.45 * cos(Angle(degrees: self.angle).radians)
-        mapNode.yRotation = 1.45 * sin(Angle(degrees: self.angle).radians)
+//        mapNode.yRotation = 1.45 * sin(Angle(degrees: self.angle).radians)
 
 //        mapNode.setScale(3)
 

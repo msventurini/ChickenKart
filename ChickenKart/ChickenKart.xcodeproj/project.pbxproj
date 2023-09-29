@@ -21,9 +21,6 @@
 		EA0399F92AC21026004CC6D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0399F82AC21026004CC6D7 /* Preview Assets.xcassets */; };
 		EA039A002AC27030004CC6D7 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0399FF2AC27030004CC6D7 /* GameScene.swift */; };
 		EA039A032AC27625004CC6D7 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA039A022AC27625004CC6D7 /* MotionManager.swift */; };
-		EA039A052AC34A8E004CC6D7 /* SwiftUITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA039A042AC34A8E004CC6D7 /* SwiftUITestView.swift */; };
-		EA039A072AC34BBF004CC6D7 /* Circuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA039A062AC34BBF004CC6D7 /* Circuit.swift */; };
-		EA112FCD2AC40CF2006105BB /* CircuitShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA112FCC2AC40CF2006105BB /* CircuitShape.swift */; };
 		EA112FCF2AC432F1006105BB /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA112FCE2AC432F1006105BB /* PlayerView.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,9 +42,6 @@
 		EA0399F82AC21026004CC6D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EA0399FF2AC27030004CC6D7 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		EA039A022AC27625004CC6D7 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
-		EA039A042AC34A8E004CC6D7 /* SwiftUITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestView.swift; sourceTree = "<group>"; };
-		EA039A062AC34BBF004CC6D7 /* Circuit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circuit.swift; sourceTree = "<group>"; };
-		EA112FCC2AC40CF2006105BB /* CircuitShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitShape.swift; sourceTree = "<group>"; };
 		EA112FCE2AC432F1006105BB /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,10 +91,7 @@
 				EA0399F52AC21026004CC6D7 /* Assets.xcassets */,
 				EA0399F72AC21026004CC6D7 /* Preview Content */,
 				EA0399FF2AC27030004CC6D7 /* GameScene.swift */,
-				EA039A042AC34A8E004CC6D7 /* SwiftUITestView.swift */,
-				EA039A062AC34BBF004CC6D7 /* Circuit.swift */,
 				EA112FCE2AC432F1006105BB /* PlayerView.swift */,
-				EA112FCC2AC40CF2006105BB /* CircuitShape.swift */,
 				CC6552BB2AC4A62D0007D8F5 /* Timer.swift */,
 				CC6552C42AC5F1BF0007D8F5 /* Hud.swift */,
 				CC6552CC2AC5FDE20007D8F5 /* Sounds.swift */,
@@ -207,14 +198,11 @@
 				EA112FCF2AC432F1006105BB /* PlayerView.swift in Sources */,
 				CCFB61222AC213600006445C /* MotionBasicsView.swift in Sources */,
 				CC6552CD2AC5FDE20007D8F5 /* Sounds.swift in Sources */,
-				EA112FCD2AC40CF2006105BB /* CircuitShape.swift in Sources */,
 				CC6552BC2AC4A62D0007D8F5 /* Timer.swift in Sources */,
 				EA039A032AC27625004CC6D7 /* MotionManager.swift in Sources */,
 				EA0399F42AC21025004CC6D7 /* ContentView.swift in Sources */,
 				EA039A002AC27030004CC6D7 /* GameScene.swift in Sources */,
-				EA039A052AC34A8E004CC6D7 /* SwiftUITestView.swift in Sources */,
 				EA0399F22AC21025004CC6D7 /* ChickenKartApp.swift in Sources */,
-				EA039A072AC34BBF004CC6D7 /* Circuit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

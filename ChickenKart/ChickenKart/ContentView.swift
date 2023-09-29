@@ -26,7 +26,7 @@ struct ContentView: View {
         
         var scene: GameScene {
             let scene = GameScene()
-            
+            scene.backgroundColor = UIColor(red: 0.106, green: 0.686, blue: 0.306, alpha: 1) // #1baf4e
             
             scene.size = CGSize(width: 520, height: 450)
 
@@ -42,7 +42,8 @@ struct ContentView: View {
 //                    .rotationEffect(Angle(degrees: 90.0))
 //                    .frame(width: 520, height: 450)
 
-            }.frame(width: 520, height: 450)
+            }
+            .ignoresSafeArea()
             
             VStack {
                 HStack {
