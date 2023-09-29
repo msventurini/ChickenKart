@@ -176,8 +176,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         
         
-        let grassBodiesArray = [firstColumn1Grass, secondColumn1Grass, secondColumn3Grass]
-        
+        let grassBodiesArray = [
+            firstColumn1Grass,secondColumn1Grass, secondColumn3Grass, thirdColumn1Grass, thirdColumn5Grass, fourthColumn1Grass, fourthColumn5Grass, fifthColumn1Grass, fifthColumn5Grass, sixthColumn1Grass, sixthColumn3Grass, sixthColumn7Grass, seventhColumn1Grass, seventhColumn7Grass, eighthColumn1Grass, eighthColumn5Grass, ninthColumn1Grass, ninthColumn7Grass, tenthColumn1Grass,  tenthColumn5Grass,  tenthColumn9Green,  eleventhColumn1Grass,  eleventhColumn3Grass,  eleventhColumn5Grass,  twelfthColumn1Grass
+        ]
         for body in grassBodiesArray {
             if playerSprite.intersects(body) {
                 print("colisao")
