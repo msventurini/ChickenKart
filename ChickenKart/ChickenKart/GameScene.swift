@@ -58,32 +58,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //gramas
     var firstColumn1Grass = SKSpriteNode(imageNamed: "1pt1")
+    
     var secondColumn1Grass = SKSpriteNode(imageNamed: "2pt1")
     var secondColumn3Grass = SKSpriteNode(imageNamed: "2pt3")
 
+    var thirdColumn1Grass = SKSpriteNode(imageNamed: "3pt1")
     //estradas
     var secondColumn2Road = SKSpriteNode(imageNamed: "2pt2")
+    var thirdColumn2Road = SKSpriteNode(imageNamed: "3pt2")
     
-    
+    //feno
+    var thirdColumn3Hay = SKSpriteNode(fileNamed: "3pt3")
     
     let motionEnabled: Bool = false
     
     //valores constantes de offset em X
     
     lazy var firstColumnOffsetX: Double = {
-        return Double(-self.circuitNode.size.width/2 + firstColumn1Grass.size.width/2)
+        return Double(-circuitNode.size.width/2 + firstColumn1Grass.size.width/2)
     }()
     
     lazy var secondColumnOffsetX: Double = {
-        return Double(-circuitNode.size.width/2 + firstColumn1Grass.size.width + secondColumn1Grass.size.width/2)
+        return Double(firstColumnOffsetX + firstColumn1Grass.size.width/2 + secondColumn1Grass.size.width/2)
     }()
     
+    lazy var thirdColumnOffsetX: Double = {
+        return Double(secondColumnOffsetX + secondColumn1Grass.size.width/2 + thirdColumn1Grass.size.width/2)
+    }()
+    
+    
     //valores constantes de offset em Y
+    
+    //primeira coluna
     lazy var firstColumnOffsetY: Double = {
         return Double(0)
     }()
     
-    
+    //segunda coluna
     lazy var secondColumn1GrassOffsetY: Double = {
         return Double(circuitNode.size.height/2 - secondColumn1Grass.size.height/2)
     }()
@@ -96,7 +107,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return Double(secondColumn2RoadOffsetY - secondColumn2Road.size.height/2 - secondColumn3Grass.size.height/2)
     }()
     
-    
+    //terceira coluna
+//    lazy var thirdColumn1GrassOffsetY: Double = {
+//
+//    }
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
@@ -182,23 +196,52 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         //primeira coluna
-        firstColumn1Grass.position = CGPoint(x: firstColumnOffsetX, y: firstColumnOffsetY)
+        firstColumn1Grass.position.x = firstColumnOffsetX
+        SKVStack(inputArray: [firstColumn1Grass])
         circuitNode.addChild(firstColumn1Grass)
         
         //segunda coluna
-        secondColumn1Grass.position = CGPoint(x: secondColumnOffsetX,
-                                              y: secondColumn1GrassOffsetY)
+        secondColumn1Grass.position.x = secondColumnOffsetX
         circuitNode.addChild(secondColumn1Grass)
-        
-        secondColumn2Road.position = CGPoint(x: secondColumnOffsetX,
-                                             y: secondColumn2RoadOffsetY)
-        
+
+        secondColumn2Road.position.x = secondColumnOffsetX
         circuitNode.addChild(secondColumn2Road)
-        
-        secondColumn3Grass.position = CGPoint(x: secondColumnOffsetX,
-                                              y: secondColumn3GrassOffsetY)
+
+        secondColumn3Grass.position.x = secondColumnOffsetX
         circuitNode.addChild(secondColumn3Grass)
         
+        SKVStack(inputArray: [secondColumn1Grass, secondColumn2Road, secondColumn3Grass])
+        
+        
+        
+        
+//
+//        //terceira coluna
+//        thirdColumn1Grass.position = CGPoint(x: thirdColumnOffsetX,
+//                                             y: circuitNode.size.height/2 - thirdColumn1Grass.size.height/2)
+//        circuitNode.addChild(thirdColumn1Grass)
+//
+//        thirdColumn2Road.position = CGPoint(x: thirdColumnOffsetX,
+//                                            y: thirdColumn1Grass.position.y - thirdColumn1Grass.size.height/2 - thirdColumn2Road.size.height/2)
+//        circuitNode.addChild(thirdColumn2Road)
+//
+//        thirdColumn3Hay?.position = CGPoint(
+        
+        
+        
+        
+        
+    }
+    
+    func SKVStack(inputArray: [SKSpriteNode]) {
+        for index in stride(from: 0, to: inputArray.count, by: 1) {
+            if index == 0 {
+                inputArray[index].position.y = circuitNode.size.height/2 - inputArray[index].size.height/2
+            } else {
+                inputArray[index].position.y = (inputArray[index - 1].position.y) - (inputArray[index - 1].size.height/2) - inputArray[index].size.height/2
+
+            }
+        }
     }
         
         func motionBackground() {
