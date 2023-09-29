@@ -6,16 +6,59 @@
 //
 
 import SwiftUI
+import SpriteKit
 
 struct ContentView: View {
+    
+    @State var angleDeg: Double = 0
+    @State var offSetX: Double = 0
+    @State var offSetY: Double = 0
+    
+    @State var offSetXValue: Double = 0
+    @State var offSetYValue: Double = 15
+    
+    @State var secondsTimer: Double = 15
+    
+    @StateObject var timer = RaceTimer()
+    
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        
+        var scene: GameScene {
+            let scene = GameScene()
+            
+            
+            scene.size = CGSize(width: 520, height: 450)
+            
+            scene.scaleMode = .aspectFit
+            return scene
         }
-        .padding()
+        
+        ZStack {
+            
+            ZStack {
+                
+                SpriteView(scene: scene, debugOptions: [.showsFPS, .showsNodeCount, .showsPhysics])
+                
+                
+            }.frame(width: 520, height: 450)
+            
+            VStack {
+                HStack {
+                    Spacer()
+                    PlayerView()
+                    Spacer()
+                    
+                }
+                .offset(y: -50)
+            }
+            VStack{
+                Spacer(minLength: CGFloat(2))
+                Hud(time: Int(timer.seconds), speed: scene.motionManager.rotationRateValue.y)
+            } .offset(y: -20 )
+        }
+        .onAppear(perform: timer.startTimer)
+        .onDisappear(perform: timer.stopTimer)
     }
 }
 

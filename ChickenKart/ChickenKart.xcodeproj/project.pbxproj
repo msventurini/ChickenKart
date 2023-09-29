@@ -7,15 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC6552BC2AC4A62D0007D8F5 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6552BB2AC4A62D0007D8F5 /* Timer.swift */; };
+		CC6552C52AC5F1BF0007D8F5 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6552C42AC5F1BF0007D8F5 /* Hud.swift */; };
+		CC6552CD2AC5FDE20007D8F5 /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6552CC2AC5FDE20007D8F5 /* Sounds.swift */; };
+		CC6552D12AC607700007D8F5 /* start.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CC6552D02AC6022A0007D8F5 /* start.m4a */; };
+		CC6552D32AC616790007D8F5 /* celebration.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CC6552D22AC616790007D8F5 /* celebration.m4a */; };
+		CC6552D52AC616810007D8F5 /* chickenDefault.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CC6552D42AC616810007D8F5 /* chickenDefault.m4a */; };
+		CC6552D72AC616880007D8F5 /* crash.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CC6552D62AC616880007D8F5 /* crash.m4a */; };
 		CCFB61222AC213600006445C /* MotionBasicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFB61212AC213600006445C /* MotionBasicsView.swift */; };
 		EA0399F22AC21025004CC6D7 /* ChickenKartApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */; };
 		EA0399F42AC21025004CC6D7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0399F32AC21025004CC6D7 /* ContentView.swift */; };
 		EA0399F62AC21026004CC6D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0399F52AC21026004CC6D7 /* Assets.xcassets */; };
 		EA0399F92AC21026004CC6D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0399F82AC21026004CC6D7 /* Preview Assets.xcassets */; };
 		EA039A002AC27030004CC6D7 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0399FF2AC27030004CC6D7 /* GameScene.swift */; };
+		EA039A032AC27625004CC6D7 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA039A022AC27625004CC6D7 /* MotionManager.swift */; };
+		EA039A052AC34A8E004CC6D7 /* SwiftUITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA039A042AC34A8E004CC6D7 /* SwiftUITestView.swift */; };
+		EA039A072AC34BBF004CC6D7 /* Circuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA039A062AC34BBF004CC6D7 /* Circuit.swift */; };
+		EA112FCD2AC40CF2006105BB /* CircuitShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA112FCC2AC40CF2006105BB /* CircuitShape.swift */; };
+		EA112FCF2AC432F1006105BB /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA112FCE2AC432F1006105BB /* PlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC6552BB2AC4A62D0007D8F5 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		CC6552C42AC5F1BF0007D8F5 /* Hud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
+		CC6552C92AC5F2100007D8F5 /* DotGothic16-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DotGothic16-Regular.ttf"; sourceTree = "<group>"; };
+		CC6552CB2AC5F28F0007D8F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CC6552CC2AC5FDE20007D8F5 /* Sounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sounds.swift; sourceTree = "<group>"; };
+		CC6552D02AC6022A0007D8F5 /* start.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = start.m4a; sourceTree = "<group>"; };
+		CC6552D22AC616790007D8F5 /* celebration.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = celebration.m4a; path = ../../../../Downloads/celebration.m4a; sourceTree = "<group>"; };
+		CC6552D42AC616810007D8F5 /* chickenDefault.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = chickenDefault.m4a; path = ../../../../Downloads/chickenDefault.m4a; sourceTree = "<group>"; };
+		CC6552D62AC616880007D8F5 /* crash.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = crash.m4a; path = ../../../../Downloads/crash.m4a; sourceTree = "<group>"; };
 		CCFB61212AC213600006445C /* MotionBasicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionBasicsView.swift; sourceTree = "<group>"; };
 		EA0399EE2AC21025004CC6D7 /* ChickenKart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChickenKart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChickenKartApp.swift; sourceTree = "<group>"; };
@@ -23,6 +44,11 @@
 		EA0399F52AC21026004CC6D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA0399F82AC21026004CC6D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EA0399FF2AC27030004CC6D7 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		EA039A022AC27625004CC6D7 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
+		EA039A042AC34A8E004CC6D7 /* SwiftUITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestView.swift; sourceTree = "<group>"; };
+		EA039A062AC34BBF004CC6D7 /* Circuit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circuit.swift; sourceTree = "<group>"; };
+		EA112FCC2AC40CF2006105BB /* CircuitShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitShape.swift; sourceTree = "<group>"; };
+		EA112FCE2AC432F1006105BB /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC6552C82AC5F20A0007D8F5 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CC6552C92AC5F2100007D8F5 /* DotGothic16-Regular.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		EA0399E52AC21025004CC6D7 = {
 			isa = PBXGroup;
 			children = (
@@ -55,12 +89,26 @@
 		EA0399F02AC21025004CC6D7 /* ChickenKart */ = {
 			isa = PBXGroup;
 			children = (
+				CC6552CB2AC5F28F0007D8F5 /* Info.plist */,
+				EA039A012AC2760A004CC6D7 /* Controls */,
 				EA0399F12AC21025004CC6D7 /* ChickenKartApp.swift */,
 				EA0399F32AC21025004CC6D7 /* ContentView.swift */,
 				CCFB61212AC213600006445C /* MotionBasicsView.swift */,
 				EA0399F52AC21026004CC6D7 /* Assets.xcassets */,
 				EA0399F72AC21026004CC6D7 /* Preview Content */,
 				EA0399FF2AC27030004CC6D7 /* GameScene.swift */,
+				EA039A042AC34A8E004CC6D7 /* SwiftUITestView.swift */,
+				EA039A062AC34BBF004CC6D7 /* Circuit.swift */,
+				EA112FCC2AC40CF2006105BB /* CircuitShape.swift */,
+				EA112FCE2AC432F1006105BB /* PlayerView.swift */,
+				CC6552BB2AC4A62D0007D8F5 /* Timer.swift */,
+				CC6552C42AC5F1BF0007D8F5 /* Hud.swift */,
+				CC6552CC2AC5FDE20007D8F5 /* Sounds.swift */,
+				CC6552D02AC6022A0007D8F5 /* start.m4a */,
+				CC6552D22AC616790007D8F5 /* celebration.m4a */,
+				CC6552D42AC616810007D8F5 /* chickenDefault.m4a */,
+				CC6552D62AC616880007D8F5 /* crash.m4a */,
+				CC6552C82AC5F20A0007D8F5 /* fonts */,
 			);
 			path = ChickenKart;
 			sourceTree = "<group>";
@@ -71,6 +119,14 @@
 				EA0399F82AC21026004CC6D7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EA039A012AC2760A004CC6D7 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				EA039A022AC27625004CC6D7 /* MotionManager.swift */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,8 +187,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC6552D72AC616880007D8F5 /* crash.m4a in Resources */,
 				EA0399F92AC21026004CC6D7 /* Preview Assets.xcassets in Resources */,
+				CC6552D12AC607700007D8F5 /* start.m4a in Resources */,
+				CC6552D52AC616810007D8F5 /* chickenDefault.m4a in Resources */,
 				EA0399F62AC21026004CC6D7 /* Assets.xcassets in Resources */,
+				CC6552D32AC616790007D8F5 /* celebration.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,10 +203,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC6552C52AC5F1BF0007D8F5 /* Hud.swift in Sources */,
+				EA112FCF2AC432F1006105BB /* PlayerView.swift in Sources */,
 				CCFB61222AC213600006445C /* MotionBasicsView.swift in Sources */,
+				CC6552CD2AC5FDE20007D8F5 /* Sounds.swift in Sources */,
+				EA112FCD2AC40CF2006105BB /* CircuitShape.swift in Sources */,
+				CC6552BC2AC4A62D0007D8F5 /* Timer.swift in Sources */,
+				EA039A032AC27625004CC6D7 /* MotionManager.swift in Sources */,
 				EA0399F42AC21025004CC6D7 /* ContentView.swift in Sources */,
 				EA039A002AC27030004CC6D7 /* GameScene.swift in Sources */,
+				EA039A052AC34A8E004CC6D7 /* SwiftUITestView.swift in Sources */,
 				EA0399F22AC21025004CC6D7 /* ChickenKartApp.swift in Sources */,
+				EA039A072AC34BBF004CC6D7 /* Circuit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +346,7 @@
 				DEVELOPMENT_TEAM = 8LJ8ZQT8NW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChickenKart/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,9 +373,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ChickenKart/Preview Content\"";
-				DEVELOPMENT_TEAM = R5UC247K67;
+				DEVELOPMENT_TEAM = 8LJ8ZQT8NW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChickenKart/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
